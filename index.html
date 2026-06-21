@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ColorCodex Color Tools</title>
+  <title>ColorCodeTools Color Tools</title>
   <meta name="description" content="Color picker, color harmonies, color charts, converters, contrast checker, color mixer, and color code tables.">
   <link rel="stylesheet" href="/assets/app.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "HTML Color Codes Color Picker",
-  "alternateName": "ColorCodex Color Tools",
-  "url": "https://colorcodex.pages.dev/",
+  "name": "ColorCodeTools",
+  "alternateName": "Color Code Tools",
+  "url": "https://colorcodetools.com/",
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "browserRequirements": "Requires JavaScript and a modern web browser.",
-  "description": "A web-based color picker toolkit with image color picking, color wheel selection, harmonies, conversions, contrast checks, palettes, and color code export.",
+  "description": "A web-based color code toolkit with color picking, image color picking, color wheel selection, harmonies, conversions, contrast checks, palettes, and color code export.",
   "featureList": [
     "Color picker",
     "Image color picker",
@@ -42,34 +42,39 @@
 <div class="hcc-app">
       <div class="hcc-nav">
         <span class="hcc-logo"></span>
-        <a href="#picker" class="active" id="hccNavPicker">Picker</a>
-        <a href="#image" id="hccNavImage">Image</a>
-        <a href="#wheel" id="hccNavWheel">Wheel</a>
-        <a href="#chart" id="hccNavChart">Chart</a>
-        <a href="#library" id="hccNavLibrary">Color Library</a>
+        <a href="/color-picker/" class="active" id="hccNavPicker" data-i18n="nav.picker">Picker</a>
+        <a href="/image-color-picker/" id="hccNavImage" data-i18n="nav.image">Image</a>
+        <a href="/color-wheel/" id="hccNavWheel" data-i18n="nav.wheel">Wheel</a>
+        <a href="/color-chart/" id="hccNavChart" data-i18n="nav.chart">Chart</a>
+        <a href="/colors/" id="hccNavLibrary" data-i18n="nav.library">Color Library</a>
         <span class="hcc-nav-item has-menu">
-          <a href="#converter" id="hccNavConverter">Converter</a>
+          <a href="/rgb-to-hex/" id="hccNavConverter" data-i18n="nav.converter">Converter</a>
           <span class="hcc-nav-menu" aria-label="Converter pages">
-            <a href="#converter" id="hccNavRgbHexItem">RGB to Hex</a>
-            <a href="#hex-to-rgb" id="hccNavHexRgbItem">Hex to RGB</a>
+            <a href="/rgb-to-hex/" id="hccNavRgbHexItem" data-i18n="nav.rgbToHex">RGB to Hex</a>
+            <a href="/hex-to-rgb/" id="hccNavHexRgbItem" data-i18n="nav.hexToRgb">Hex to RGB</a>
           </span>
         </span>
         <span class="hcc-nav-item has-menu">
-          <a href="#contrast-checker" id="hccNavTools">Tools</a>
+          <a href="/contrast-checker/" id="hccNavTools" data-i18n="nav.tools">Tools</a>
           <span class="hcc-nav-menu" aria-label="Tools pages">
-            <a href="#contrast-checker" id="hccNavContrastItem">Contrast Checker</a>
-            <a href="#color-mixer" id="hccNavMixerItem">Color Mixer</a>
+            <a href="/contrast-checker/" id="hccNavContrastItem" data-i18n="nav.contrast">Contrast Checker</a>
+            <a href="/color-mixer/" id="hccNavMixerItem" data-i18n="nav.mixer">Color Mixer</a>
           </span>
         </span>
         <span class="hcc-nav-item has-menu">
-          <a href="#names" id="hccNavNames">Names</a>
+          <a href="/color-names/" id="hccNavNames" data-i18n="nav.names">Names</a>
           <span class="hcc-nav-menu" aria-label="Names pages">
-            <a href="#names" id="hccNavNamesColorItem">Color Names</a>
-            <a href="#minecraft" id="hccNavNamesMinecraftItem">Minecraft</a>
-            <a href="#bukkit" id="hccNavNamesBukkitItem">Bukkit</a>
-            <a href="#roblox" id="hccNavNamesRobloxItem">Roblox</a>
+            <a href="/color-names/" id="hccNavNamesColorItem" data-i18n="nav.colorNames">Color Names</a>
+            <a href="/minecraft-color-codes/" id="hccNavNamesMinecraftItem">Minecraft</a>
+            <a href="/bukkit-color-codes/" id="hccNavNamesBukkitItem">Bukkit</a>
+            <a href="/roblox-color-codes/" id="hccNavNamesRobloxItem">Roblox</a>
           </span>
         </span>
+        <div class="hcc-lang-switch" id="hccLangSwitch" aria-label="Language">
+          <button type="button" data-lang="zh">中</button>
+          <button type="button" data-lang="ja">日</button>
+          <button type="button" data-lang="ko">한</button>
+        </div>
       </div>
       <div class="hcc-hero">
         <div class="hcc-hero-inner">
@@ -402,7 +407,16 @@
           <div id="hccNamesTable"></div>
         </section>
         </main>
+        <main class="hcc-legal-page" id="hccLegalPage">
+          <article class="hcc-legal-article" id="hccLegalArticle"></article>
+        </main>
       </div>
+      <footer class="hcc-footer">
+        <a href="/about/" data-i18n="footer.about">About</a>
+        <a href="/contact/" data-i18n="footer.contact">Contact</a>
+        <a href="/privacy-policy/" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="/terms-of-service/" data-i18n="footer.terms">Terms of Service</a>
+      </footer>
       <div class="hcc-modal" id="hccExportModal">
         <div class="hcc-dialog">
           <div class="hcc-modal-head"><h2>Export color codes</h2><button class="hcc-close" id="hccCloseExport" type="button">×</button></div>
