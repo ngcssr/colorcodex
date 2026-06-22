@@ -2,3 +2,5 @@
 
 Upload this folder to Cloudflare Pages. The _redirects file makes clean URLs such as /privacy-policy/ and /color-names/ load index.html.
 
+Version 20260622-221900 adds lazy rendering so hidden pages are not redrawn during picker color changes.
+
