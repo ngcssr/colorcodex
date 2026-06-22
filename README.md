@@ -1,12 +1,4 @@
-﻿# ColorCodex Cloudflare Pages build
+﻿# Color Codex Cloudflare Pages build
 
-This folder is a static Cloudflare Pages version extracted from the Blogger XML theme.
+Upload this folder to Cloudflare Pages. The _redirects file makes clean URLs such as /privacy-policy/ and /color-names/ load index.html.
 
-## Deploy
-
-1. Create a Cloudflare Pages project.
-2. Upload this folder or connect a Git repository containing it.
-3. Build command: leave empty.
-4. Build output directory: `/`.
-
-The app uses hash routes such as `#picker`, `#chart`, `#color-mixer`, so `_redirects` keeps refreshes on `index.html`.
