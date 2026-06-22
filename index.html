@@ -267,6 +267,85 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
   .hcc-input-row{grid-template-columns:28px auto minmax(0,1fr) 30px 78px}
   .hcc-select{font-size:11px;padding:0 6px}
 }
+/* Phone overflow and layout correction */
+@media (max-width:760px){
+  .hcc-app,.hcc-shell,.hcc-after-shell,.hcc-chart-page,.hcc-names-page,.hcc-library-page,.hcc-converter-page,.hcc-hexrgb-page,.hcc-contrast-tool-page,.hcc-mixer-page,.hcc-legal-page{width:100%;max-width:100%;overflow-x:hidden}
+  .hcc-shell{border-top:0}
+  .hcc-hero{padding-top:74px;padding-bottom:30px;min-height:268px}
+  .hcc-hero h1,.hcc-app.chart-mode .hcc-hero h1{max-width:100%;overflow-wrap:anywhere}
+  .hcc-hero p,.hcc-app.chart-mode .hcc-hero p{max-width:100%;overflow-wrap:anywhere}
+  .hcc-summary{grid-template-columns:28px minmax(0,1fr) 24px 30px 30px;padding-left:20px;padding-right:20px;gap:7px}
+  .hcc-strip{max-width:100%;min-width:0}
+  .hcc-work{padding:28px 20px 32px;overflow:hidden}
+  .hcc-picker-card{width:100%;max-width:100%;padding:18px 20px 20px}
+  .hcc-sv,.hcc-image-drop{height:auto;aspect-ratio:1.52/1;min-height:188px;max-height:242px}
+  .hcc-app.wheel-mode .hcc-picker-card{overflow:hidden}
+  .hcc-app.wheel-mode .hcc-wheel-wrap{height:280px}
+  .hcc-app.wheel-mode .hcc-wheel-light{width:min(278px,calc(100vw - 80px));height:min(278px,calc(100vw - 80px))}
+  .hcc-app.wheel-mode .hcc-wheel{width:min(236px,calc(100vw - 122px));height:min(236px,calc(100vw - 122px))}
+  .hcc-input-row{grid-template-columns:30px auto minmax(0,1fr) 32px 80px;width:100%;min-width:0}
+  .hcc-color-input{min-width:0;width:100%}
+  .hcc-btn{min-width:0;white-space:nowrap}
+  .hcc-sections{width:auto!important;max-width:none!important;margin:24px 20px 0!important;padding-bottom:44px;overflow:hidden}
+  .hcc-panel{width:100%;max-width:100%;overflow:hidden}
+  .hcc-panel-head{min-width:0;gap:12px}
+  .hcc-panel-head h2{font-size:28px;line-height:1.12;overflow-wrap:anywhere}
+  .hcc-panel-body{width:100%;max-width:100%;overflow:hidden}
+  .hcc-grid,.hcc-contrast-grid,.hcc-blind-grid{grid-template-columns:1fr!important;gap:24px}
+  .hcc-grid>*{min-width:0;width:100%;max-width:100%;overflow:hidden}
+  .hcc-variation-list,.hcc-variation-list>*{min-width:0;width:100%;max-width:100%;overflow:hidden}
+  .hcc-wide-title{font-size:20px;line-height:1.25;margin:24px 0 12px}
+  .hcc-wide-title{width:100%!important;max-width:100%!important;min-width:0}
+  .hcc-title{width:100%;min-width:0}
+  .hcc-title h3,.hcc-wide-title h3{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hcc-bar,.hcc-long-bar,.hcc-chart-family-bar,.hcc-mixer-page .hcc-mixer-bar{width:100%!important;max-width:100%!important;min-width:0;height:54px;border-radius:12px;overflow:hidden}
+  .hcc-bar i,.hcc-long-bar i,.hcc-chart-family-swatch,.hcc-mixer-page .hcc-mixer-bar button{min-width:0;flex:1 1 0}
+  .hcc-bar i:hover,.hcc-long-bar i:hover,.hcc-chart-family-swatch.is-hovered,.hcc-mixer-page .hcc-mixer-bar button:hover{flex:0 0 52px!important;min-width:52px!important;max-width:52px!important}
+  .hcc-convert-table{width:100%;max-width:100%;overflow:hidden;border-radius:12px}
+  .hcc-convert-row{grid-template-columns:76px minmax(0,1fr)!important;min-width:0}
+  .hcc-convert-row div{min-width:0;overflow-wrap:anywhere}
+  .hcc-info-text{width:100%;max-width:100%;overflow:hidden;padding-top:6px}
+  .hcc-info-text h2{font-size:30px;line-height:1.12;margin:42px 0 16px}
+  .hcc-info-text h3{font-size:22px;line-height:1.2;margin:34px 0 12px}
+  .hcc-info-text p,.hcc-info-text li{font-size:18px;line-height:1.58;overflow-wrap:anywhere}
+  .hcc-chart-card,.hcc-chart-detail,.hcc-library-page,.hcc-converter-page,.hcc-hexrgb-page,.hcc-contrast-tool-page,.hcc-mixer-page,.hcc-names-page,.hcc-legal-page{padding-left:20px!important;padding-right:20px!important;max-width:100%;overflow:hidden}
+  .hcc-chart-list,.hcc-converter-layout,.hcc-library-layout,.hcc-legal-article{width:100%!important;max-width:100%!important;min-width:0;overflow:hidden}
+  .hcc-chart-family{width:100%;max-width:100%;overflow:hidden}
+  .hcc-chart-family h3{font-size:22px;line-height:1.2}
+  .hcc-chart-family-head{display:grid;grid-template-columns:1fr auto;align-items:center}
+  .hcc-library-table-wrap,.hcc-converter-result,.hcc-names-table{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+  .hcc-library-table,.hcc-converter-table,.hcc-names-table table{min-width:560px}
+  .hcc-converter-title{font-size:32px;line-height:1.12}
+  .hcc-converter-card,.hcc-contrast-tool,.hcc-mixer-control{width:100%;max-width:100%;overflow:hidden}
+  .hcc-contrast-tool{grid-template-columns:1fr!important}
+  .hcc-contrast-score{height:168px;font-size:42px}
+  .hcc-contrast-table{min-width:0}
+  .hcc-contrast-table th,.hcc-contrast-table td{font-size:13px;padding-left:8px;padding-right:8px}
+  .hcc-trail{width:100%;max-width:100%;height:76px;padding:0 20px;overflow:hidden}
+  .hcc-site-footer{min-height:260px}
+  .hcc-footer-inner{min-height:260px;width:100%;max-width:100%}
+  .hcc-footer-links{position:relative!important;display:grid!important;grid-template-columns:1fr 1fr;gap:42px 64px;padding:62px 32px!important}
+  .hcc-footer-link,#hccFooterAbout,#hccFooterPrivacy,#hccFooterTerms{position:static!important;transform:none!important;justify-content:flex-start;font-size:16px;line-height:1.2}
+  #hccFooterTerms{grid-column:2;grid-row:1}
+  #hccFooterAbout{grid-column:1;grid-row:2}
+  #hccFooterPrivacy{grid-column:2;grid-row:2}
+}
+@media (max-width:430px){
+  .hcc-nav{gap:6px}
+  .hcc-nav a{font-size:13px;padding:0 8px}
+  .hcc-lang-switch{width:62px!important;flex-basis:62px!important}
+  .hcc-hero{padding-left:28px;padding-right:28px}
+  .hcc-summary,.hcc-work,.hcc-sections,.hcc-chart-card,.hcc-chart-detail,.hcc-library-page,.hcc-converter-page,.hcc-hexrgb-page,.hcc-contrast-tool-page,.hcc-mixer-page,.hcc-names-page,.hcc-legal-page{padding-left:28px!important;padding-right:28px!important}
+  .hcc-work{padding-top:28px!important}
+  .hcc-picker-card{padding-left:20px;padding-right:20px}
+  .hcc-sv,.hcc-image-drop{aspect-ratio:1.42/1}
+  .hcc-info-text p,.hcc-info-text li{font-size:18px}
+}
+@media (max-width:380px){
+  .hcc-hero,.hcc-summary,.hcc-work,.hcc-sections,.hcc-chart-card,.hcc-chart-detail,.hcc-library-page,.hcc-converter-page,.hcc-hexrgb-page,.hcc-contrast-tool-page,.hcc-mixer-page,.hcc-names-page,.hcc-legal-page{padding-left:20px!important;padding-right:20px!important}
+  .hcc-input-row{grid-template-columns:28px auto minmax(0,1fr) 30px 74px}
+  .hcc-info-text p,.hcc-info-text li{font-size:17px}
+}
   </style>
   <script type="application/ld+json">
 {
