@@ -4,3 +4,5 @@ Upload this folder to Cloudflare Pages. The _redirects file makes clean URLs suc
 
 Version 20260622-221900 adds lazy rendering so hidden pages are not redrawn during picker color changes.
 
+Version 20260622-223300 splits chart, color library, and names data into lazy-loaded data chunks to reduce first-load app.js size.
+
