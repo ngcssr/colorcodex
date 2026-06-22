@@ -306,9 +306,10 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
   .hcc-bar i,.hcc-long-bar i,.hcc-chart-family-swatch,.hcc-mixer-page .hcc-mixer-bar button{min-width:0;flex:1 1 0}
   .hcc-bar i:hover,.hcc-long-bar i:hover,.hcc-chart-family-swatch.is-hovered,.hcc-mixer-page .hcc-mixer-bar button:hover{flex:0 0 52px!important;min-width:52px!important;max-width:52px!important}
   .hcc-convert-table{width:100%;max-width:100%;overflow:hidden;border-radius:12px}
-  .hcc-convert-row{grid-template-columns:64px minmax(0,1fr) minmax(0,1fr)!important;min-width:0}
-  .hcc-convert-row div{min-width:0;overflow-wrap:anywhere;padding:0 8px;font-size:13px}
-  .hcc-convert-row.head div{font-size:12px}
+  .hcc-convert-row{grid-template-columns:18% 38% 44%!important;min-width:0;min-height:52px}
+  .hcc-convert-row div{grid-column:auto!important;min-width:0;overflow:hidden;text-overflow:clip;white-space:nowrap;padding:0 4px;font-size:11.5px;line-height:1.15;font-weight:720}
+  .hcc-convert-row.head div{font-size:12px;font-weight:820}
+  .hcc-convert-row button{white-space:nowrap;font-size:12.5px;line-height:1.15}
   .hcc-info-text{width:100%;max-width:100%;overflow:hidden;padding-top:6px}
   .hcc-info-text h2{font-size:30px;line-height:1.12;margin:42px 0 16px}
   .hcc-info-text h3{font-size:22px;line-height:1.2;margin:34px 0 12px}
@@ -341,7 +342,7 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
   .hcc-lang-switch{width:62px!important;flex-basis:62px!important}
   .hcc-hero{padding-left:28px;padding-right:28px}
   .hcc-summary,.hcc-work,.hcc-chart-card,.hcc-chart-detail,.hcc-library-page,.hcc-converter-page,.hcc-hexrgb-page,.hcc-contrast-tool-page,.hcc-mixer-page,.hcc-names-page,.hcc-legal-page{padding-left:28px!important;padding-right:28px!important}
-  .hcc-sections{margin-left:28px!important;margin-right:28px!important}
+  .hcc-sections{margin-left:20px!important;margin-right:20px!important}
   .hcc-work{padding-top:28px!important}
   .hcc-picker-card{padding-left:20px;padding-right:20px}
   .hcc-sv,.hcc-image-drop{aspect-ratio:1.42/1}
