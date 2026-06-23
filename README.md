@@ -1,10 +1,11 @@
-﻿# Color Codex Cloudflare Pages build
+# ColorCodex island/module hashed build
 
-Upload this folder to Cloudflare Pages. The _redirects file makes clean URLs such as /privacy-policy/ and /color-names/ load index.html.
+This Cloudflare Pages package uses real routes, hashed assets, and island-style hydration.
 
-Version 20260622-221900 adds lazy rendering so hidden pages are not redrawn during picker color changes.
-
-Version 20260622-223300 splits chart, color library, and names data into lazy-loaded data chunks to reduce first-load app.js size.
-
-Version 20260622-225600 lazy-loads Spanish, French, German, Portuguese, and Russian language packs.
-
+- public pages are real folders with independent `index.html`
+- each page HTML keeps the shell/hero/footer and two `Loading...` island placeholders
+- page tool DOM is stored in hashed `/assets/island-*.js` template chunks
+- page bootstraps with `<script type="module">` and modulepreload
+- page entries dynamically import i18n, shell runtime, and page core chunks
+- all JS/CSS assets are served from `/assets/*-[hash].js/css`
+- `/assets/*` is configured for long immutable caching
