@@ -69,3 +69,4 @@ window.HCC_LEGAL_PAGE_I18N={
     }
   };
 })();
+
