@@ -1,0 +1,1 @@
+body[data-hcc-page=about] .hcc-legal-page,body[data-hcc-page=privacy-policy] .hcc-legal-page,body[data-hcc-page=terms-of-service] .hcc-legal-page{display:block}body[data-hcc-page=about] .hcc-legal-article,body[data-hcc-page=privacy-policy] .hcc-legal-article,body[data-hcc-page=terms-of-service] .hcc-legal-article{min-height:240px}
