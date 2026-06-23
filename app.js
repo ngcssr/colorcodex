@@ -1,5 +1,9 @@
 ﻿(function(){
   if('scrollRestoration' in history){history.scrollRestoration='manual'}
+  function warmPage(href){if(!href||href.charAt(0)!=='/'||document.querySelector('link[data-hcc-prefetch="'+href+'"]'))return;var link=document.createElement('link');link.rel='prefetch';link.href=href;link.setAttribute('data-hcc-prefetch',href);document.head.appendChild(link)}
+  document.addEventListener('mouseover',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="/"]'):null;if(a)warmPage(a.getAttribute('href'))},{passive:true});
+  document.addEventListener('touchstart',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="/"]'):null;if(a)warmPage(a.getAttribute('href'))},{passive:true});
+  window.addEventListener('load',function(){['/image-color-picker/','/color-wheel/','/color-chart/','/colors/','/rgb-to-hex/','/contrast-checker/'].forEach(function(href,i){setTimeout(function(){warmPage(href)},700+i*350)})});
   var root=document.getElementById('hccShell'),sv=document.getElementById('hccSv'),hue=document.getElementById('hccHue');
   var target=document.getElementById('hccTarget'),hueKnob=document.getElementById('hccHueKnob'),valueInput=document.getElementById('hccColorValue');
   var miniTrigger=document.getElementById('hccMiniTrigger'),miniPicker=document.getElementById('hccMiniPicker'),miniSv=document.getElementById('hccMiniSv'),miniHue=document.getElementById('hccMiniHue'),miniTarget=document.getElementById('hccMiniTarget'),miniHueKnob=document.getElementById('hccMiniHueKnob'),miniHexInput=document.getElementById('hccMiniHexInput');

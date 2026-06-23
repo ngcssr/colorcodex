@@ -1,4 +1,19 @@
-﻿/app.css
+/*
+  Cache-Control: public, max-age=600, stale-while-revalidate=86400
+
+/*.html
+  Cache-Control: public, max-age=600, stale-while-revalidate=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/app.css
   Cache-Control: public, max-age=31556952, immutable
 
 /app.js
@@ -13,23 +28,11 @@
 /i18n-extra.js
   Cache-Control: public, max-age=31556952, immutable
 
-/robots.txt
-  Cache-Control: public, max-age=86400
-
-/sitemap.xml
-  Cache-Control: public, max-age=86400
-
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
-
-/*
-  Cache-Control: public, max-age=0, must-revalidate
+/i18n-text.js
+  Cache-Control: public, max-age=31556952, immutable
 
 /legal-data.js
-  Cache-Control: public, max-age=31536000, immutable
-
-/i18n-text.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31556952, immutable
 
 /pages-extra.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31556952, immutable
