@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-instant-20260623-241500';
+const HCC_CACHE = 'colorcodex-instant-20260623-242500';
 const HCC_CORE = [
   '/',
   '/color-picker/',
@@ -35,9 +35,9 @@ const HCC_CORE = [
   '/contrast-checker/',
   '/color-mixer/',
   '/color-names/',
-  '/app.css?v=20260623-241500',
-  '/app.js?v=20260623-241500',
-  '/prefetch.js?v=20260623-241500',
+  '/app.css?v=20260623-242500',
+  '/app.js?v=20260623-242500',
+  '/prefetch.js?v=20260623-242500',
   '/favicon.svg'
 ];
 
