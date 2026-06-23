@@ -1,4 +1,4 @@
-(function(){window.HCC_NAME_PAGES={
+﻿(function(){window.HCC_NAME_PAGES={
     names:{
       title:'Color Names',
       crumb:'Color Codes',

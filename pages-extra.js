@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   var shared=window.HCC_SHARED||{};
   var clamp=shared.clamp,clear=shared.clear,block=shared.block,textNode=shared.textNode,t=shared.t,tx=shared.tx,cleanHex=shared.cleanHex,copyText=shared.copyText,hexToRgb=shared.hexToRgb,rgbToHex=shared.rgbToHex,rgbToHsl=shared.rgbToHsl,rgbToHsv=shared.rgbToHsv,rgbToOklch=shared.rgbToOklch,hslToRgb=shared.hslToRgb,lum=shared.lum,labMix=shared.labMix,setFromRgb=shared.setFromRgb,syncColorState=shared.syncColorState,render=shared.render,setHeroText=shared.setHeroText,clearTopNav=shared.clearTopNav,setRoute=shared.setRoute,openExport=shared.openExport,exportSvg=shared.exportSvg,trackColorBars=shared.trackColorBars,ensureLibraryData=shared.ensureLibraryData,ensureNameData=shared.ensureNameData,ensureChartData=shared.ensureChartData;
   var chartPicked=shared.chartPicked||{};

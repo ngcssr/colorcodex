@@ -1,4 +1,4 @@
-﻿const HCC_CACHE = 'colorcodex-instant-20260623-231500';
+﻿const HCC_CACHE = 'colorcodex-instant-20260623-233600';
 const HCC_CORE = [
   '/',
   '/color-picker/',
@@ -11,12 +11,9 @@ const HCC_CORE = [
   '/contrast-checker/',
   '/color-mixer/',
   '/color-names/',
-  '/css/shell.css?v=20260623-231500',
-  '/css/picker.css?v=20260623-231500',
-  '/css/image.css?v=20260623-231500',
-  '/css/wheel.css?v=20260623-231500',
-  '/css/page.css?v=20260623-231500',
-  '/app.js?v=20260623-231500',
+  '/app.css?v=20260623-233600',
+  '/app.js?v=20260623-233600',
+  '/prefetch.js?v=20260623-233600',
   '/favicon.svg'
 ];
 
@@ -76,4 +73,3 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(cacheFirst(request));
   }
 });
-
