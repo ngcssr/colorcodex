@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
   var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,900)};
   var pages=[
     '/color-picker/',
@@ -11,10 +11,10 @@
     '/color-mixer/'
   ];
   var chunks=[
-    '/data-chart.js?v=20260623-235000',
-    '/data-library.js?v=20260623-235000',
-    '/data-names.js?v=20260623-235000',
-    '/pages-extra.js?v=20260623-235000'
+    '/data-chart.js?v=20260623-241500',
+    '/data-library.js?v=20260623-241500',
+    '/data-names.js?v=20260623-241500',
+    '/pages-extra.js?v=20260623-241500'
   ];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
@@ -24,8 +24,12 @@
     if(as)l.as=as;
     document.head.appendChild(l);
   }
+  function prefixPath(path){
+    var m=(location.pathname||'/').match(/^\/(zh|ja|ko|es|fr|de|pt|ru)(?=\/|$)/);
+    return (m?('/'+m[1]):'')+path;
+  }
   idle(function(){
-    pages.forEach(function(p){if(location.pathname!==p)hint(p,'document')});
+    pages.forEach(function(p){var url=prefixPath(p);if(location.pathname!==url)hint(url,'document')});
     chunks.forEach(function(p){hint(p,'script')});
   });
 })();
