@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,900)};
   var pages=[
     '/color-picker/',
@@ -11,10 +11,10 @@
     '/color-mixer/'
   ];
   var chunks=[
-    '/data-chart.js?v=20260623-233600',
-    '/data-library.js?v=20260623-233600',
-    '/data-names.js?v=20260623-233600',
-    '/pages-extra.js?v=20260623-233600'
+    '/data-chart.js?v=20260623-234000',
+    '/data-library.js?v=20260623-234000',
+    '/data-names.js?v=20260623-234000',
+    '/pages-extra.js?v=20260623-234000'
   ];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
