@@ -59,4 +59,3 @@ window.HCC_LEGAL_TEXT_I18N={
     }
   };
 })();
-
