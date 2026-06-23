@@ -1,9 +1,12 @@
-# ColorCodex Cloudflare Pages build
+﻿# Color Codex Cloudflare Pages build
 
-This package is a real-path, page-split static build for Cloudflare Pages.
+Upload this folder to Cloudflare Pages. The _redirects file makes clean URLs such as /privacy-policy/ and /color-names/ load index.html.
 
-- each public route is a folder with its own `index.html`
-- each route loads a small `entries/*.js` loader
-- each route loads only its own page core plus required data/tool chunks
-- old hash routes and old shared monolithic page routers are not used
-- upload this folder contents, or the matching zip, to Cloudflare Pages
+Version 20260622-221900 adds lazy rendering so hidden pages are not redrawn during picker color changes.
+
+Version 20260622-223300 splits chart, color library, and names data into lazy-loaded data chunks to reduce first-load app.js size.
+
+Version 20260622-225600 lazy-loads Spanish, French, German, Portuguese, and Russian language packs.
+
+Version 20260622-231500 generates real per-route HTML files for Cloudflare Pages, so /color-picker/, /color-chart/, tools, names, and legal pages are no longer served only through a catch-all SPA fallback.
+
