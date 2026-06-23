@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve('.');
 const site = 'https://www.colorcodetools.com';
-const version = '20260623-243000';
+const version = '20260623-243500';
 const langs = [
   ['x-default', ''],
   ['en', ''],
