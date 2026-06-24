@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-static-lang-pages-20260624-205500';
+const HCC_CACHE = 'colorcodex-static-lang-pages-20260624-211800';
 const HCC_CORE = [
   '/favicon.svg'
 ];
@@ -55,7 +55,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== location.origin) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(staleWhileRevalidate(request));
+    event.respondWith(networkFirst(request));
     return;
   }
 
