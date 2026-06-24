@@ -465,6 +465,204 @@ Object.assign(GUIDE_ALL_I18N['/color-guides/'], {
   }
 });
 
+const GUIDE_PAGE_SLUGS = [
+  'color-guides',
+  'html-color-codes',
+  'hex-color-codes',
+  'rgb-color-codes',
+  'hsl-color-codes',
+  'css-color-codes',
+  'color-palette-generator',
+  'web-safe-colors',
+  'color-shades-generator'
+];
+
+const GUIDE_PAGE_TEXT = {
+  zh: {
+    brand: '颜色代码工具',
+    footer: '帮助你为网站和应用选择、转换、比较并导出颜色。',
+    titleSuffix: '颜色指南',
+    intro: (name) => `${name} 页面用对应语言说明颜色格式、使用场景和相关工具，方便你在设计工具与 CSS 之间使用颜色。`,
+    sections: (name) => [
+      [`什么是${name}`, `${name}介绍这种颜色格式或工具的核心用途，并说明它如何用于网页、界面、图表、按钮、背景、边框和文本。`],
+      ['如何使用', '你可以配合取色器、色轮、颜色表、颜色库、对比度检查器和混色工具来选择、转换、测试并导出颜色值。'],
+      ['用于网站配色', '在实际项目中，请同时关注可读性、对比度、品牌一致性以及浅色和深色状态下的表现。']
+    ],
+    names: {
+      'color-guides': '颜色指南',
+      'html-color-codes': 'HTML 颜色代码',
+      'hex-color-codes': 'Hex 颜色代码',
+      'rgb-color-codes': 'RGB 颜色代码',
+      'hsl-color-codes': 'HSL 颜色代码',
+      'css-color-codes': 'CSS 颜色代码',
+      'color-palette-generator': '调色板生成器',
+      'web-safe-colors': '网页安全色',
+      'color-shades-generator': '颜色明暗生成器'
+    }
+  },
+  ja: {
+    brand: 'カラーコードツール',
+    footer: 'Webサイトやアプリ向けの色を選択、変換、比較、書き出しできます。',
+    titleSuffix: 'カラーガイド',
+    intro: (name) => `${name}では、色形式、使いどころ、関連ツールを日本語で確認し、デザインツールとCSSの間で色を扱いやすくします。`,
+    sections: (name) => [
+      [`${name}とは`, `${name}の基本的な用途と、Webページ、UI、グラフ、ボタン、背景、枠線、テキストでの使い方を説明します。`],
+      ['使い方', 'カラーピッカー、色相環、カラーチャート、カラーライブラリ、コントラスト確認、カラーミキサーと組み合わせて値を選択、変換、確認、書き出しできます。'],
+      ['Web配色での活用', '実際の制作では、読みやすさ、コントラスト、ブランドの一貫性、明るい背景と暗い背景での見え方を確認してください。']
+    ],
+    names: {
+      'color-guides': 'カラーガイド',
+      'html-color-codes': 'HTML カラーコード',
+      'hex-color-codes': 'Hex カラーコード',
+      'rgb-color-codes': 'RGB カラーコード',
+      'hsl-color-codes': 'HSL カラーコード',
+      'css-color-codes': 'CSS カラーコード',
+      'color-palette-generator': 'カラーパレット生成',
+      'web-safe-colors': 'Web セーフカラー',
+      'color-shades-generator': '色の濃淡生成'
+    }
+  },
+  ko: {
+    brand: '색상 코드 도구',
+    footer: '웹사이트와 앱에 사용할 색상을 선택, 변환, 비교하고 내보낼 수 있도록 도와줍니다.',
+    titleSuffix: '색상 가이드',
+    intro: (name) => `${name} 페이지는 색상 형식, 사용 상황, 관련 도구를 한국어로 설명하여 디자인 도구와 CSS 사이에서 색상을 쉽게 다룰 수 있게 합니다.`,
+    sections: (name) => [
+      [`${name}란?`, `${name}의 기본 용도와 웹 페이지, 인터페이스, 차트, 버튼, 배경, 테두리, 텍스트에서 색상을 사용하는 방법을 설명합니다.`],
+      ['사용 방법', '색상 선택기, 색상 휠, 색상 차트, 색상 라이브러리, 대비 검사기, 색상 믹서를 함께 사용해 색상 값을 선택, 변환, 테스트, 내보낼 수 있습니다.'],
+      ['웹 팔레트에 활용하기', '실제 프로젝트에서는 가독성, 대비, 브랜드 일관성, 밝은 배경과 어두운 배경에서의 표현을 함께 확인하세요.']
+    ],
+    names: {
+      'color-guides': '색상 가이드',
+      'html-color-codes': 'HTML 색상 코드',
+      'hex-color-codes': 'Hex 색상 코드',
+      'rgb-color-codes': 'RGB 색상 코드',
+      'hsl-color-codes': 'HSL 색상 코드',
+      'css-color-codes': 'CSS 색상 코드',
+      'color-palette-generator': '색상 팔레트 생성기',
+      'web-safe-colors': '웹 안전 색상',
+      'color-shades-generator': '색상 음영 생성기'
+    }
+  },
+  es: {
+    brand: 'Herramientas de códigos de color',
+    footer: 'te ayuda a elegir, convertir, comparar y exportar colores para sitios web y aplicaciones.',
+    titleSuffix: 'guía de color',
+    intro: (name) => `${name} explica formatos de color, usos comunes y herramientas relacionadas para trabajar con colores entre diseño y CSS.`,
+    sections: (name) => [
+      [`Qué es ${name}`, `${name} resume el uso principal de este formato o herramienta y cómo se aplica en páginas, interfaces, gráficos, botones, fondos, bordes y texto.`],
+      ['Cómo usarlo', 'Combínalo con el selector de color, la rueda, la tabla, la biblioteca, el comprobador de contraste y el mezclador para elegir, convertir, probar y exportar valores.'],
+      ['Uso en paletas web', 'En proyectos reales, revisa legibilidad, contraste, coherencia de marca y el aspecto sobre fondos claros y oscuros.']
+    ],
+    names: {
+      'color-guides': 'Guías de color',
+      'html-color-codes': 'Códigos de color HTML',
+      'hex-color-codes': 'Códigos de color Hex',
+      'rgb-color-codes': 'Códigos de color RGB',
+      'hsl-color-codes': 'Códigos de color HSL',
+      'css-color-codes': 'Códigos de color CSS',
+      'color-palette-generator': 'Generador de paletas',
+      'web-safe-colors': 'Colores seguros para web',
+      'color-shades-generator': 'Generador de tonos'
+    }
+  },
+  fr: {
+    brand: 'Outils de codes couleur',
+    footer: 'vous aide à choisir, convertir, comparer et exporter des couleurs pour les sites web et les applications.',
+    titleSuffix: 'guide couleur',
+    intro: (name) => `${name} explique les formats de couleur, les usages courants et les outils liés pour passer des outils de design au CSS.`,
+    sections: (name) => [
+      [`Qu’est-ce que ${name}`, `${name} présente l’usage principal de ce format ou outil et son emploi dans les pages, interfaces, graphiques, boutons, fonds, bordures et textes.`],
+      ['Comment l’utiliser', 'Associez-le au sélecteur, à la roue, au nuancier, à la bibliothèque, au vérificateur de contraste et au mélangeur pour choisir, convertir, tester et exporter des valeurs.'],
+      ['Utilisation dans les palettes web', 'Dans un projet réel, vérifiez la lisibilité, le contraste, la cohérence de marque et le rendu sur fonds clairs et sombres.']
+    ],
+    names: {
+      'color-guides': 'Guides couleur',
+      'html-color-codes': 'Codes couleur HTML',
+      'hex-color-codes': 'Codes couleur Hex',
+      'rgb-color-codes': 'Codes couleur RGB',
+      'hsl-color-codes': 'Codes couleur HSL',
+      'css-color-codes': 'Codes couleur CSS',
+      'color-palette-generator': 'Générateur de palettes',
+      'web-safe-colors': 'Couleurs web safe',
+      'color-shades-generator': 'Générateur de nuances'
+    }
+  },
+  de: {
+    brand: 'Farbcodetools',
+    footer: 'helfen beim Auswählen, Umwandeln, Vergleichen und Exportieren von Farben für Websites und Apps.',
+    titleSuffix: 'Farbleitfaden',
+    intro: (name) => `${name} erklärt Farbformate, typische Anwendungen und passende Werkzeuge für die Arbeit zwischen Designtools und CSS.`,
+    sections: (name) => [
+      [`Was ist ${name}`, `${name} beschreibt den Hauptzweck dieses Formats oder Werkzeugs und den Einsatz in Seiten, Oberflächen, Diagrammen, Buttons, Hintergründen, Rahmen und Text.`],
+      ['So verwendest du es', 'Kombiniere es mit Farbwähler, Farbrad, Farbtafel, Farbbibliothek, Kontrastprüfung und Farbmischer, um Werte auszuwählen, umzuwandeln, zu testen und zu exportieren.'],
+      ['Einsatz in Webpaletten', 'Prüfe in echten Projekten Lesbarkeit, Kontrast, Markenkonsistenz und die Wirkung auf hellen und dunklen Hintergründen.']
+    ],
+    names: {
+      'color-guides': 'Farbleitfäden',
+      'html-color-codes': 'HTML-Farbcodes',
+      'hex-color-codes': 'Hex-Farbcodes',
+      'rgb-color-codes': 'RGB-Farbcodes',
+      'hsl-color-codes': 'HSL-Farbcodes',
+      'css-color-codes': 'CSS-Farbcodes',
+      'color-palette-generator': 'Farbpaletten-Generator',
+      'web-safe-colors': 'Websichere Farben',
+      'color-shades-generator': 'Generator für Farbabstufungen'
+    }
+  },
+  pt: {
+    brand: 'Ferramentas de códigos de cor',
+    footer: 'ajuda você a escolher, converter, comparar e exportar cores para sites e aplicativos.',
+    titleSuffix: 'guia de cores',
+    intro: (name) => `${name} explica formatos de cor, usos comuns e ferramentas relacionadas para trabalhar com cores entre design e CSS.`,
+    sections: (name) => [
+      [`O que é ${name}`, `${name} resume o uso principal deste formato ou ferramenta e como ele aparece em páginas, interfaces, gráficos, botões, fundos, bordas e textos.`],
+      ['Como usar', 'Combine com o seletor, a roda de cores, a tabela, a biblioteca, o verificador de contraste e o misturador para escolher, converter, testar e exportar valores.'],
+      ['Uso em paletas web', 'Em projetos reais, verifique legibilidade, contraste, consistência de marca e aparência em fundos claros e escuros.']
+    ],
+    names: {
+      'color-guides': 'Guias de cores',
+      'html-color-codes': 'Códigos de cor HTML',
+      'hex-color-codes': 'Códigos de cor Hex',
+      'rgb-color-codes': 'Códigos de cor RGB',
+      'hsl-color-codes': 'Códigos de cor HSL',
+      'css-color-codes': 'Códigos de cor CSS',
+      'color-palette-generator': 'Gerador de paletas',
+      'web-safe-colors': 'Cores web safe',
+      'color-shades-generator': 'Gerador de variações de cor'
+    }
+  }
+};
+
+function applyGuidePagesI18n(html, lang, normalizedPath) {
+  const slug = normalizedPath.replace(/^\/|\/$/g, '');
+  const text = GUIDE_PAGE_TEXT[lang];
+  if (!text || !GUIDE_PAGE_SLUGS.includes(slug)) return html;
+  const common = GUIDE_ALL_I18N['/color-guides/'] && GUIDE_ALL_I18N['/color-guides/'][lang];
+  let out = html;
+  const name = text.names[slug] || text.names['color-guides'];
+
+  if (slug !== 'color-guides') {
+    const title = `${name} - ${text.titleSuffix}`;
+    const description = text.intro(name);
+    const sections = text.sections(name).map(([h, p]) => `<section><h2>${h}</h2><p>${p}</p></section>`).join('');
+    out = out.replace(/<title>[^<]*<\/title>/i, `<title>${title}</title>`);
+    out = out.replace(/<meta name="description" content="[^"]*">/i, `<meta name="description" content="${escapeAttr(description)}">`);
+    out = out.replace(/<h1>[^<]*<\/h1>/i, `<h1>${name}</h1>`);
+    out = out.replace(/(<section class="kw-hero"><div class="kw-hero-inner"><div class="kw-crumb">[\s\S]*?<\/div><h1>[\s\S]*?<\/h1><p>)[\s\S]*?(<\/p><\/div><\/section>)/i, `$1${description}$2`);
+    out = out.replace(/<main class="kw-main">[\s\S]*?<section><h2>Related color tools<\/h2>/i, `<main class="kw-main">${sections}<section><h2>Related color tools</h2>`);
+  }
+
+  if (common) {
+    for (const [from, to] of [...common.replacements].sort((a, b) => b[0].length - a[0].length)) {
+      out = out.split(from).join(to);
+    }
+  }
+
+  out = out.replace(/<footer class="kw-footer">[\s\S]*?<\/footer>/i, `<footer class="kw-footer"><a href="/color-picker/">${text.brand}</a> ${text.footer}</footer>`);
+  return out;
+}
+
 function normalizePagePath(pathname) {
   let path = pathname || '/';
   if (!path.startsWith('/')) path = '/' + path;
@@ -508,6 +706,7 @@ function localizeHtml(html, lang, basePath) {
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${keyword.title}</title>`);
     out = out.replace(/<meta name="description" content="[^"]*">/i, `<meta name="description" content="${escapeAttr(keyword.description)}">`);
   }
+  out = applyGuidePagesI18n(out, lang, normalizedPath);
   out = out.replace(/<html\b([^>]*)\blang="[^"]*"/i, `<html$1lang="${info.html}"`);
   out = out.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*>/i, `<link rel="canonical" href="${escapeAttr(canonical)}">`);
   out = out.replace(/<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]*"\s*>/gi, '');
