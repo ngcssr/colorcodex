@@ -721,6 +721,85 @@ function replaceVisibleText(html, replacements) {
   });
 }
 
+function pairMap(pairs) {
+  const out = {};
+  for (const [from, to] of pairs || []) out[from] = to;
+  return out;
+}
+
+function clientI18nBoot(lang) {
+  const data = SERVER_TEXT[lang];
+  if (!data) return '{}';
+  const p = pairMap(data.common);
+  const page = data.pages;
+  const pack = {};
+  pack[lang] = {
+    nav: {
+      picker: p.Picker || 'Picker',
+      image: p.Image || 'Image',
+      wheel: p.Wheel || 'Wheel',
+      chart: p.Chart || 'Chart',
+      library: p['Color Library'] || 'Color Library',
+      converter: p.Converter || 'Converter',
+      rgbToHex: p['RGB to Hex'] || 'RGB to Hex',
+      hexToRgb: p['Hex to RGB'] || 'Hex to RGB',
+      tools: p.Tools || 'Tools',
+      contrast: p['Contrast Checker'] || 'Contrast Checker',
+      mixer: p['Color Mixer'] || 'Color Mixer',
+      names: p.Names || 'Names',
+      colorNames: p['Color Names'] || 'Color Names',
+      minecraft: 'Minecraft',
+      bukkit: 'Bukkit',
+      roblox: 'Roblox'
+    },
+    page: {
+      crumbColor: p['Color Codes'] || 'Color Codes',
+      crumbTools: p['Color Tools'] || 'Color Tools',
+      pickerTitle: page['/color-picker/']?.[0] || 'Color Picker',
+      pickerDesc: page['/color-picker/']?.[1] || '',
+      imageTitle: page['/image-color-picker/']?.[0] || 'Image Color Picker',
+      imageDesc: page['/image-color-picker/']?.[1] || '',
+      wheelTitle: page['/color-wheel/']?.[0] || 'Color Wheel',
+      wheelDesc: page['/color-wheel/']?.[1] || '',
+      chartTitle: page['/color-chart/']?.[0] || 'Color Chart',
+      chartDesc: page['/color-chart/']?.[1] || '',
+      libraryTitle: page['/colors/']?.[0] || 'Color Library',
+      libraryDesc: page['/colors/']?.[1] || '',
+      rgbTitle: page['/rgb-to-hex/']?.[0] || 'RGB to Hex',
+      rgbDesc: page['/rgb-to-hex/']?.[1] || '',
+      hexTitle: page['/hex-to-rgb/']?.[0] || 'Hex to RGB',
+      hexDesc: page['/hex-to-rgb/']?.[1] || '',
+      contrastTitle: page['/contrast-checker/']?.[0] || 'Contrast Checker',
+      contrastDesc: page['/contrast-checker/']?.[1] || '',
+      mixerTitle: page['/color-mixer/']?.[0] || 'Color Mixer',
+      mixerDesc: page['/color-mixer/']?.[1] || ''
+    },
+    ui: {
+      copy: p.Copy || 'Copy',
+      random: p['Random palette'] || 'Random palette',
+      exportColors: p['Export colors'] || 'Export colors',
+      chooseHarmony: p['Choose harmony...'] || 'Choose harmony...',
+      history: p.History || 'History',
+      clear: p.Clear || 'Clear',
+      noColors: p['No colors yet'] || 'No colors yet',
+      copied: p['Copied to clipboard'] || 'Copied to clipboard',
+      uploadImage: p['Upload image'] || 'Upload image',
+      uploadHint: p['Click or drop an image to pick colors from it.'] || 'Click or drop an image to pick colors from it.',
+      wheelNote: p['Click or drag on the wheel to pick a color.'] || 'Click or drag on the wheel to pick a color.',
+      colorHarmonies: p['Color harmonies'] || 'Color harmonies',
+      colorVariations: p['Color Variations'] || 'Color Variations',
+      colorConversion: p['Color Conversion'] || 'Color Conversion',
+      contrastChecker: p['Contrast Checker'] || 'Contrast Checker',
+      blindness: p['Blindness Simulator'] || 'Blindness Simulator',
+      exportCodes: p['Export color codes'] || 'Export color codes',
+      copyCodes: p['Copy codes'] || 'Copy codes',
+      prefix: p.prefix || 'prefix',
+      search: p['Search colors'] || 'Search colors'
+    }
+  };
+  return JSON.stringify(pack).replace(/</g, '\\u003c');
+}
+
 function alternateLinks(basePath) {
   const path = normalizePagePath(basePath);
   const links = [
@@ -761,7 +840,7 @@ function localizeHtml(html, lang, basePath) {
   out = out.replace(/<html\b([^>]*)\blang="[^"]*"/i, `<html$1lang="${info.html}"`);
   out = out.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*>/i, `<link rel="canonical" href="${escapeAttr(canonical)}">`);
   out = out.replace(/<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]*"\s*>/gi, '');
-  out = out.replace('</head>', `${alternateLinks(basePath)}<script>window.HCC_ROUTE_LANG="${lang}";</script></head>`);
+  out = out.replace('</head>', `${alternateLinks(basePath)}<script>window.HCC_ROUTE_LANG="${lang}";window.HCC_INLINE_I18N=${clientI18nBoot(lang)};</script></head>`);
   return out;
 }
 
