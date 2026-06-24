@@ -1,37 +1,7 @@
-const HCC_CACHE = 'colorcodex-instant-20260624-120500';
+const HCC_CACHE = 'colorcodex-instant-20260624-121500';
 const HCC_CORE = [
   '/',
   '/color-picker/',
-  '/zh/color-picker/',
-  '/ja/color-picker/',
-  '/ko/color-picker/',
-  '/es/color-picker/',
-  '/fr/color-picker/',
-  '/de/color-picker/',
-  '/pt/color-picker/',  '/image-color-picker/',
-  '/zh/image-color-picker/',
-  '/ja/image-color-picker/',
-  '/ko/image-color-picker/',
-  '/es/image-color-picker/',
-  '/fr/image-color-picker/',
-  '/de/image-color-picker/',
-  '/pt/image-color-picker/',  '/color-wheel/',
-  '/zh/color-wheel/',
-  '/ja/color-wheel/',
-  '/ko/color-wheel/',
-  '/es/color-wheel/',
-  '/fr/color-wheel/',
-  '/de/color-wheel/',
-  '/pt/color-wheel/',  '/color-chart/',
-  '/colors/',
-  '/rgb-to-hex/',
-  '/hex-to-rgb/',
-  '/contrast-checker/',
-  '/color-mixer/',
-  '/color-names/',
-  '/app.css?v=20260624-120500',
-  '/app.js?v=20260624-120500',
-  '/prefetch.js?v=20260624-120500',
   '/favicon.svg'
 ];
 
