@@ -896,6 +896,19 @@ export async function onRequest(context) {
     return env.ASSETS.fetch(request);
   }
 
+  const direct = await env.ASSETS.fetch(request);
+  const directType = direct.headers.get('content-type') || '';
+  if (direct.ok && directType.includes('text/html')) {
+    const headers = new Headers(direct.headers);
+    headers.set('content-type', 'text/html; charset=utf-8');
+    headers.set('cdn-cache-control', 'public, max-age=86400, stale-while-revalidate=604800');
+    return new Response(await direct.text(), {
+      status: direct.status,
+      statusText: direct.statusText,
+      headers
+    });
+  }
+
   const assetUrl = new URL(request.url);
   assetUrl.pathname = routed.basePath;
   const assetRequest = new Request(assetUrl.toString(), request);
