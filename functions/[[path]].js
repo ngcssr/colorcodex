@@ -710,6 +710,49 @@ const SERVER_TEXT = {
   }
 };
 
+const SERVER_UI_TEXT = {
+  zh: [
+    ['History','\u5386\u53f2\u8bb0\u5f55'],['Clear','\u6e05\u9664'],['No colors yet','\u6682\u65e0\u989c\u8272'],['Copied to clipboard','\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f'],
+    ['Upload image','\u4e0a\u4f20\u56fe\u7247'],['Click or drop an image to pick colors from it.','\u70b9\u51fb\u6216\u62d6\u5165\u56fe\u7247\uff0c\u4ece\u56fe\u7247\u4e2d\u9009\u53d6\u989c\u8272\u3002'],['Click or drag on the wheel to pick a color.','\u70b9\u51fb\u6216\u62d6\u52a8\u8272\u8f6e\u6765\u9009\u53d6\u989c\u8272\u3002'],
+    ['Color harmonies','\u989c\u8272\u548c\u8c10'],['Color Variations','\u989c\u8272\u53d8\u5316'],['Color Conversion','\u989c\u8272\u8f6c\u6362'],['Blindness Simulator','\u8272\u76f2\u6a21\u62df\u5668'],['Export color codes','\u5bfc\u51fa\u989c\u8272\u4ee3\u7801'],['Copy codes','\u590d\u5236\u4ee3\u7801'],['prefix','\u524d\u7f00'],['Search colors','\u641c\u7d22\u989c\u8272']
+  ],
+  ja: [
+    ['History','\u5c65\u6b74'],['Clear','\u30af\u30ea\u30a2'],['No colors yet','\u8272\u306f\u307e\u3060\u3042\u308a\u307e\u305b\u3093'],['Copied to clipboard','\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u306b\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f'],
+    ['Upload image','\u753b\u50cf\u3092\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9'],['Click or drop an image to pick colors from it.','\u30af\u30ea\u30c3\u30af\u307e\u305f\u306f\u753b\u50cf\u3092\u30c9\u30ed\u30c3\u30d7\u3057\u3066\u8272\u3092\u53d6\u5f97\u3057\u307e\u3059\u3002'],['Click or drag on the wheel to pick a color.','\u8272\u76f8\u74b0\u3092\u30af\u30ea\u30c3\u30af\u307e\u305f\u306f\u30c9\u30e9\u30c3\u30b0\u3057\u3066\u8272\u3092\u9078\u629e\u3057\u307e\u3059\u3002'],
+    ['Color harmonies','\u30ab\u30e9\u30fc\u30cf\u30fc\u30e2\u30cb\u30fc'],['Color Variations','\u8272\u306e\u30d0\u30ea\u30a8\u30fc\u30b7\u30e7\u30f3'],['Color Conversion','\u8272\u5909\u63db'],['Blindness Simulator','\u8272\u899a\u30b7\u30df\u30e5\u30ec\u30fc\u30bf\u30fc'],['Export color codes','\u30ab\u30e9\u30fc\u30b3\u30fc\u30c9\u3092\u66f8\u304d\u51fa\u3059'],['Copy codes','\u30b3\u30fc\u30c9\u3092\u30b3\u30d4\u30fc'],['prefix','\u30d7\u30ec\u30d5\u30a3\u30c3\u30af\u30b9'],['Search colors','\u8272\u3092\u691c\u7d22']
+  ],
+  ko: [
+    ['History','\uae30\ub85d'],['Clear','\uc9c0\uc6b0\uae30'],['No colors yet','\uc544\uc9c1 \uc0c9\uc0c1\uc774 \uc5c6\uc2b5\ub2c8\ub2e4'],['Copied to clipboard','\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428'],
+    ['Upload image','\uc774\ubbf8\uc9c0 \uc5c5\ub85c\ub4dc'],['Click or drop an image to pick colors from it.','\ud074\ub9ad\ud558\uac70\ub098 \uc774\ubbf8\uc9c0\ub97c \ub193\uc544 \uc0c9\uc0c1\uc744 \uc120\ud0dd\ud558\uc138\uc694.'],['Click or drag on the wheel to pick a color.','\uc0c9\uc0c1\ud658\uc744 \ud074\ub9ad\ud558\uac70\ub098 \ub4dc\ub798\uadf8\ud574 \uc0c9\uc0c1\uc744 \uc120\ud0dd\ud558\uc138\uc694.'],
+    ['Color harmonies','\uc0c9\uc0c1 \uc870\ud654'],['Color Variations','\uc0c9\uc0c1 \ubcc0\ud615'],['Color Conversion','\uc0c9\uc0c1 \ubcc0\ud658'],['Blindness Simulator','\uc0c9\uac01 \uc2dc\ubbac\ub808\uc774\ud130'],['Export color codes','\uc0c9\uc0c1 \ucf54\ub4dc \ub0b4\ubcf4\ub0b4\uae30'],['Copy codes','\ucf54\ub4dc \ubcf5\uc0ac'],['prefix','\uc811\ub450\uc0ac'],['Search colors','\uc0c9\uc0c1 \uac80\uc0c9']
+  ],
+  es: [
+    ['History','Historial'],['Clear','Borrar'],['No colors yet','Aun no hay colores'],['Copied to clipboard','Copiado al portapapeles'],
+    ['Upload image','Subir imagen'],['Click or drop an image to pick colors from it.','Haz clic o suelta una imagen para tomar colores.'],['Click or drag on the wheel to pick a color.','Haz clic o arrastra en la rueda para elegir un color.'],
+    ['Color harmonies','Armonias de color'],['Color Variations','Variaciones de color'],['Color Conversion','Conversion de color'],['Blindness Simulator','Simulador de daltonismo'],['Export color codes','Exportar codigos de color'],['Copy codes','Copiar codigos'],['prefix','prefijo'],['Search colors','Buscar colores']
+  ],
+  fr: [
+    ['History','Historique'],['Clear','Effacer'],['No colors yet','Aucune couleur pour le moment'],['Copied to clipboard','Copie dans le presse-papiers'],
+    ['Upload image','Importer une image'],['Click or drop an image to pick colors from it.','Cliquez ou deposez une image pour prelever des couleurs.'],['Click or drag on the wheel to pick a color.','Cliquez ou faites glisser sur la roue pour choisir une couleur.'],
+    ['Color harmonies','Harmonies de couleurs'],['Color Variations','Variations de couleur'],['Color Conversion','Conversion de couleur'],['Blindness Simulator','Simulateur de daltonisme'],['Export color codes','Exporter les codes couleur'],['Copy codes','Copier les codes'],['prefix','prefixe'],['Search colors','Rechercher des couleurs']
+  ],
+  de: [
+    ['History','Verlauf'],['Clear','Loeschen'],['No colors yet','Noch keine Farben'],['Copied to clipboard','In die Zwischenablage kopiert'],
+    ['Upload image','Bild hochladen'],['Click or drop an image to pick colors from it.','Klicke oder lege ein Bild ab, um Farben zu waehlen.'],['Click or drag on the wheel to pick a color.','Klicke oder ziehe im Farbrad, um eine Farbe zu waehlen.'],
+    ['Color harmonies','Farbharmonien'],['Color Variations','Farbvariationen'],['Color Conversion','Farbkonvertierung'],['Blindness Simulator','Farbsinn-Simulator'],['Export color codes','Farbcodes exportieren'],['Copy codes','Codes kopieren'],['prefix','Praefix'],['Search colors','Farben suchen']
+  ],
+  pt: [
+    ['History','Historico'],['Clear','Limpar'],['No colors yet','Ainda sem cores'],['Copied to clipboard','Copiado para a area de transferencia'],
+    ['Upload image','Enviar imagem'],['Click or drop an image to pick colors from it.','Clique ou solte uma imagem para escolher cores.'],['Click or drag on the wheel to pick a color.','Clique ou arraste na roda para escolher uma cor.'],
+    ['Color harmonies','Harmonias de cor'],['Color Variations','Variacoes de cor'],['Color Conversion','Conversao de cor'],['Blindness Simulator','Simulador de daltonismo'],['Export color codes','Exportar codigos de cor'],['Copy codes','Copiar codigos'],['prefix','prefixo'],['Search colors','Pesquisar cores']
+  ]
+};
+
+function serverCommonText(lang) {
+  const data = SERVER_TEXT[lang];
+  return [...((data && data.common) || []), ...(SERVER_UI_TEXT[lang] || [])];
+}
+
 function replaceVisibleText(html, replacements) {
   const list = [...(replacements || [])].sort((a, b) => b[0].length - a[0].length);
   if (!list.length) return html;
@@ -730,7 +773,7 @@ function pairMap(pairs) {
 function clientI18nBoot(lang) {
   const data = SERVER_TEXT[lang];
   if (!data) return '{}';
-  const p = pairMap(data.common);
+  const p = pairMap(serverCommonText(lang));
   const page = data.pages;
   const pack = {};
   pack[lang] = {
@@ -830,7 +873,7 @@ function localizeHtml(html, lang, basePath) {
   const serverText = SERVER_TEXT[lang];
   if (serverText) {
     const pageText = serverText.pages[normalizedPath];
-    out = replaceVisibleText(out, serverText.common);
+    out = replaceVisibleText(out, serverCommonText(lang));
     if (pageText) {
       out = out.replace(/<h1>[\s\S]*?<\/h1>/i, `<h1>${pageText[0]}</h1>`);
       out = out.replace(/(<div class="hcc-hero-inner"><div class="hcc-crumb">[\s\S]*?<\/div><h1>[\s\S]*?<\/h1><p>)[\s\S]*?(<\/p>)/i, `$1${pageText[1]}$2`);

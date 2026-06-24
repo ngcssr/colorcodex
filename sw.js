@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-fix-hexrgb-no-shake-20260624-203000';
+const HCC_CACHE = 'colorcodex-no-lang-flash-image-i18n-20260624-211000';
 const HCC_CORE = [
   '/favicon.svg'
 ];
@@ -48,16 +48,6 @@ function networkFirst(request) {
   return fetch(request).catch(() => caches.match(request));
 }
 
-function navigationFast(request) {
-  return caches.open(HCC_CACHE).then((cache) => cache.match(request).then((cached) => {
-    const network = fetch(request).then((response) => {
-      if (response && response.ok) cache.put(request, response.clone());
-      return response;
-    }).catch(() => cached);
-    return cached || network;
-  }));
-}
-
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -65,7 +55,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== location.origin) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(navigationFast(request));
+    event.respondWith(networkFirst(request));
     return;
   }
 
