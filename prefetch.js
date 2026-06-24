@@ -1,5 +1,5 @@
 (function(){
-  var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,900)};
+  var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,2200)};
   var pages=[
     '/color-picker/',
     '/image-color-picker/',
@@ -10,12 +10,7 @@
     '/contrast-checker/',
     '/color-mixer/'
   ];
-  var chunks=[
-    '/data-chart.js?v=20260624-125500',
-    '/data-library.js?v=20260624-125500',
-    '/data-names.js?v=20260624-125500',
-    '/pages-extra.js?v=20260624-125500'
-  ];
+  var chunks=['/pages-extra.js?v=20260624-144500'];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
     var l=document.createElement('link');
@@ -29,7 +24,9 @@
     return (m?('/'+m[1]):'')+path;
   }
   idle(function(){
-    pages.forEach(function(p){var url=prefixPath(p);if(location.pathname!==url)hint(url,'document')});
     chunks.forEach(function(p){hint(p,'script')});
-  });
+    setTimeout(function(){
+      pages.slice(0,3).forEach(function(p){var url=prefixPath(p);if(location.pathname!==url)hint(url,'document')});
+    },1800);
+  },{timeout:4500});
 })();

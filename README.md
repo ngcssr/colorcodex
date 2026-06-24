@@ -10,3 +10,11 @@ Version 20260622-225600 lazy-loads Spanish, French, German, Portuguese, and Russ
 
 Version 20260622-231500 generates real per-route HTML files for Cloudflare Pages, so /color-picker/, /color-chart/, tools, names, and legal pages are no longer served only through a catch-all SPA fallback.
 
+
+
+Full split safe build 20260624-144500
+- Render-blocking CSS moved to assets/css/base.css.
+- Page CSS is loaded per route from assets/css/<page>.css.
+- Page JS entry files load assets/js/shared-core.js with optional DOM stubs for slim templates.
+- CJK base language pack moved to i18n-base-cjk.js; long text packs stay lazy.
+- Navigation uses real multipage URLs instead of SPA interception.

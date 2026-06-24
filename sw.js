@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-instant-20260624-125500';
+const HCC_CACHE = 'colorcodex-full-split-20260624-144500';
 const HCC_CORE = [
   '/favicon.svg'
 ];
