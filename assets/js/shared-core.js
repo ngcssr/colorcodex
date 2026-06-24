@@ -1,14 +1,4 @@
 (function(){
-
-  function hccEnsureOptionalDom(){
-    var ids=["hccShell","hccSv","hccHue","hccTarget","hccHueKnob","hccColorValue","hccMiniTrigger","hccMiniPicker","hccMiniSv","hccMiniHue","hccMiniTarget","hccMiniHueKnob","hccMiniHexInput","hccFormat","hccPreview","hccToast","hccPalettePanel","hccHistoryPanel","hccExportModal","hccExportSwatches","hccExportCode","hccExportPrefix","hccHarmonyButton","hccHarmonyMenu","hccHarmonyWrap","hccImageDrop","hccImageInput","hccImageCanvas","hccImageZoom","hccImageTarget","hccImagePalette","hccWheel","hccWheelTarget","hccWheelLight","hccWheelLightRotor","hccTopHex","hccTopRgb","hccTopHsl","hccTopOklch","hccInputDot","hccMiniTriggerDot","hccMiniInputDot","hccInputPrefix","hccTopStrip","hccHarmonySelect","hccHarmonyGrid","hccVariationList","hccConvertTable","hccContrastGrid","hccBlindGrid","hccCloseExport","hccCopyExportCodes","hccModeTw4","hccModeTw3","hccModeFigma","hccModePrefix","hccModeCodes","hccFmtHex","hccFmtRgb","hccFmtHsl","hccFmtOklch","hccRandom","hccCopyCurrent","hccStripToggle","hccHistoryToggle","hccShare","hccExport","hccClearHarmony","hccHarmonyToggle","hccVariationsToggle","hccConversionToggle","hccContrastToggle","hccBlindToggle","hccLibrarySearch","hccConvR","hccConvG","hccConvB","hccConvConvert","hccConvReset","hccHexRgbInput","hccHexRgbConvert","hccHexRgbReset","hccContrastFg","hccContrastBg","hccContrastFgLight","hccContrastBgLight","hccMixerColor1","hccMixerColor2","hccMixerBalance","hccMixerSteps","hccChartTable","hccLibraryList","hccConverterPreview","hccConverterRows","hccHexRgbPreview","hccHexRgbRows","hccContrastPreview","hccContrastToolRows","hccMixerColor1Swatch","hccMixerColor2Swatch","hccMixerBar","hccMixerTicks","hccMixerBalanceLabel","hccNamesHeading","hccNamesIntro","hccNamesTable","hccLegalArticle"];
-    var root=document.getElementById('hccStubRoot');
-    if(!root){root=document.createElement('div');root.id='hccStubRoot';root.hidden=true;root.style.display='none';document.body.appendChild(root)}
-    function tag(id){if(id.indexOf('Canvas')>-1||id.indexOf('Zoom')>-1)return 'canvas';if(id.indexOf('Input')>-1||id==='hccColorValue'||id==='hccConvR'||id==='hccConvG'||id==='hccConvB'||id==='hccHexRgbInput'||id==='hccContrastFg'||id==='hccContrastBg'||id==='hccMixerColor1'||id==='hccMixerColor2'||id==='hccExportPrefix')return 'input';if(id==='hccFormat'||id==='hccHarmonySelect')return 'select';if(id==='hccExportCode')return 'textarea';if(id.indexOf('Button')>-1||id.indexOf('Toggle')>-1||id.indexOf('Copy')>-1||id.indexOf('Convert')>-1||id.indexOf('Reset')>-1||id==='hccRandom'||id==='hccShare'||id==='hccExport')return 'button';return 'div'}
-    ids.forEach(function(id){if(!document.getElementById(id)){var el=document.createElement(tag(id));el.id=id;if(el.tagName==='SELECT'){var o=document.createElement('option');o.textContent='Hex';el.appendChild(o)}root.appendChild(el)}})
-  }
-  hccEnsureOptionalDom();
-
   if('scrollRestoration' in history){history.scrollRestoration='manual'}
   function warmPage(href){if(!href||href.charAt(0)!=='/'||document.querySelector('link[data-hcc-prefetch="'+href+'"]'))return;var link=document.createElement('link');link.rel='prefetch';link.href=href;link.setAttribute('data-hcc-prefetch',href);document.head.appendChild(link)}
   document.addEventListener('mouseover',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="/"]'):null;if(a)warmPage(a.getAttribute('href'))},{passive:true});
@@ -27,10 +17,10 @@
   var pageMode='picker',state=pageStates.picker,wheelHslState={h:0,s:48,l:36},wheelTouched=false,exportMode='tailwind4',exportFormat='Hex',harmonyChosen=false,exportSingle=false,exportCustomColors=null,imageColors=[],imageLoaded=false,imagePickActive=false,imageTargets=[],imagePoints=[],imageActivePoint=0,colorHistory=[],lastHistoryHex='',toastTimer=null,activeRoute='picker',lazyChunks={};
   function clamp(v,min,max){return Math.min(max,Math.max(min,v))}
   function loadChunk(key,src,done){if(lazyChunks[key]==='loaded'){done&&done();return}if(lazyChunks[key]){lazyChunks[key].push(done);return}lazyChunks[key]=[done];var s=document.createElement('script');s.src=src;s.defer=true;s.onload=function(){var q=lazyChunks[key]||[];lazyChunks[key]='loaded';q.forEach(function(fn){if(fn)fn()})};s.onerror=function(){lazyChunks[key]=null;showToast('Could not load page data')};document.body.appendChild(s)}
-  function ensureLibraryData(done){if(librarySections){done&&done();return}loadChunk('library','/data-library.js?v=20260624-144500',function(){librarySections=window.HCC_LIBRARY_SECTIONS||[];done&&done()})}
-  function ensureNameData(done){if(namePages){done&&done();return}loadChunk('names','/data-names.js?v=20260624-144500',function(){namePages=window.HCC_NAME_PAGES||{};done&&done()})}
-  function ensureChartData(done){if(chartDefs){done&&done();return}loadChunk('chart','/data-chart.js?v=20260624-144500',function(){chartDefs=window.HCC_CHART_DEFS||[];done&&done()})}
-  function ensureLangData(lang,done){var cjk={zh:1,ja:1,ko:1},extra={es:1,fr:1,de:1,pt:1};if(i18n[lang]){done&&done();return}if(cjk[lang]){loadChunk('i18n-base-cjk','/i18n-base-cjk.js?v=20260624-144500',function(){var pack=window.HCC_I18N_BASE||{};Object.keys(pack).forEach(function(k){i18n[k]=pack[k]});mergeStructuredI18nText();buildReverseTextI18n();done&&done()});return}if(extra[lang]){loadChunk('i18n-extra','/i18n-extra.js?v=20260624-144500',function(){var pack=window.HCC_I18N_EXTRA||{};Object.keys(pack).forEach(function(k){i18n[k]=pack[k]});mergeStructuredI18nText();buildReverseTextI18n();done&&done()});return}done&&done()}
+  function ensureLibraryData(done){if(librarySections){done&&done();return}loadChunk('library','/data-library.js?v=20260624-150500',function(){librarySections=window.HCC_LIBRARY_SECTIONS||[];done&&done()})}
+  function ensureNameData(done){if(namePages){done&&done();return}loadChunk('names','/data-names.js?v=20260624-150500',function(){namePages=window.HCC_NAME_PAGES||{};done&&done()})}
+  function ensureChartData(done){if(chartDefs){done&&done();return}loadChunk('chart','/data-chart.js?v=20260624-150500',function(){chartDefs=window.HCC_CHART_DEFS||[];done&&done()})}
+  function ensureLangData(lang,done){var cjk={zh:1,ja:1,ko:1},extra={es:1,fr:1,de:1,pt:1};if(i18n[lang]){done&&done();return}if(cjk[lang]){loadChunk('i18n-base-cjk','/i18n-base-cjk.js?v=20260624-150500',function(){var pack=window.HCC_I18N_BASE||{};Object.keys(pack).forEach(function(k){i18n[k]=pack[k]});mergeStructuredI18nText();buildReverseTextI18n();done&&done()});return}if(extra[lang]){loadChunk('i18n-extra','/i18n-extra.js?v=20260624-150500',function(){var pack=window.HCC_I18N_EXTRA||{};Object.keys(pack).forEach(function(k){i18n[k]=pack[k]});mergeStructuredI18nText();buildReverseTextI18n();done&&done()});return}done&&done()}
   function hsvToRgb(h,s,v){h=(h%360+360)%360;s=s/100;v=v/100;var c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c,r=0,g=0,b=0;if(h<60){r=c;g=x}else if(h<120){r=x;g=c}else if(h<180){g=c;b=x}else if(h<240){g=x;b=c}else if(h<300){r=x;b=c}else{r=c;b=x}return {r:Math.round((r+m)*255),g:Math.round((g+m)*255),b:Math.round((b+m)*255)}}
   function twoHex(n){n=clamp(n,0,255).toString(16);return (n.length<2?'0':'')+n}
   function rgbToHex(r,g,b){return (twoHex(r)+twoHex(g)+twoHex(b)).toUpperCase()}
@@ -54,7 +44,7 @@
   function mergeStructuredI18nText(){Object.keys(i18n).forEach(function(lang){textI18n[lang]=textI18n[lang]||{};var flat={};flattenI18nBranch(i18n.en,flat);Object.keys(flat).forEach(function(en){var found=null;function scan(src,dst){Object.keys(src||{}).forEach(function(k){if(found!==null)return;var sv=src[k],dv=dst&&dst[k];if(sv&&typeof sv==='object'){scan(sv,dv)}else if(sv===en&&typeof dv==='string'){found=dv}})}scan(i18n.en,i18n[lang]);if(found){textI18n[lang][en]=found}})})}mergeStructuredI18nText();
   var reverseTextI18n={};function buildReverseTextI18n(){reverseTextI18n={};Object.keys(textI18n).forEach(function(lang){Object.keys(textI18n[lang]).forEach(function(key){var val=String(textI18n[lang][key]||'').replace(/\s+/g,' ').trim();if(val&&!reverseTextI18n[val])reverseTextI18n[val]=key})})}buildReverseTextI18n();
   function mergeTextPack(){if(textI18nLoaded)return;var pack=window.HCC_TEXT_I18N||{},legal=window.HCC_LEGAL_TEXT_I18N||{};Object.keys(pack).forEach(function(lang){textI18n[lang]=textI18n[lang]||{};Object.keys(pack[lang]).forEach(function(key){textI18n[lang][key]=pack[lang][key]})});Object.keys(legal).forEach(function(lang){textI18n[lang]=textI18n[lang]||{};Object.keys(legal[lang]).forEach(function(key){textI18n[lang][key]=legal[lang][key]})});textI18nLoaded=true;mergeStructuredI18nText();buildReverseTextI18n()}
-  function ensureTextData(done){if(currentLang==='en'||textI18nLoaded){done&&done();return}loadChunk('i18n-text','/i18n-text.js?v=20260624-144500',function(){mergeTextPack();done&&done()})}
+  function ensureTextData(done){if(currentLang==='en'||textI18nLoaded){done&&done();return}loadChunk('i18n-text','/i18n-text.js?v=20260624-150500',function(){mergeTextPack();done&&done()})}
   function i18nBase(raw){var s=String(raw||'').replace(/\s+/g,' ').trim();return reverseTextI18n[s]||s}
   function tx(raw){var s=i18nBase(raw);if(!s)return raw;if(currentLang==='en')return s;return (textI18n[currentLang]&&textI18n[currentLang][s])||s}
   function translateElement(el){if(!el)return;if(el.closest&&el.closest('.hcc-hero'))return;if(el.closest&&el.closest('.hcc-image-drop'))return;if(el.querySelector&&el.querySelector('svg'))return;var base=i18nBase(el.getAttribute('data-i18n-base')||(el.textContent||''));if(base){el.setAttribute('data-i18n-base',base)}var next=currentLang==='en'?base:tx(base);if(el.textContent!==next)el.textContent=next}
@@ -173,11 +163,11 @@
   miniHexInput.oninput=function(){var rgb=hexToRgb(miniHexInput.value);if(rgb){setFromRgb(rgb);recordPickedRgb(rgb)}};
   function slugFromPath(path){path=stripLangPath(path||'/');if(path.charAt(path.length-1)!=='/')path+='/';return routePathMap[path]||''}
   function openSlug(slug,fromClick){if(!slug)return false;if(slug==='image')setModePage('image',fromClick);else if(slug==='wheel')setModePage('wheel',fromClick);else if(slug==='picker')setModePage('picker',fromClick);else if(slug==='library')setLibraryPage(fromClick);else if(slug==='converter')setConverterPage(fromClick);else if(slug==='hex-to-rgb')setHexRgbPage(fromClick);else if(slug==='contrast-checker')setContrastToolPage(fromClick);else if(slug==='color-mixer')setMixerPage(fromClick);else if(slug==='about'||slug==='privacy-policy'||slug==='terms-of-service')setLegalPage(slug,fromClick);else if(slug.indexOf('chart-')===0)setChartDetail(slug.slice(6),fromClick);else if(slug==='chart')setChartPage(fromClick);else if(slug==='names'||slug==='minecraft'||slug==='bukkit'||slug==='roblox')setNamePage(slug,fromClick);else setModePage('picker',fromClick);return true}
-  document.addEventListener('click',function(e){if(window.HCC_MULTIPAGE)return;var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(href.charAt(0)!=='/')return;var slug=slugFromPath(href);if(!slug)return;e.preventDefault();openSlug(slug,true);scrollCurrentPageTop()});
-  var footerGuides=document.getElementById('hccFooterGuides');if(footerGuides){footerGuides.onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();e.stopPropagation();window.location.assign(pageUrl('guides'))}};
-  document.getElementById('hccNavPicker').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setModePage('picker',true)};
-  document.getElementById('hccNavImage').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setModePage('image',true)};
-  document.getElementById('hccNavWheel').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setModePage('wheel',true)};
+  document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(href.charAt(0)!=='/')return;var slug=slugFromPath(href);if(!slug)return;e.preventDefault();openSlug(slug,true);scrollCurrentPageTop()});
+  var footerGuides=document.getElementById('hccFooterGuides');if(footerGuides){footerGuides.onclick=function(e){e.preventDefault();e.stopPropagation();window.location.assign(pageUrl('guides'))}};
+  document.getElementById('hccNavPicker').onclick=function(e){e.preventDefault();setModePage('picker',true)};
+  document.getElementById('hccNavImage').onclick=function(e){e.preventDefault();setModePage('image',true)};
+  document.getElementById('hccNavWheel').onclick=function(e){e.preventDefault();setModePage('wheel',true)};
   imageInput.onchange=function(){loadImageFile(this.files&&this.files[0])};
   imageDrop.onclick=function(e){if(imageLoaded&&e.target!==imageInput){e.preventDefault();e.stopPropagation()}};
   imageDrop.ondragover=function(e){e.preventDefault();imageDrop.style.backgroundColor='#f2f2f2'};
@@ -212,12 +202,12 @@
   function textNode(tag,text,cls){var el=block(tag,cls);el.textContent=text;return el}
   window.HCC_SHARED={clamp:clamp,clear:clear,block:block,textNode:textNode,t:t,tx:tx,cleanHex:cleanHex,copyText:copyText,hexToRgb:hexToRgb,rgbToHex:rgbToHex,rgbToHsl:rgbToHsl,rgbToHsv:rgbToHsv,rgbToOklch:rgbToOklch,hslToRgb:hslToRgb,lum:lum,labMix:labMix,setFromRgb:setFromRgb,syncColorState:syncColorState,render:render,setHeroText:setHeroText,clearTopNav:clearTopNav,setRoute:setRoute,openExport:openExport,exportSvg:exportSvg,trackColorBars:trackColorBars,ensureLibraryData:ensureLibraryData,ensureNameData:ensureNameData,ensureChartData:ensureChartData,getLibrarySections:function(){return librarySections},getNamePages:function(){return namePages},getChartDefs:function(){return chartDefs},chartPicked:chartPicked,setActiveRoute:function(v){activeRoute=v},getActiveRoute:function(){return activeRoute},contrastRatio:contrastRatio,recordClickedHex:recordClickedHex};
   window.HCC_REGISTER_PAGES_EXTRA=function(factory){pagesExtraApi=factory(window.HCC_SHARED)||{}};
-  function ensurePagesExtra(done){if(pagesExtraApi){done&&done(pagesExtraApi);return}loadChunk('pages-extra','/pages-extra.js?v=20260624-144500',function(){done&&done(pagesExtraApi||{})})}
+  function ensurePagesExtra(done){if(pagesExtraApi){done&&done(pagesExtraApi);return}loadChunk('pages-extra','/pages-extra.js?v=20260624-150500',function(){done&&done(pagesExtraApi||{})})}
   function withPagesExtra(method,args,fallback){ensurePagesExtra(function(api){if(api&&api[method]){api[method].apply(api,args||[])}else if(fallback){fallback()}})}
   function isExtraRoute(slug){return slug==='library'||slug==='converter'||slug==='hex-to-rgb'||slug==='contrast-checker'||slug==='color-mixer'||slug==='chart'||slug==='names'||slug==='minecraft'||slug==='bukkit'||slug==='roblox'||slug.indexOf('chart-')===0}
   function setNamePage(kind,syncHash){withPagesExtra('setNamePage',[kind,syncHash],function(){setModePage('picker',syncHash)})}
   var legalPages=null,legalPageI18n=null;
-  function ensureLegalData(done){if(legalPages&&legalPageI18n){done&&done();return}loadChunk('legal','/legal-data.js?v=20260624-144500',function(){legalPages=window.HCC_LEGAL_PAGES||{};legalPageI18n=window.HCC_LEGAL_PAGE_I18N||{};done&&done()})}
+  function ensureLegalData(done){if(legalPages&&legalPageI18n){done&&done();return}loadChunk('legal','/legal-data.js?v=20260624-150500',function(){legalPages=window.HCC_LEGAL_PAGES||{};legalPageI18n=window.HCC_LEGAL_PAGE_I18N||{};done&&done()})}
   function legalPageData(kind){if(!legalPages){return null}kind=legalPages[kind]?kind:'about';return (legalPageI18n&&legalPageI18n[currentLang]&&legalPageI18n[currentLang][kind])||legalPages[kind]}
   function renderLegalPage(kind){var page=legalPageData(kind),mount=document.getElementById('hccLegalArticle');if(!page){ensureLegalData(function(){renderLegalPage(kind)});return}if(!mount)return;clear(mount);mount.appendChild(textNode('h2',page.title));page.sections.forEach(function(sec){mount.appendChild(textNode('h3',sec.h));sec.p.forEach(function(p){mount.appendChild(textNode('p',p))})})}
   function setLegalPage(kind,syncHash){if(!legalPages){ensureLegalData(function(){setLegalPage(kind,syncHash)});return}kind=legalPages[kind]?kind:'about';activeRoute=kind;var page=legalPageData(kind);if(syncHash){setRoute(kind,false)}document.querySelector('.hcc-app').className='hcc-app legal-mode';clearTopNav();setHeroText(tx('Site Information'),page.title,page.hero);render();renderLegalPage(kind);applyI18n();if(syncHash){scrollCurrentPageTop()}}
@@ -237,19 +227,19 @@
   function setMixerPage(syncHash){withPagesExtra('setMixerPage',[syncHash],function(){setModePage('picker',syncHash)})}
   function setChartDetail(slug,syncHash){withPagesExtra('setChartDetail',[slug,syncHash],function(){setModePage('picker',syncHash)})}
   function setChartPage(syncHash){withPagesExtra('setChartPage',[syncHash],function(){setModePage('picker',syncHash)})}
-  document.getElementById('hccNavNames').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setNamePage('names',true)};
-  document.getElementById('hccNavNamesColorItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setNamePage('names',true)};
-  document.getElementById('hccNavNamesMinecraftItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setNamePage('minecraft',true)};
-  document.getElementById('hccNavNamesBukkitItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setNamePage('bukkit',true)};
-  document.getElementById('hccNavNamesRobloxItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setNamePage('roblox',true)};
-  document.getElementById('hccNavChart').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setChartPage(true)};
-  document.getElementById('hccNavLibrary').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setLibraryPage(true)};
-  document.getElementById('hccNavConverter').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setConverterPage(true)};
-  document.getElementById('hccNavTools').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setContrastToolPage(true)};
-  document.getElementById('hccNavRgbHexItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setConverterPage(true)};
-  document.getElementById('hccNavHexRgbItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setHexRgbPage(true)};
-  document.getElementById('hccNavContrastItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setContrastToolPage(true)};
-  document.getElementById('hccNavMixerItem').onclick=function(e){if(window.HCC_MULTIPAGE)return;e.preventDefault();setMixerPage(true)};
+  document.getElementById('hccNavNames').onclick=function(e){e.preventDefault();setNamePage('names',true)};
+  document.getElementById('hccNavNamesColorItem').onclick=function(e){e.preventDefault();setNamePage('names',true)};
+  document.getElementById('hccNavNamesMinecraftItem').onclick=function(e){e.preventDefault();setNamePage('minecraft',true)};
+  document.getElementById('hccNavNamesBukkitItem').onclick=function(e){e.preventDefault();setNamePage('bukkit',true)};
+  document.getElementById('hccNavNamesRobloxItem').onclick=function(e){e.preventDefault();setNamePage('roblox',true)};
+  document.getElementById('hccNavChart').onclick=function(e){e.preventDefault();setChartPage(true)};
+  document.getElementById('hccNavLibrary').onclick=function(e){e.preventDefault();setLibraryPage(true)};
+  document.getElementById('hccNavConverter').onclick=function(e){e.preventDefault();setConverterPage(true)};
+  document.getElementById('hccNavTools').onclick=function(e){e.preventDefault();setContrastToolPage(true)};
+  document.getElementById('hccNavRgbHexItem').onclick=function(e){e.preventDefault();setConverterPage(true)};
+  document.getElementById('hccNavHexRgbItem').onclick=function(e){e.preventDefault();setHexRgbPage(true)};
+  document.getElementById('hccNavContrastItem').onclick=function(e){e.preventDefault();setContrastToolPage(true)};
+  document.getElementById('hccNavMixerItem').onclick=function(e){e.preventDefault();setMixerPage(true)};
   document.getElementById('hccLibrarySearch').oninput=renderLibrary;
   ['hccConvR','hccConvG','hccConvB'].forEach(function(id){document.getElementById(id).onkeydown=function(e){if(e.key==='Enter')updateConverterFromRgb()}});
   document.getElementById('hccConvConvert').onclick=updateConverterFromRgb;
