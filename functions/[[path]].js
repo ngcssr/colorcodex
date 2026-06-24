@@ -654,9 +654,7 @@ function applyGuidePagesI18n(html, lang, normalizedPath) {
   }
 
   if (common) {
-    for (const [from, to] of [...common.replacements].sort((a, b) => b[0].length - a[0].length)) {
-      out = out.split(from).join(to);
-    }
+    out = replaceVisibleText(out, common.replacements);
   }
 
   out = out.replace(/<footer class="kw-footer">[\s\S]*?<\/footer>/i, `<footer class="kw-footer"><a href="/color-picker/">${text.brand}</a> ${text.footer}</footer>`);
@@ -681,6 +679,48 @@ function escapeAttr(value) {
   return String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+const SERVER_TEXT = {
+  zh: {
+    common: [['Picker','取色器'],['Image','图片'],['Wheel','色轮'],['Chart','色表'],['Color Library','颜色库'],['Converter','转换器'],['Tools','工具'],['Names','名称'],['Color Names','颜色名称'],['Contrast Checker','对比度检查'],['Color Mixer','颜色混合器'],['RGB to Hex','RGB 转 Hex'],['Hex to RGB','Hex 转 RGB'],['Color Codes','颜色代码'],['Color Tools','颜色工具'],['Copy','复制'],['Random palette','随机调色板'],['Export colors','导出颜色'],['Choose harmony...','选择和谐配色...'],['Color Guides','颜色指南'],['About','关于'],['Privacy Policy','隐私政策'],['Terms of Service','服务条款']],
+    pages: {'/color-picker/':['颜色取色器','浏览颜色、生成和谐配色、转换数值，并在一个简单的颜色工具中导出颜色代码。'],'/image-color-picker/':['图片取色器','上传图片，从像素中选取颜色，提取调色板并导出颜色代码。'],'/color-wheel/':['色轮','在色轮上选取颜色，构建调色板，生成和谐配色并导出颜色代码。'],'/color-chart/':['颜色表','使用 Tailwind、扁平化、Material 和网页安全色表，为网站或应用找到合适的配色。'],'/colors/':['颜色库','浏览 100 多种颜色和色号，并复制到你的项目中。'],'/rgb-to-hex/':['RGB 转 Hex','将任意 RGB 值转换为 Hex 色号，并查看对应的 HSL、HSV 和 CMYK 值。'],'/hex-to-rgb/':['Hex 转 RGB','将任意 Hex 色号转换为 RGB 值，并查看对应的 HSL、HSV、OKLCH 和 CMYK 值。'],'/contrast-checker/':['对比度检查','检查前景色和背景色之间的对比度，帮助设计更清晰、易读的界面。'],'/color-mixer/':['颜色混合器','混合两个颜色并生成渐变色阶，用于调色板、界面和创意项目。']}
+  },
+  ja: {
+    common: [['Picker','ピッカー'],['Image','画像'],['Wheel','色相環'],['Chart','チャート'],['Color Library','カラーライブラリ'],['Converter','変換'],['Tools','ツール'],['Names','名前'],['Color Names','カラー名'],['Contrast Checker','コントラスト確認'],['Color Mixer','カラーミキサー'],['RGB to Hex','RGB から Hex'],['Hex to RGB','Hex から RGB'],['Color Codes','カラーコード'],['Color Tools','カラーツール'],['Copy','コピー'],['Random palette','ランダムパレット'],['Export colors','色を書き出す'],['Choose harmony...','ハーモニーを選択...'],['Color Guides','カラーガイド'],['About','概要'],['Privacy Policy','プライバシーポリシー'],['Terms of Service','利用規約']],
+    pages: {'/color-picker/':['カラーピッカー','色を選び、ハーモニーを生成し、値を変換して、シンプルなカラーツールからカラーコードを書き出せます。'],'/image-color-picker/':['画像カラーピッカー','画像をアップロードしてピクセルから色を取得し、パレットとコードを書き出せます。'],'/color-wheel/':['色相環','色相環で色を選び、パレットやハーモニーを作成してカラーコードを書き出せます。'],'/color-chart/':['カラーチャート','Tailwind、フラットデザイン、Material、Web セーフカラーから配色を探せます。'],'/colors/':['カラーライブラリ','100 種類以上の色を閲覧し、プロジェクト用のコードをコピーできます。'],'/rgb-to-hex/':['RGB から Hex','RGB 値を Hex カラーコードに変換し、対応する HSL、HSV、CMYK も確認できます。'],'/hex-to-rgb/':['Hex から RGB','Hex カラーコードを RGB に変換し、対応する HSL、HSV、OKLCH、CMYK も確認できます。'],'/contrast-checker/':['コントラスト確認','前景色と背景色のコントラスト比を確認し、読みやすいデザインを作れます。'],'/color-mixer/':['カラーミキサー','2 色を混ぜて、パレットや UI に使えるブレンド色を生成します。']}
+  },
+  ko: {
+    common: [['Picker','색상 선택기'],['Image','이미지'],['Wheel','색상 휠'],['Chart','색상 차트'],['Color Library','색상 라이브러리'],['Converter','변환기'],['Tools','도구'],['Names','이름'],['Color Names','색상 이름'],['Contrast Checker','대비 검사기'],['Color Mixer','색상 믹서'],['RGB to Hex','RGB to Hex'],['Hex to RGB','Hex to RGB'],['Color Codes','색상 코드'],['Color Tools','색상 도구'],['Copy','복사'],['Random palette','무작위 팔레트'],['Export colors','색상 내보내기'],['Choose harmony...','조화 색상 선택...'],['Color Guides','색상 가이드'],['About','소개'],['Privacy Policy','개인정보 처리방침'],['Terms of Service','서비스 약관']],
+    pages: {'/color-picker/':['색상 선택기','색상을 고르고 조화 팔레트를 만들고 값을 변환하며 색상 코드를 내보낼 수 있습니다.'],'/image-color-picker/':['이미지 색상 선택기','이미지를 업로드해 픽셀에서 색상을 추출하고 팔레트를 내보낼 수 있습니다.'],'/color-wheel/':['색상 휠','색상 휠에서 색을 선택하고 팔레트와 조화 색상을 만들 수 있습니다.'],'/color-chart/':['색상 차트','Tailwind, 플랫 디자인, Material, 웹 안전 색상표에서 적합한 배색을 찾을 수 있습니다.'],'/colors/':['색상 라이브러리','100가지 이상의 색상을 탐색하고 색상 코드를 복사하세요.'],'/rgb-to-hex/':['RGB to Hex','RGB 값을 Hex 색상 코드로 변환하고 HSL, HSV, CMYK 값을 확인하세요.'],'/hex-to-rgb/':['Hex to RGB','Hex 색상 코드를 RGB 값으로 변환하고 HSL, HSV, OKLCH, CMYK 값을 확인하세요.'],'/contrast-checker/':['대비 검사기','전경색과 배경색의 대비율을 확인해 읽기 쉬운 디자인을 만드세요.'],'/color-mixer/':['색상 믹서','두 색상을 혼합해 팔레트와 UI에 사용할 수 있는 색상을 만듭니다.']}
+  },
+  es: {
+    common: [['Picker','Selector'],['Image','Imagen'],['Wheel','Rueda'],['Chart','Tabla'],['Color Library','Biblioteca de colores'],['Converter','Convertidor'],['Tools','Herramientas'],['Names','Nombres'],['Color Names','Nombres de colores'],['Contrast Checker','Comprobador de contraste'],['Color Mixer','Mezclador de colores'],['RGB to Hex','RGB a Hex'],['Hex to RGB','Hex a RGB'],['Color Codes','Codigos de color'],['Color Tools','Herramientas de color'],['Copy','Copiar'],['Random palette','Paleta aleatoria'],['Export colors','Exportar colores'],['Choose harmony...','Elegir armonia...'],['Color Guides','Guias de color'],['About','Acerca de'],['Privacy Policy','Politica de privacidad'],['Terms of Service','Terminos de servicio']],
+    pages: {'/color-picker/':['Selector de color','Explora colores, genera armonias, convierte valores y exporta codigos en una herramienta sencilla.'],'/image-color-picker/':['Selector de color de imagen','Sube una imagen, toma colores de sus pixeles, extrae una paleta y exporta codigos.'],'/color-wheel/':['Rueda de color','Elige colores en una rueda, crea paletas, genera armonias y exporta codigos.'],'/color-chart/':['Tabla de colores','Con tablas Tailwind CSS, flat design, Material Design y colores web seguros, puedes encontrar el esquema perfecto.'],'/colors/':['Biblioteca de colores','Explora mas de 100 tonos y copia codigos de color para tus proyectos.'],'/rgb-to-hex/':['RGB a Hex','Convierte cualquier valor RGB a codigo Hex y consulta sus valores HSL, HSV y CMYK.'],'/hex-to-rgb/':['Hex a RGB','Convierte cualquier codigo Hex a RGB y consulta sus valores HSL, HSV, OKLCH y CMYK.'],'/contrast-checker/':['Comprobador de contraste','Comprueba la relacion de contraste entre primer plano y fondo para disenos legibles.'],'/color-mixer/':['Mezclador de colores','Mezcla dos colores y genera tonos combinados para paletas e interfaces.']}
+  },
+  fr: {
+    common: [['Picker','Sélecteur'],['Image','Image'],['Wheel','Roue'],['Chart','Nuancier'],['Color Library','Bibliothèque de couleurs'],['Converter','Convertisseur'],['Tools','Outils'],['Names','Noms'],['Color Names','Noms de couleurs'],['Contrast Checker','Vérificateur de contraste'],['Color Mixer','Mélangeur de couleurs'],['RGB to Hex','RGB vers Hex'],['Hex to RGB','Hex vers RGB'],['Color Codes','Codes couleur'],['Color Tools','Outils couleur'],['Copy','Copier'],['Random palette','Palette aléatoire'],['Export colors','Exporter les couleurs'],['Choose harmony...','Choisir une harmonie...'],['Color Guides','Guides couleur'],['About','À propos'],['Privacy Policy','Politique de confidentialité'],['Terms of Service','Conditions d’utilisation']],
+    pages: {'/color-picker/':['Sélecteur de couleur','Parcourez les couleurs, générez des harmonies, convertissez les valeurs et exportez les codes couleur.'],'/image-color-picker/':['Sélecteur de couleur d’image','Importez une image, prélevez des couleurs dans les pixels, extrayez une palette et exportez les codes.'],'/color-wheel/':['Roue chromatique','Choisissez des couleurs sur une roue, créez des palettes, générez des harmonies et exportez les codes.'],'/color-chart/':['Nuancier','Avec les nuanciers Tailwind CSS, flat design, Material Design et web safe, trouvez le schéma idéal.'],'/colors/':['Bibliothèque de couleurs','Explorez plus de 100 nuances et copiez les codes couleur pour vos projets.'],'/rgb-to-hex/':['RGB vers Hex','Convertissez une valeur RGB en code Hex et consultez les valeurs HSL, HSV et CMYK.'],'/hex-to-rgb/':['Hex vers RGB','Convertissez un code Hex en RGB et consultez les valeurs HSL, HSV, OKLCH et CMYK.'],'/contrast-checker/':['Vérificateur de contraste','Vérifiez le contraste entre premier plan et arrière-plan pour des designs lisibles.'],'/color-mixer/':['Mélangeur de couleurs','Mélangez deux couleurs et générez des tons pour palettes et interfaces.']}
+  },
+  de: {
+    common: [['Picker','Farbwähler'],['Image','Bild'],['Wheel','Farbrad'],['Chart','Farbtafel'],['Color Library','Farbbibliothek'],['Converter','Konverter'],['Tools','Werkzeuge'],['Names','Namen'],['Color Names','Farbnamen'],['Contrast Checker','Kontrastprüfer'],['Color Mixer','Farbmischer'],['RGB to Hex','RGB zu Hex'],['Hex to RGB','Hex zu RGB'],['Color Codes','Farbcodes'],['Color Tools','Farbwerkzeuge'],['Copy','Kopieren'],['Random palette','Zufallspalette'],['Export colors','Farben exportieren'],['Choose harmony...','Harmonie wählen...'],['Color Guides','Farbleitfäden'],['About','Über uns'],['Privacy Policy','Datenschutz'],['Terms of Service','Nutzungsbedingungen']],
+    pages: {'/color-picker/':['Farbwähler','Durchsuche Farben, erstelle Harmonien, wandle Werte um und exportiere Farbcodes.'],'/image-color-picker/':['Bild-Farbwähler','Lade ein Bild hoch, wähle Farben aus Pixeln, extrahiere eine Palette und exportiere Codes.'],'/color-wheel/':['Farbrad','Wähle Farben im Farbrad, erstelle Paletten, generiere Harmonien und exportiere Codes.'],'/color-chart/':['Farbtafel','Mit Tailwind CSS, Flat Design, Material Design und Web-Safe-Farbtafeln findest du passende Farben.'],'/colors/':['Farbbibliothek','Entdecke über 100 Farbtöne und kopiere Farbcodes für deine Projekte.'],'/rgb-to-hex/':['RGB zu Hex','Wandle RGB-Werte in Hex-Farbcodes um und sieh HSL-, HSV- und CMYK-Werte.'],'/hex-to-rgb/':['Hex zu RGB','Wandle Hex-Farbcodes in RGB um und sieh HSL-, HSV-, OKLCH- und CMYK-Werte.'],'/contrast-checker/':['Kontrastprüfer','Prüfe den Kontrast zwischen Vordergrund und Hintergrund für lesbare Designs.'],'/color-mixer/':['Farbmischer','Mische zwei Farben und erzeuge abgestufte Töne für Paletten und Oberflächen.']}
+  },
+  pt: {
+    common: [['Picker','Seletor'],['Image','Imagem'],['Wheel','Roda'],['Chart','Tabela'],['Color Library','Biblioteca de cores'],['Converter','Conversor'],['Tools','Ferramentas'],['Names','Nomes'],['Color Names','Nomes de cores'],['Contrast Checker','Verificador de contraste'],['Color Mixer','Misturador de cores'],['RGB to Hex','RGB para Hex'],['Hex to RGB','Hex para RGB'],['Color Codes','Codigos de cor'],['Color Tools','Ferramentas de cor'],['Copy','Copiar'],['Random palette','Paleta aleatoria'],['Export colors','Exportar cores'],['Choose harmony...','Escolher harmonia...'],['Color Guides','Guias de cores'],['About','Sobre'],['Privacy Policy','Politica de privacidade'],['Terms of Service','Termos de servico']],
+    pages: {'/color-picker/':['Seletor de cor','Explore cores, gere harmonias, converta valores e exporte codigos de cor em uma ferramenta simples.'],'/image-color-picker/':['Seletor de cor de imagem','Envie uma imagem, escolha cores dos pixels, extraia uma paleta e exporte codigos.'],'/color-wheel/':['Roda de cores','Escolha cores em uma roda, crie paletas, gere harmonias e exporte codigos.'],'/color-chart/':['Tabela de cores','Com tabelas Tailwind CSS, flat design, Material Design e web safe, encontre o esquema perfeito.'],'/colors/':['Biblioteca de cores','Explore mais de 100 tons e copie codigos de cor para seus projetos.'],'/rgb-to-hex/':['RGB para Hex','Converta qualquer valor RGB para codigo Hex e veja valores HSL, HSV e CMYK.'],'/hex-to-rgb/':['Hex para RGB','Converta qualquer codigo Hex para RGB e veja valores HSL, HSV, OKLCH e CMYK.'],'/contrast-checker/':['Verificador de contraste','Verifique a taxa de contraste entre primeiro plano e fundo para designs legiveis.'],'/color-mixer/':['Misturador de cores','Misture duas cores e gere tons combinados para paletas e interfaces.']}
+  }
+};
+
+function replaceVisibleText(html, replacements) {
+  const list = [...(replacements || [])].sort((a, b) => b[0].length - a[0].length);
+  if (!list.length) return html;
+  return html.replace(/(<[^>]+>)|([^<]+)/g, (match, tag, text) => {
+    if (tag) return tag;
+    let out = text;
+    for (const [from, to] of list) out = out.split(from).join(to);
+    return out;
+  });
+}
+
 function alternateLinks(basePath) {
   const path = normalizePagePath(basePath);
   const links = [
@@ -700,17 +740,28 @@ function localizeHtml(html, lang, basePath) {
   const keyword = (GUIDE_ALL_I18N[normalizedPath] && GUIDE_ALL_I18N[normalizedPath][lang]) ||
     (KEYWORD_I18N[normalizedPath] && KEYWORD_I18N[normalizedPath][lang]);
   if (keyword) {
-    for (const [from, to] of [...keyword.replacements].sort((a, b) => b[0].length - a[0].length)) {
-      out = out.split(from).join(to);
-    }
+    out = replaceVisibleText(out, keyword.replacements);
     out = out.replace(/<title>[^<]*<\/title>/i, `<title>${keyword.title}</title>`);
     out = out.replace(/<meta name="description" content="[^"]*">/i, `<meta name="description" content="${escapeAttr(keyword.description)}">`);
+  }
+  const common = GUIDE_ALL_I18N['/color-guides/'] && GUIDE_ALL_I18N['/color-guides/'][lang];
+  if (common && normalizedPath !== '/color-guides/' && !GUIDE_PAGE_SLUGS.includes(normalizedPath.replace(/^\/|\/$/g, ''))) {
+    out = replaceVisibleText(out, common.replacements);
+  }
+  const serverText = SERVER_TEXT[lang];
+  if (serverText) {
+    const pageText = serverText.pages[normalizedPath];
+    out = replaceVisibleText(out, serverText.common);
+    if (pageText) {
+      out = out.replace(/<h1>[\s\S]*?<\/h1>/i, `<h1>${pageText[0]}</h1>`);
+      out = out.replace(/(<div class="hcc-hero-inner"><div class="hcc-crumb">[\s\S]*?<\/div><h1>[\s\S]*?<\/h1><p>)[\s\S]*?(<\/p>)/i, `$1${pageText[1]}$2`);
+    }
   }
   out = applyGuidePagesI18n(out, lang, normalizedPath);
   out = out.replace(/<html\b([^>]*)\blang="[^"]*"/i, `<html$1lang="${info.html}"`);
   out = out.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*>/i, `<link rel="canonical" href="${escapeAttr(canonical)}">`);
   out = out.replace(/<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]*"\s*>/gi, '');
-  out = out.replace('</head>', `${alternateLinks(basePath)}<style id="hcc-i18n-guard">html[data-hcc-i18n-pending="1"] body{visibility:hidden}</style><script>document.documentElement.setAttribute("data-hcc-i18n-pending","1");window.HCC_ROUTE_LANG="${lang}";</script></head>`);
+  out = out.replace('</head>', `${alternateLinks(basePath)}<script>window.HCC_ROUTE_LANG="${lang}";</script></head>`);
   return out;
 }
 
