@@ -710,7 +710,7 @@ function localizeHtml(html, lang, basePath) {
   out = out.replace(/<html\b([^>]*)\blang="[^"]*"/i, `<html$1lang="${info.html}"`);
   out = out.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*>/i, `<link rel="canonical" href="${escapeAttr(canonical)}">`);
   out = out.replace(/<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]*"\s*>/gi, '');
-  out = out.replace('</head>', `${alternateLinks(basePath)}<script>window.HCC_ROUTE_LANG="${lang}";</script></head>`);
+  out = out.replace('</head>', `${alternateLinks(basePath)}<style id="hcc-i18n-guard">html[data-hcc-i18n-pending="1"] body{visibility:hidden}</style><script>document.documentElement.setAttribute("data-hcc-i18n-pending","1");window.HCC_ROUTE_LANG="${lang}";</script></head>`);
   return out;
 }
 
