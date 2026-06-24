@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-instant-20260624-101500';
+const HCC_CACHE = 'colorcodex-instant-20260624-115500';
 const HCC_CORE = [
   '/',
   '/color-picker/',
@@ -29,9 +29,9 @@ const HCC_CORE = [
   '/contrast-checker/',
   '/color-mixer/',
   '/color-names/',
-  '/app.css?v=20260624-101500',
-  '/app.js?v=20260624-101500',
-  '/prefetch.js?v=20260624-101500',
+  '/app.css?v=20260624-115500',
+  '/app.js?v=20260624-115500',
+  '/prefetch.js?v=20260624-115500',
   '/favicon.svg'
 ];
 
@@ -76,6 +76,15 @@ function staleWhileRevalidate(request) {
   });
 }
 
+function networkFirst(request) {
+  return caches.open(HCC_CACHE).then((cache) => {
+    return fetch(request).then((response) => {
+      if (response && response.ok) cache.put(request, response.clone());
+      return response;
+    }).catch(() => cache.match(request));
+  });
+}
+
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -83,7 +92,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== location.origin) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(staleWhileRevalidate(request));
+    event.respondWith(networkFirst(request));
     return;
   }
 
