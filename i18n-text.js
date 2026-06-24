@@ -58,5 +58,5 @@ window.HCC_LEGAL_TEXT_I18N={
       'These terms may be updated from time to time. Continued use of the site after changes means you accept the updated terms.':'这些条款可能会不时更新。变更后继续使用本站即表示你接受更新后的条款。'
     }
   };
+delete window.HCC_TEXT_I18N.ru;if(window.HCC_LEGAL_TEXT_I18N)delete window.HCC_LEGAL_TEXT_I18N.ru;
 })();
-

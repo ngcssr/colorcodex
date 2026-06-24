@@ -11,10 +11,10 @@
     '/color-mixer/'
   ];
   var chunks=[
-    '/data-chart.js?v=20260623-243500',
-    '/data-library.js?v=20260623-243500',
-    '/data-names.js?v=20260623-243500',
-    '/pages-extra.js?v=20260623-243500'
+    '/data-chart.js?v=20260624-101500',
+    '/data-library.js?v=20260624-101500',
+    '/data-names.js?v=20260624-101500',
+    '/pages-extra.js?v=20260624-101500'
   ];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
@@ -25,7 +25,7 @@
     document.head.appendChild(l);
   }
   function prefixPath(path){
-    var m=(location.pathname||'/').match(/^\/(zh|ja|ko|es|fr|de|pt|ru)(?=\/|$)/);
+    var m=(location.pathname||'/').match(/^\/(zh|ja|ko|es|fr|de|pt)(?=\/|$)/);
     return (m?('/'+m[1]):'')+path;
   }
   idle(function(){
