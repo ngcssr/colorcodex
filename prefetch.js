@@ -10,7 +10,7 @@
     '/contrast-checker/',
     '/color-mixer/'
   ];
-  var chunks=['/pages-extra.js?v=20260624-214000'];
+  var chunks=['/pages-extra.js?v=20260624-221500'];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
     var l=document.createElement('link');
