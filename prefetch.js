@@ -11,10 +11,10 @@
     '/color-mixer/'
   ];
   var chunks=[
-    '/data-chart.js?v=20260624-123500',
-    '/data-library.js?v=20260624-123500',
-    '/data-names.js?v=20260624-123500',
-    '/pages-extra.js?v=20260624-123500'
+    '/data-chart.js?v=20260624-125500',
+    '/data-library.js?v=20260624-125500',
+    '/data-names.js?v=20260624-125500',
+    '/pages-extra.js?v=20260624-125500'
   ];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;

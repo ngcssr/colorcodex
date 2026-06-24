@@ -1,7 +1,5 @@
-const HCC_CACHE = 'colorcodex-instant-20260624-123500';
+const HCC_CACHE = 'colorcodex-instant-20260624-125500';
 const HCC_CORE = [
-  '/',
-  '/color-picker/',
   '/favicon.svg'
 ];
 
