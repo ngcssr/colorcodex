@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-stable-ui-no-flash-safe-20260624-173500';
+const HCC_CACHE = 'colorcodex-fix-hexrgb-no-shake-20260624-175500';
 const HCC_CORE = [
   '/favicon.svg'
 ];
