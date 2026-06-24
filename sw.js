@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-pages-restored-20260624-150500';
+const HCC_CACHE = 'colorcodex-no-refresh-flash-stable-20260624-172500';
 const HCC_CORE = [
   '/favicon.svg'
 ];
@@ -45,11 +45,18 @@ function staleWhileRevalidate(request) {
 }
 
 function networkFirst(request) {
+  return fetch(request).catch(() => caches.match(request));
+}
+
+function navigationFast(request) {
   return caches.open(HCC_CACHE).then((cache) => {
-    return fetch(request).then((response) => {
-      if (response && response.ok) cache.put(request, response.clone());
-      return response;
-    }).catch(() => cache.match(request));
+    return cache.match(request).then((cached) => {
+      const network = fetch(request).then((response) => {
+        if (response && response.ok) cache.put(request, response.clone());
+        return response;
+      }).catch(() => cached);
+      return cached || network;
+    });
   });
 }
 
@@ -60,7 +67,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== location.origin) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(networkFirst(request));
+    event.respondWith(navigationFast(request));
     return;
   }
 

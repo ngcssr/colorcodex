@@ -1,2 +1,2 @@
 window.HCC_PAGE_ENTRY="contrast";
-(function(){var s=document.createElement('script');s.src='/assets/js/shared-core.js?v=20260624-150500';s.defer=true;document.body.appendChild(s)})();
+(function(){var s=document.createElement('script');s.src='/assets/js/shell-core.js?v=20260624-172500';s.defer=true;document.body.appendChild(s)})();
