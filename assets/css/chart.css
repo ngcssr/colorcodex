@@ -6,3 +6,13 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
 #hccFooterPrivacy{left:760px!important;right:auto!important;top:160px!important;transform:none!important}
 @media (max-width:900px) and (min-width:761px){#hccFooterGuides{left:28px;top:42px}#hccFooterTerms{left:auto!important;right:28px!important;top:42px!important}#hccFooterAbout{left:28px!important;top:100px!important}#hccFooterPrivacy{left:auto!important;right:28px!important;top:100px!important}}
 @media (max-width:760px){.hcc-footer-link,#hccFooterGuides,#hccFooterAbout,#hccFooterPrivacy,#hccFooterTerms{position:static!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;justify-content:flex-start;font-size:16px;line-height:1.2}#hccFooterGuides{grid-column:1;grid-row:1}#hccFooterTerms{grid-column:2;grid-row:1}#hccFooterAbout{grid-column:1;grid-row:2}#hccFooterPrivacy{grid-column:2;grid-row:2}}
+
+/* Stable first paint: reserve space for JS-rendered page islands to prevent refresh shrink/expand. */
+.hcc-app.chart-mode #hccChartTable:empty{min-height:720px}
+.hcc-app.library-mode #hccLibraryList:empty{min-height:720px}
+.hcc-app.names-mode #hccNamesTable:empty{min-height:720px}
+.hcc-app.converter-mode #hccConverterRows:empty,.hcc-app.hexrgb-mode #hccHexRgbRows:empty{display:block;min-height:138px}
+.hcc-app.contrast-tool-mode #hccContrastToolRows:empty{display:block;min-height:116px}
+.hcc-app.mixer-mode #hccMixerBar:empty{min-height:236px}
+.hcc-app.chart-mode .hcc-chart-page,.hcc-app.library-mode .hcc-library-page,.hcc-app.names-mode .hcc-names-page,.hcc-app.converter-mode .hcc-converter-page,.hcc-app.hexrgb-mode .hcc-hexrgb-page,.hcc-app.contrast-tool-mode .hcc-contrast-tool-page,.hcc-app.mixer-mode .hcc-mixer-page{min-height:760px}
+@media(max-width:760px){.hcc-app.chart-mode #hccChartTable:empty,.hcc-app.library-mode #hccLibraryList:empty,.hcc-app.names-mode #hccNamesTable:empty{min-height:620px}.hcc-app.chart-mode .hcc-chart-page,.hcc-app.library-mode .hcc-library-page,.hcc-app.names-mode .hcc-names-page,.hcc-app.converter-mode .hcc-converter-page,.hcc-app.hexrgb-mode .hcc-hexrgb-page,.hcc-app.contrast-tool-mode .hcc-contrast-tool-page,.hcc-app.mixer-mode .hcc-mixer-page{min-height:680px}.hcc-app.mixer-mode #hccMixerBar:empty{min-height:210px}}
