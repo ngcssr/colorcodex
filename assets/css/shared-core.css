@@ -20,3 +20,5 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
 html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-info-text,html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-image-empty,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page{visibility:hidden}
 
 html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:hidden}
+
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-hero,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-shell{visibility:hidden}
