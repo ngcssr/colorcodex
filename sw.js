@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-no-refresh-flash-stable-20260624-172500';
+const HCC_CACHE = 'colorcodex-stable-ui-no-flash-safe-20260624-173500';
 const HCC_CORE = [
   '/favicon.svg'
 ];
@@ -49,15 +49,13 @@ function networkFirst(request) {
 }
 
 function navigationFast(request) {
-  return caches.open(HCC_CACHE).then((cache) => {
-    return cache.match(request).then((cached) => {
-      const network = fetch(request).then((response) => {
-        if (response && response.ok) cache.put(request, response.clone());
-        return response;
-      }).catch(() => cached);
-      return cached || network;
-    });
-  });
+  return caches.open(HCC_CACHE).then((cache) => cache.match(request).then((cached) => {
+    const network = fetch(request).then((response) => {
+      if (response && response.ok) cache.put(request, response.clone());
+      return response;
+    }).catch(() => cached);
+    return cached || network;
+  }));
 }
 
 self.addEventListener('fetch', (event) => {
