@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-instant-20260624-121500';
+const HCC_CACHE = 'colorcodex-instant-20260624-122500';
 const HCC_CORE = [
   '/',
   '/color-picker/',
