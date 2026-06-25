@@ -49,7 +49,7 @@ html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-name
 html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page:before,
 html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page:before,
 html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page:before,
-html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page:before{content:"Loading...";visibility:visible;position:absolute;left:50%;top:84px;transform:translateX(-50%);min-width:172px;height:44px;border:1px solid #e5e5e5;border-radius:999px;background:#fff;color:#6b7280;font-size:14px;font-weight:760;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.035);z-index:3}
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page:before{content:"";display:none!important}
 /* Stable hover labels: keep swatch widths fixed so the pointer cannot chase a resizing block. */
 .hcc-strip i,.hcc-bar i,.hcc-long-bar i,.hcc-chart-family-swatch{position:relative}
 .hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered,.hcc-chart-family-swatch.is-hovered{flex-grow:1!important;filter:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
@@ -57,4 +57,12 @@ html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-ch
 .hcc-strip i:hover:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:attr(data-code);position:absolute;left:50%;top:50%;z-index:6;display:grid;place-items:center;width:max-content;min-width:44px;height:18px;padding:0 3px;margin:-9px 0 0 -22px;color:var(--strip-text,var(--swatch-text,#000));font-size:11px;font-weight:850;line-height:1;letter-spacing:0;white-space:nowrap;pointer-events:none;text-shadow:none;transform:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .hcc-chart-family-swatch.is-hovered span{opacity:1;pointer-events:none}
 @media (max-width:760px){.hcc-strip i:hover,.hcc-bar i:hover,.hcc-long-bar i:hover,.hcc-chart-family-swatch.is-hovered,.hcc-mixer-page .hcc-mixer-bar button:hover{flex:1 1 0!important;flex-basis:auto!important;min-width:0!important;max-width:none!important}.hcc-chart-family-swatch.is-hovered{flex-grow:1!important}}
-.hcc-strip:hover,.hcc-bar:hover,.hcc-long-bar:hover{transform:none!important;overflow:visible;clip-path:none}.hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{overflow:visible!important;transform:none!important}
+.hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{transform:none!important}
+
+/* Single hover label layer: keep element text transparent so ::before is the only visible code. */
+.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{color:transparent!important;text-shadow:none!important}
+.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before,.hcc-strip i:hover:before{color:var(--strip-text,var(--swatch-text,#000))!important}
+/* Preserve rounded swatch bars while hover labels are active. */
+.hcc-strip,.hcc-bar,.hcc-long-bar{overflow:hidden!important}
+.hcc-strip{clip-path:inset(0 round 999px)!important}
+.hcc-bar,.hcc-long-bar{border-radius:12px}
