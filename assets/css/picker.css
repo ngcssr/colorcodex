@@ -66,3 +66,41 @@ html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-ch
 .hcc-strip,.hcc-bar,.hcc-long-bar{overflow:hidden!important}
 .hcc-strip{clip-path:inset(0 round 999px)!important}
 .hcc-bar,.hcc-long-bar{border-radius:12px}
+
+/* Home first paint: the picker landing screen must never wait for JS to unhide it. */
+body[data-hcc-page="picker"] .hcc-nav,
+body[data-hcc-page="picker"] .hcc-hero,
+body[data-hcc-page="picker"] .hcc-hero-inner,
+body[data-hcc-page="picker"] .hcc-shell,
+body[data-hcc-page="picker"] .hcc-summary,
+body[data-hcc-page="picker"] .hcc-work,
+body[data-hcc-page="picker"] .hcc-picker-card,
+body[data-hcc-page="picker"] .hcc-standard-picker,
+body[data-hcc-page="picker"] .hcc-sv,
+body[data-hcc-page="picker"] .hcc-hue,
+body[data-hcc-page="picker"] .hcc-input-row,
+body[data-hcc-page="picker"] .hcc-actions,
+body[data-hcc-page="picker"] .hcc-preview-col,
+body[data-hcc-page="picker"] .hcc-select-wrap,
+body[data-hcc-page="picker"] .hcc-preview{
+  visibility:visible!important;
+  opacity:1!important;
+}
+body[data-hcc-page="picker"] .hcc-hero,
+body[data-hcc-page="picker"] .hcc-shell,
+body[data-hcc-page="picker"] .hcc-picker-card,
+body[data-hcc-page="picker"] .hcc-standard-picker{
+  display:block;
+}
+body[data-hcc-page="picker"] .hcc-nav,
+body[data-hcc-page="picker"] .hcc-actions .hcc-btn{
+  display:flex;
+}
+body[data-hcc-page="picker"] .hcc-summary,
+body[data-hcc-page="picker"] .hcc-work,
+body[data-hcc-page="picker"] .hcc-input-row,
+body[data-hcc-page="picker"] .hcc-actions,
+body[data-hcc-page="picker"] .hcc-preview-col,
+body[data-hcc-page="picker"] .hcc-select-wrap{
+  display:grid;
+}
