@@ -1,5 +1,6 @@
 (function(){
-  var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,2200)};
+  var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,5200)};
+  if(navigator.connection&&(navigator.connection.saveData||/2g/.test(navigator.connection.effectiveType||'')))return;
   var pages=[
     '/color-picker/',
     '/image-color-picker/',
@@ -10,7 +11,7 @@
     '/contrast-checker/',
     '/color-mixer/'
   ];
-  var chunks=['/pages-extra.js?v=20260625-094312'];
+  var chunks=['/pages-extra.js?v=20260625-104500'];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
     var l=document.createElement('link');
@@ -27,6 +28,6 @@
     chunks.forEach(function(p){hint(p,'script')});
     setTimeout(function(){
       pages.slice(0,3).forEach(function(p){var url=prefixPath(p);if(location.pathname!==url)hint(url,'document')});
-    },1800);
-  },{timeout:4500});
+    },4200);
+  },{timeout:9000});
 })();
