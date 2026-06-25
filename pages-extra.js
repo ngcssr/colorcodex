@@ -5,7 +5,7 @@
   function librarySections(){return shared.getLibrarySections?shared.getLibrarySections():[]}
   function namePages(){return shared.getNamePages?shared.getNamePages():{}}
   function chartDefs(){return shared.getChartDefs?shared.getChartDefs():[]}
-  function markReady(id,value){var el=document.getElementById(id);if(el)el.setAttribute('data-ready',value)}
+  function markReady(id,value){var el=document.getElementById(id);if(el)el.setAttribute('data-ready',value);if(shared.releaseI18nGuard)shared.releaseI18nGuard()}
   function setActiveRoute(v){if(shared.setActiveRoute)shared.setActiveRoute(v)}
   function chooseLibraryColor(hex,copyValue,recordColor){var rgb=hexToRgb(hex);if(rgb)setFromRgb(rgb);if(recordColor){recordClickedHex(hex,copyValue||('#'+cleanHex(hex)))}else{copyText(copyValue||('#'+cleanHex(hex)))}}
   function recordClickedHex(hex,copyValue){var fn=window.HCC_SHARED&&window.HCC_SHARED.recordClickedHex;if(fn)return fn(hex,copyValue);if(hex){copyText(copyValue||('#'+cleanHex(hex)))}}
