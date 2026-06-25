@@ -17,4 +17,36 @@ html,body{margin:0;padding:0;background:#fff;color:#050505;font-family:Inter,ui-
 .hcc-app.chart-mode .hcc-chart-page,.hcc-app.library-mode .hcc-library-page,.hcc-app.names-mode .hcc-names-page,.hcc-app.converter-mode .hcc-converter-page,.hcc-app.hexrgb-mode .hcc-hexrgb-page,.hcc-app.contrast-tool-mode .hcc-contrast-tool-page,.hcc-app.mixer-mode .hcc-mixer-page{min-height:760px}
 @media(max-width:760px){.hcc-app.chart-mode #hccChartTable:empty,.hcc-app.library-mode #hccLibraryList:empty,.hcc-app.names-mode #hccNamesTable:empty{min-height:620px}.hcc-app.chart-mode .hcc-chart-page,.hcc-app.library-mode .hcc-library-page,.hcc-app.names-mode .hcc-names-page,.hcc-app.converter-mode .hcc-converter-page,.hcc-app.hexrgb-mode .hcc-hexrgb-page,.hcc-app.contrast-tool-mode .hcc-contrast-tool-page,.hcc-app.mixer-mode .hcc-mixer-page{min-height:680px}.hcc-app.mixer-mode #hccMixerBar:empty{min-height:210px}}
 
-html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-info-text,html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-image-empty,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page{visibility:hidden}
+/* I18n island guard: keep nav, hero, and shell visible; hide only untranslated islands. */
+html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-info-text,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body:not([data-hcc-page^="chart-"]) .hcc-image-empty,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:hidden}
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page{position:relative}
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="library"] .hcc-library-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-names-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page:before,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page:before{content:"Loading...";visibility:visible;position:absolute;left:50%;top:84px;transform:translateX(-50%);min-width:172px;height:44px;border:1px solid #e5e5e5;border-radius:999px;background:#fff;color:#6b7280;font-size:14px;font-weight:760;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.035);z-index:3}
