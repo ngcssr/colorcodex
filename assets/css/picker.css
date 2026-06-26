@@ -52,16 +52,15 @@ html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-nam
 html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page:before{content:"";display:none!important}
 /* Stable hover labels: keep swatch widths fixed so the pointer cannot chase a resizing block. */
 .hcc-strip i,.hcc-bar i,.hcc-long-bar i,.hcc-chart-family-swatch{position:relative}
-.hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered,.hcc-chart-family-swatch.is-hovered{flex-grow:1!important;filter:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered,.hcc-chart-family-swatch.is-hovered{flex-grow:1!important;filter:none;box-shadow:none!important}
 .hcc-strip i:hover{color:transparent!important;padding-left:0!important;justify-content:center!important}
-.hcc-strip i:hover:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:attr(data-code);position:absolute;left:50%;top:50%;z-index:6;display:grid;place-items:center;width:max-content;min-width:44px;height:18px;padding:0 3px;margin:-9px 0 0 -22px;color:var(--strip-text,var(--swatch-text,#000));font-size:11px;font-weight:850;line-height:1;letter-spacing:0;white-space:nowrap;pointer-events:none;text-shadow:none;transform:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hcc-strip i:hover:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:none!important;display:none!important}
 .hcc-chart-family-swatch.is-hovered span{opacity:1;pointer-events:none}
 @media (max-width:760px){.hcc-strip i:hover,.hcc-bar i:hover,.hcc-long-bar i:hover,.hcc-chart-family-swatch.is-hovered,.hcc-mixer-page .hcc-mixer-bar button:hover{flex:1 1 0!important;flex-basis:auto!important;min-width:0!important;max-width:none!important}.hcc-chart-family-swatch.is-hovered{flex-grow:1!important}}
 .hcc-strip i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{transform:none!important}
 
-/* Single hover label layer: keep element text transparent so ::before is the only visible code. */
+/* Single hover label layer: keep element text hidden so the shared label is the only visible code. */
 .hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{color:transparent!important;text-shadow:none!important}
-.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before,.hcc-strip i:hover:before{color:var(--strip-text,var(--swatch-text,#000))!important}
 /* Preserve rounded swatch bars while hover labels are active. */
 .hcc-strip,.hcc-bar,.hcc-long-bar{overflow:hidden!important}
 .hcc-strip{clip-path:inset(0 round 999px)!important}
@@ -112,8 +111,16 @@ body[data-hcc-page="picker"] .hcc-hue-knob,body[data-hcc-page="picker"] .hcc-min
 
 /* Top strip labels use the same JS hover lock as the long bars. */
 .hcc-strip i.is-hovered{color:transparent!important;padding-left:0!important;justify-content:center!important;box-shadow:none!important}
-.hcc-strip i.is-hovered:before{content:attr(data-code);position:absolute;left:50%;top:50%;z-index:6;display:grid;place-items:center;width:max-content;min-width:44px;height:18px;padding:0 3px;margin:-9px 0 0 -22px;color:var(--strip-text,#000)!important;font-size:11px;font-weight:850;line-height:1;letter-spacing:0;white-space:nowrap;pointer-events:none;text-shadow:none;transform:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hcc-strip i.is-hovered:before{content:none!important;display:none!important}
 .hcc-strip i.active.is-hovered:after{opacity:0}
 
 /* Variations hover should reveal only the color code, not a black frame. */
 .hcc-long-bar i.is-hovered{box-shadow:none!important}
+
+/* Swatch bars share one clamped label, so boundary hover cannot show two codes. */
+.hcc-strip,.hcc-bar,.hcc-long-bar{position:relative}
+.hcc-hover-label{position:absolute;left:var(--hover-label-left,50%);top:50%;z-index:9;display:none;align-items:center;justify-content:center;width:72px;height:18px;margin:-9px 0 0 -36px;color:var(--hover-label-color,#000)!important;font-size:11px;font-weight:850;line-height:1;letter-spacing:0;white-space:nowrap;pointer-events:none;text-shadow:none;transform:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hcc-hover-label.is-visible{display:flex}
+.hcc-strip i:hover:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:none!important;display:none!important}
+.hcc-strip i.is-hovered:before{content:none!important;display:none!important}
+.hcc-strip i:hover{flex:1 1 1px!important;min-width:0!important;max-width:none!important;color:transparent!important;box-shadow:none!important;padding-left:0!important}
