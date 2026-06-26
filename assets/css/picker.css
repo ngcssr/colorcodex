@@ -104,3 +104,16 @@ body[data-hcc-page="picker"] .hcc-preview-col,
 body[data-hcc-page="picker"] .hcc-select-wrap{
   display:grid;
 }
+
+/* Picker default color must be visible before JS hydrates. */
+body[data-hcc-page="picker"] .hcc-dot{background:#6df3ea}
+body[data-hcc-page="picker"] .hcc-target,body[data-hcc-page="picker"] .hcc-mini-target{left:55.144%;top:4.706%}
+body[data-hcc-page="picker"] .hcc-hue-knob,body[data-hcc-page="picker"] .hcc-mini-hue-knob{left:48.88%;background:hsl(176,100%,50%)}
+
+/* Top strip labels use the same JS hover lock as the long bars. */
+.hcc-strip i.is-hovered{color:transparent!important;padding-left:0!important;justify-content:center!important;box-shadow:none!important}
+.hcc-strip i.is-hovered:before{content:attr(data-code);position:absolute;left:50%;top:50%;z-index:6;display:grid;place-items:center;width:max-content;min-width:44px;height:18px;padding:0 3px;margin:-9px 0 0 -22px;color:var(--strip-text,#000)!important;font-size:11px;font-weight:850;line-height:1;letter-spacing:0;white-space:nowrap;pointer-events:none;text-shadow:none;transform:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hcc-strip i.active.is-hovered:after{opacity:0}
+
+/* Variations hover should reveal only the color code, not a black frame. */
+.hcc-long-bar i.is-hovered{box-shadow:none!important}
