@@ -6,6 +6,9 @@ const jsPath = path.join(root, 'assets', 'js', 'picker-lite.js');
 const sharedJsPath = path.join(root, 'assets', 'js', 'shared-core.js');
 const cssPath = path.join(root, 'assets', 'css', 'picker.css');
 const cssDir = path.join(root, 'assets', 'css');
+const imageCorePath = path.join(root, 'assets', 'js', 'image-core.js');
+const pickerCorePath = path.join(root, 'assets', 'js', 'picker-core.js');
+const assetVersion = '20260626-202200';
 const pickerPages = [
   path.join(root, 'index.html'),
   path.join(root, 'color-picker', 'index.html'),
@@ -101,8 +104,8 @@ function verifyInitialJsColor(js) {
 
 function verifyPickerHtml(file, html) {
   const label = path.relative(root, file);
-  assertContains(html, 'window.HCC_ASSET_VERSION="20260626-181718"', label);
-  assertContains(html, '/assets/css/picker.css?v=20260626-181718', label);
+  assertContains(html, `window.HCC_ASSET_VERSION="${assetVersion}"`, label);
+  assertContains(html, `/assets/css/picker.css?v=${assetVersion}`, label);
   assertContains(html, 'picker-lite.js?v="+window.HCC_ASSET_VERSION', label);
   assertNotMatches(html, /picker-core\.js|prefetch\.js|shared-core\.js|i18n-text\.js|data-(?:library|chart|names)\.js/, `${label} first-load scripts`);
   assertContains(html, '<b id="hccTopHex">6DF3EA</b>', label);
@@ -118,11 +121,11 @@ function verifyHoverCss(css) {
   assertMatches(css, /body\[data-hcc-page="picker"\] \.hcc-dot\{background:#6df3ea\}/, 'picker.css default dot');
   assertMatches(css, /body\[data-hcc-page="picker"\] \.hcc-target,body\[data-hcc-page="picker"\] \.hcc-mini-target\{left:55\.144%;top:4\.706%\}/, 'picker.css default picker target');
   assertMatches(css, /body\[data-hcc-page="picker"\] \.hcc-hue-knob,body\[data-hcc-page="picker"\] \.hcc-mini-hue-knob\{left:48\.88%;background:hsl\(176,100%,50%\)\}/, 'picker.css default hue knob');
-  assertMatches(css, /\.hcc-long-bar i\.is-hovered\{[^}]*box-shadow:none!important/, 'picker.css variation hover');
-  assertMatches(css, /\.hcc-strip i\.is-hovered\{[^}]*box-shadow:none!important/, 'picker.css top strip hover class');
+  assertMatches(css, /\.hcc-strip i\.is-hovered,\.hcc-bar i\.is-hovered,\.hcc-long-bar i\.is-hovered\{[^}]*flex:0 0 var\(--hcc-swatch-hover-width,58px\)!important/, 'picker.css swatch self-expands on hover');
+  assertMatches(css, /\.hcc-strip i\.is-hovered,\.hcc-bar i\.is-hovered,\.hcc-long-bar i\.is-hovered\{[^}]*color:var\(--strip-text,var\(--swatch-text,#000\)\)!important/, 'picker.css swatch code uses per-swatch contrast color');
+  assertMatches(css, /\.hcc-hover-label,\.hcc-hover-label\.is-visible\{display:none!important\}/, 'picker.css disables shared hover label');
   assertMatches(css, /\.hcc-strip i\.active\.is-hovered:after/, 'picker.css active strip dot hidden on hover');
-  assertMatches(css, /\.hcc-hover-label\{[^}]*position:absolute/, 'picker.css shared hover label');
-  assertMatches(css, /\.hcc-strip i:hover:before,\.hcc-bar i\.is-hovered:before,\.hcc-long-bar i\.is-hovered:before\{content:none!important;display:none!important\}/, 'picker.css disables clipped per-swatch hover labels');
+  assertMatches(css, /\.hcc-strip i:hover:before,\.hcc-strip i\.is-hovered:before,\.hcc-bar i\.is-hovered:before,\.hcc-long-bar i\.is-hovered:before\{content:none!important;display:none!important\}/, 'picker.css disables pseudo hover labels');
   assertNotMatches(css, /content:attr\(data-code\)/, 'picker.css old per-swatch hover label');
 }
 
@@ -131,8 +134,8 @@ function verifyAllPageCss() {
   for (const name of files) {
     const css = read(path.join(cssDir, name));
     assertNotMatches(css, /content:attr\(data-code\)/, `${name} old per-swatch hover label`);
-    assertContains(css, '.hcc-hover-label', `${name} shared hover label`);
-    assertContains(css, 'width:72px', `${name} unclipped hover label width`);
+    assertContains(css, '.hcc-hover-label,.hcc-hover-label.is-visible{display:none!important}', `${name} shared hover label disabled`);
+    assertContains(css, '--hcc-swatch-hover-width,58px', `${name} desktop swatch hover width`);
   }
 }
 
@@ -144,24 +147,41 @@ function verifyLanguageMenu(js) {
 function verifyTopStripJs(js) {
   assertMatches(js, /renderStrip\(c\).*?title='#'\+code/s, 'picker-lite.js top strip title');
   assertMatches(js, /trackColorBars\(\).*?\.hcc-strip/s, 'picker-lite.js top strip hover tracking');
-  assertMatches(js, /hcc-hover-label/, 'picker-lite.js shared hover label');
-  assertMatches(js, /setProperty\('--hover-label-left'/, 'picker-lite.js hover label clamping');
+  assertMatches(js, /function pickBySlot\(x\).*?Math\.trunc/s, 'picker-lite.js stable slot-based hover hit testing');
+  assertMatches(js, /function setHoverWidth\(items,r\).*?base=r\.width\/items\.length/s, 'picker-lite.js dynamic hover width');
+  assertNotMatches(js, /Math\.floor\(\(e\.clientX-r\.left\)\/r\.width\*items\.length\)/, 'picker-lite.js old width/count hover hit testing');
+  assertNotMatches(js, /hcc-hover-label|hover-label-left/, 'picker-lite.js must not use shared floating hover label');
+  ['Tailwind', 'Tint', 'Shade', 'Tone', 'Analogous', 'Complement', 'Split', 'Triadic', 'Tetradic', 'Square'].forEach((name) => {
+    assertContains(js, `'${name}'`, `picker-lite.js palette row ${name}`);
+  });
 }
 
 function verifySharedHoverJs(js) {
   assertMatches(js, /querySelectorAll\('\.hcc-strip,\.hcc-bar,\.hcc-long-bar,\.hcc-history-grid'\)/, 'shared-core.js top strip hover tracking');
-  assertMatches(js, /hcc-hover-label/, 'shared-core.js shared hover label');
-  assertMatches(js, /setProperty\('--hover-label-left'/, 'shared-core.js hover label clamping');
+  assertMatches(js, /function pickBySlot\(x\).*?Math\.trunc/s, 'shared-core.js stable slot-based hover hit testing');
+  assertMatches(js, /function setHoverWidth\(items,r\).*?base=r\.width\/items\.length/s, 'shared-core.js dynamic hover width');
+  assertNotMatches(js, /Math\.floor\(\(e\.clientX-r\.left\)\/r\.width\*items\.length\)/, 'shared-core.js old width/count hover hit testing');
+  assertNotMatches(js, /hcc-hover-label|hover-label-left/, 'shared-core.js must not use shared floating hover label');
+}
+
+function verifyCoreWrapper(file, js) {
+  const label = path.relative(root, file);
+  assertMatches(js, /window\.HCC_ASSET_VERSION\|\|'20260626-202200'/, `${label} shared-core cache version`);
+  assertNotMatches(js, /shared-core\.js\?v=20260625-120300/, `${label} stale shared-core cache version`);
 }
 
 const js = read(jsPath);
 const sharedJs = read(sharedJsPath);
 const css = read(cssPath);
+const imageCoreJs = read(imageCorePath);
+const pickerCoreJs = read(pickerCorePath);
 
 verifyInitialJsColor(js);
 verifyLanguageMenu(js);
 verifyTopStripJs(js);
 verifySharedHoverJs(sharedJs);
+verifyCoreWrapper(imageCorePath, imageCoreJs);
+verifyCoreWrapper(pickerCorePath, pickerCoreJs);
 verifyHoverCss(css);
 verifyAllPageCss();
 

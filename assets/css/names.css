@@ -79,3 +79,17 @@ html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-ch
 .hcc-hover-label.is-visible{display:flex}
 .hcc-strip i:hover:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:none!important;display:none!important}
 .hcc-strip i:hover{flex:1 1 1px!important;min-width:0!important;max-width:none!important;color:transparent!important;box-shadow:none!important;padding-left:0!important}
+/* HCC swatch self hover labels 20260626 */
+.hcc-hover-label,.hcc-hover-label.is-visible{display:none!important}
+.hcc-strip,.hcc-bar,.hcc-long-bar{position:relative;overflow:hidden!important}
+.hcc-strip{clip-path:inset(0 round 999px)!important}
+.hcc-strip i,.hcc-bar i,.hcc-long-bar i{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;overflow:hidden!important;white-space:nowrap!important;text-overflow:clip!important;letter-spacing:0!important;text-shadow:none!important;transform:none!important;box-shadow:none!important;color:transparent!important;font-size:0!important;padding:0!important;filter:none!important}
+.hcc-strip i:hover,.hcc-bar i:hover,.hcc-long-bar i:hover{flex:1 1 1px!important;min-width:0!important;max-width:none!important;color:transparent!important;font-size:0!important;box-shadow:none!important;padding:0!important;filter:none!important}
+.hcc-strip.has-hover i:not(.is-hovered),.hcc-bar.has-hover i:not(.is-hovered),.hcc-long-bar.has-hover i:not(.is-hovered){flex:1 1 1px!important;min-width:0!important;max-width:none!important;color:transparent!important;font-size:0!important;box-shadow:none!important}
+.hcc-strip i.is-hovered,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{flex:0 0 var(--hcc-swatch-hover-width,58px)!important;min-width:var(--hcc-swatch-hover-width,58px)!important;max-width:var(--hcc-swatch-hover-width,58px)!important;color:var(--strip-text,var(--swatch-text,#000))!important;font-size:10px!important;font-weight:850!important;line-height:1!important;padding:0 5px!important;z-index:5!important;box-shadow:none!important;filter:none!important}
+.hcc-strip i:hover:before,.hcc-strip i.is-hovered:before,.hcc-bar i.is-hovered:before,.hcc-long-bar i.is-hovered:before{content:none!important;display:none!important}
+.hcc-strip i.active.is-hovered:after{opacity:0!important}
+.hcc-strip i:first-child,.hcc-strip i:first-child.is-hovered{border-top-left-radius:999px!important;border-bottom-left-radius:999px!important}
+.hcc-strip i:last-child,.hcc-strip i:last-child.is-hovered{border-top-right-radius:999px!important;border-bottom-right-radius:999px!important}
+.hcc-bar,.hcc-long-bar{border-radius:12px!important}
+@media (max-width:760px){.hcc-strip,.hcc-bar,.hcc-long-bar{--hcc-swatch-hover-width:54px}.hcc-strip i.is-hovered,.hcc-bar i.is-hovered,.hcc-long-bar i.is-hovered{font-size:9.5px!important;padding:0 4px!important}}
