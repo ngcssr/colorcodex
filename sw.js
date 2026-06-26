@@ -1,4 +1,4 @@
-const HCC_CACHE = 'colorcodex-static-lang-pages-20260626-202200';
+const HCC_CACHE = 'colorcodex-static-lang-pages-20260626-214000';
 const HCC_CORE = [
   '/favicon.svg'
 ];
