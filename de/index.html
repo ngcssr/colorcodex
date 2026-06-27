@@ -1,1 +1,513 @@
-<!doctype html><html lang="de" class="hcc-lang-pending"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Color Code Tools</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://www.colorcodetools.com/de/color-picker/"><script>location.replace("/de/color-picker/"+location.search+location.hash);</script><style>html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#fff;color:#111}body{display:grid;place-items:center}.box{font-size:14px;color:#667085}</style></head><body><div class="box">Loading Deutsch Color Picker...</div><noscript><meta http-equiv="refresh" content="0; url=/de/color-picker/"><a href="/de/color-picker/">Open Color Picker</a></noscript></body></html>
+<!doctype html><html lang="de" class="hcc-lang-pending"><head><style id="hccFirstpaintEssential">.hcc-file-input,.hcc-harmony-select{display:none!important}
+.hcc-preview-swatch{color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;letter-spacing:0!important;overflow:hidden!important}
+.hcc-preview-swatch.dark-text{color:transparent!important;text-shadow:none!important}
+.hcc-strip i,.hcc-bar i,.hcc-long-bar i{color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;overflow:hidden!important}
+.hcc-strip i:hover,.hcc-strip i.is-hovered,.hcc-bar i:hover,.hcc-bar i.is-hovered,.hcc-long-bar i:hover,.hcc-long-bar i.is-hovered{box-shadow:none!important;filter:none!important;text-shadow:none!important}
+.hcc-chart-family-swatch span,.hcc-chart-family-swatch.is-hovered span{opacity:0!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;pointer-events:none!important}
+.hcc-toast{display:block!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+.hcc-toast.show{visibility:visible!important;opacity:1!important}
+.hcc-image-drop{height:254px;border:1px dashed #cfcfcf;border-radius:8px;background:#fafafa;position:relative;overflow:hidden;display:grid!important;place-items:center;cursor:pointer;color:#525866;text-align:center;touch-action:none;user-select:none}
+.hcc-image-empty{display:grid!important;gap:10px;place-items:center;padding:24px;position:relative;z-index:2;max-width:100%;text-align:center}
+.hcc-image-empty b{display:block;font-size:18px;line-height:1.1;font-weight:850;color:#050505}
+.hcc-image-empty span{display:block;max-width:270px;font-size:14px;line-height:1.4;font-weight:600;color:#525866}
+.hcc-image-target,.hcc-image-zoom{display:none}
+.hcc-select-wrap{position:relative;width:304px;max-width:100%;height:40px}
+.hcc-harmony-btn{width:100%;height:40px;border:1px solid #dedede;border-radius:8px;background:#fff;padding:0 42px 0 14px;font-size:16px;font-weight:760;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;position:relative;z-index:31;color:#050505}
+.hcc-harmony-btn:after{content:"";position:absolute;right:21px;top:50%;width:7px;height:7px;border-right:1.6px solid #111;border-bottom:1.6px solid #111;transform:translateY(-70%) rotate(45deg)}
+@media (max-width:760px){.hcc-image-drop{height:auto;aspect-ratio:1.52/1;min-height:188px;max-height:242px}.hcc-image-empty{padding:18px}.hcc-image-empty b{font-size:17px}.hcc-select-wrap,.hcc-harmony-btn{width:100%;max-width:100%;min-width:0}}
+/* hcc-route-firstpaint-rootfix 20260627-234000 start */
+body:not([data-hcc-page="picker"]):not([data-hcc-page="image"]):not([data-hcc-page="wheel"]) .hcc-work,
+body:not([data-hcc-page="picker"]):not([data-hcc-page="image"]):not([data-hcc-page="wheel"]) .hcc-sections{display:none!important;visibility:hidden!important;opacity:0!important}
+.hcc-chart-page,
+.hcc-library-page,
+.hcc-converter-page,
+.hcc-hexrgb-page,
+.hcc-contrast-tool-page,
+.hcc-mixer-page,
+.hcc-names-page,
+.hcc-legal-page{display:none!important}
+body[data-hcc-page="chart"] .hcc-chart-page,
+body[data-hcc-page^="chart-"] .hcc-chart-page,
+body[data-hcc-page="library"] .hcc-library-page,
+body[data-hcc-page="converter"] .hcc-converter-page,
+body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+body[data-hcc-page="names"] .hcc-names-page,
+body[data-hcc-page="minecraft"] .hcc-names-page,
+body[data-hcc-page="bukkit"] .hcc-names-page,
+body[data-hcc-page="roblox"] .hcc-names-page,
+body[data-hcc-page="about"] .hcc-legal-page,
+body[data-hcc-page="privacy-policy"] .hcc-legal-page,
+body[data-hcc-page="terms-of-service"] .hcc-legal-page{display:block!important;visibility:visible!important;opacity:1!important}
+html.hcc-lang-pending body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="chart"] .hcc-chart-page,
+html.hcc-lang-pending body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:visible!important;opacity:1!important}
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="chart"] .hcc-chart-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:visible!important;opacity:1!important}
+body[data-hcc-page="library"] .hcc-library-page{min-height:920px!important}
+body[data-hcc-page="library"] .hcc-library-list{min-height:820px!important}
+body[data-hcc-page="library"] .hcc-library-section{min-height:360px!important;margin-bottom:26px!important}
+body[data-hcc-page="library"] .hcc-library-table-wrap{min-height:324px!important}
+body[data-hcc-page="library"] .hcc-library-table tr{height:46px!important}
+body[data-hcc-page="library"] .hcc-trail,
+body[data-hcc-page="converter"] .hcc-trail,
+body[data-hcc-page="hex-to-rgb"] .hcc-trail,
+body[data-hcc-page="contrast-checker"] .hcc-trail,
+body[data-hcc-page="color-mixer"] .hcc-trail,
+body[data-hcc-page="names"] .hcc-trail,
+body[data-hcc-page="minecraft"] .hcc-trail,
+body[data-hcc-page="bukkit"] .hcc-trail,
+body[data-hcc-page="roblox"] .hcc-trail{visibility:hidden!important}
+html.hcc-i18n-ready body[data-hcc-page="library"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="converter"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="hex-to-rgb"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="contrast-checker"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="color-mixer"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="names"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="minecraft"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="bukkit"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="roblox"] .hcc-trail{visibility:visible!important}
+body[data-hcc-page="library"] #hccLibraryList:empty{display:block!important;min-height:820px!important}
+body[data-hcc-page="converter"] .hcc-converter-page,
+body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page{min-height:980px!important}
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page{min-height:860px!important}
+body[data-hcc-page="contrast-checker"] .hcc-converter-layout{min-height:760px!important}
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool{min-height:322px!important}
+body[data-hcc-page="contrast-checker"] #hccContrastToolRows tr{height:52px!important}
+.hcc-chart-family-bar{display:flex!important;overflow:hidden!important;--hcc-swatch-hover-grow:1.16;--hcc-swatch-near-grow:.94;--hcc-swatch-rest-grow:.9;--hcc-swatch-label-font:10px;--hcc-swatch-label-pad:5px}
+.hcc-chart-family-swatch{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;min-width:0!important;max-width:none!important;overflow:hidden!important;border:0!important;padding:0!important;box-shadow:none!important;filter:none!important;transition:flex-grow .2s cubic-bezier(.2,.78,.2,1),padding .18s cubic-bezier(.2,.78,.2,1)}
+.hcc-chart-family-swatch:hover{flex:1 1 0!important;min-width:0!important;max-width:none!important;box-shadow:none!important;filter:none!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch:not(.is-hovered){flex-grow:var(--hcc-swatch-rest-grow,.9)!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-before-hover,
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-after-hover{flex-grow:var(--hcc-swatch-near-grow,.94)!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-hovered{flex:var(--hcc-swatch-hover-grow,1.16) 1 0!important;min-width:0!important;max-width:none!important;z-index:5!important}
+.hcc-chart-family-swatch span{opacity:0!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;pointer-events:none!important;display:flex!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;overflow:visible!important;font-weight:850!important;font-variant-numeric:tabular-nums!important}
+.hcc-chart-family-swatch.is-hovered span{opacity:1!important;color:var(--swatch-text,#000)!important;font-size:var(--hcc-swatch-label-font,10px)!important;line-height:1.05!important;padding:0 var(--hcc-swatch-label-pad,5px)!important}
+html.hcc-hover-boot .hcc-chart-family-swatch span,
+html.hcc-hover-boot .hcc-chart-family-swatch.is-hovered span{opacity:0!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important}
+body[data-hcc-page="picker"] .hcc-work,
+body[data-hcc-page="image"] .hcc-work,
+body[data-hcc-page="wheel"] .hcc-work{display:grid!important;visibility:visible!important;opacity:1!important}
+body[data-hcc-page="picker"] .hcc-sections,
+body[data-hcc-page="image"] .hcc-sections,
+body[data-hcc-page="wheel"] .hcc-sections{display:block!important;visibility:visible!important;opacity:1!important}
+body[data-hcc-page="picker"] .hcc-standard-picker{display:block!important}
+body[data-hcc-page="picker"] .hcc-image-picker,
+body[data-hcc-page="picker"] .hcc-wheel-picker{display:none!important}
+body[data-hcc-page="image"] .hcc-image-picker{display:block!important}
+body[data-hcc-page="image"] .hcc-standard-picker,
+body[data-hcc-page="image"] .hcc-wheel-picker{display:none!important}
+body[data-hcc-page="wheel"] .hcc-wheel-picker{display:block!important}
+body[data-hcc-page="wheel"] .hcc-standard-picker,
+body[data-hcc-page="wheel"] .hcc-image-picker{display:none!important}
+body[data-hcc-page="picker"] .hcc-preview,
+body[data-hcc-page="image"] .hcc-preview,
+body[data-hcc-page="wheel"] .hcc-preview{height:422px!important;min-height:422px!important;display:grid!important;align-items:stretch!important;justify-items:stretch!important;place-items:stretch!important;overflow:hidden!important;background:transparent!important}
+body[data-hcc-page="picker"] .hcc-preview:empty,
+body[data-hcc-page="image"] .hcc-preview:empty,
+body[data-hcc-page="wheel"] .hcc-preview:empty{background:#6df3ea!important;color:#000!important;place-items:center!important;font-size:20px!important;font-weight:850!important;line-height:1!important;font-variant-numeric:tabular-nums}
+body[data-hcc-page="picker"] .hcc-preview:empty:before,
+body[data-hcc-page="image"] .hcc-preview:empty:before,
+body[data-hcc-page="wheel"] .hcc-preview:empty:before{content:"6DF3EA"}
+body[data-hcc-page="picker"] .hcc-preview-swatch,
+body[data-hcc-page="image"] .hcc-preview-swatch,
+body[data-hcc-page="wheel"] .hcc-preview-swatch{width:100%!important;height:100%!important;min-height:0!important;align-self:stretch!important;justify-self:stretch!important}
+body[data-hcc-page="image"] .hcc-hero,
+body[data-hcc-page="wheel"] .hcc-hero,
+body[data-hcc-page="chart"] .hcc-hero,
+body[data-hcc-page^="chart-"] .hcc-hero{min-height:346px!important;padding:46px 34px 104px!important}
+body[data-hcc-page="wheel"] .hcc-wheel-wrap{height:304px!important;display:grid!important;place-items:center!important;border-color:transparent!important;box-shadow:none!important;overflow:visible!important;background:#fff!important}
+body[data-hcc-page="wheel"] .hcc-wheel-light{width:302px!important;height:302px!important;z-index:1}
+body[data-hcc-page="wheel"] .hcc-wheel{width:254px!important;height:254px!important;z-index:3}
+body[data-hcc-page="wheel"] .hcc-wheel-note{display:none!important}
+body[data-hcc-page="chart"] .hcc-chart-table,
+body[data-hcc-page^="chart-"] .hcc-chart-table{display:grid!important;gap:0!important;width:752px!important;max-width:100%!important}
+body[data-hcc-page^="chart-"] .hcc-chart-page{min-height:1380px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-detail{min-height:1320px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-list{min-height:1120px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-family{min-height:104px!important;margin-bottom:24px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-family-bar{height:58px!important}
+body[data-hcc-page="chart"] .hcc-chart-matrix,
+body[data-hcc-page^="chart-"] .hcc-chart-matrix{display:flex!important;align-items:flex-start!important;width:752px!important;max-width:100%!important;height:286px!important;overflow:hidden!important;border-radius:12px!important;background:transparent!important}
+body[data-hcc-page="chart"] .hcc-chart-col,
+body[data-hcc-page^="chart-"] .hcc-chart-col{flex:1 1 0!important;display:flex!important;flex-direction:column!important;align-self:stretch!important;height:100%!important;min-width:0!important;min-height:0!important}
+body[data-hcc-page="chart"] .hcc-chart-col.fill,
+body[data-hcc-page^="chart-"] .hcc-chart-col.fill{align-self:stretch!important}
+body[data-hcc-page="chart"] .hcc-chart-col.fill .hcc-chart-cell,
+body[data-hcc-page^="chart-"] .hcc-chart-col.fill .hcc-chart-cell{aspect-ratio:auto!important;flex:1 1 0!important}
+body[data-hcc-page="chart"] .hcc-chart-cell,
+body[data-hcc-page^="chart-"] .hcc-chart-cell{appearance:none!important;-webkit-appearance:none!important;display:block!important;aspect-ratio:auto!important;flex:1 1 0!important;width:100%!important;height:auto!important;border:0!important;border-radius:0!important;padding:0!important;margin:0!important;cursor:pointer!important;background:var(--cell-bg,#ccc)!important;box-shadow:0 0 0 1px var(--cell-bg,#ccc)!important;font-size:0!important;line-height:0!important;min-width:0!important;min-height:0!important;color:transparent!important}
+body[data-hcc-page="names"] .hcc-names-page,
+body[data-hcc-page="minecraft"] .hcc-names-page,
+body[data-hcc-page="bukkit"] .hcc-names-page,
+body[data-hcc-page="roblox"] .hcc-names-page{min-height:760px!important}
+body[data-hcc-page="names"] .hcc-names-layout,
+body[data-hcc-page="minecraft"] .hcc-names-layout,
+body[data-hcc-page="bukkit"] .hcc-names-layout,
+body[data-hcc-page="roblox"] .hcc-names-layout{min-height:700px!important}
+body[data-hcc-page="names"] #hccNamesTable,
+body[data-hcc-page="minecraft"] #hccNamesTable,
+body[data-hcc-page="bukkit"] #hccNamesTable,
+body[data-hcc-page="roblox"] #hccNamesTable{min-height:620px!important}
+body[data-hcc-page="names"] .hcc-name-section,
+body[data-hcc-page="minecraft"] .hcc-name-section,
+body[data-hcc-page="bukkit"] .hcc-name-section,
+body[data-hcc-page="roblox"] .hcc-name-section{min-height:300px!important;margin-bottom:28px!important}
+body[data-hcc-page="names"] table.hcc-names-table tr,
+body[data-hcc-page="minecraft"] table.hcc-names-table tr,
+body[data-hcc-page="bukkit"] table.hcc-names-table tr,
+body[data-hcc-page="roblox"] table.hcc-names-table tr{height:46px!important}
+body[data-hcc-page="names"] #hccNamesTable:empty,
+body[data-hcc-page="minecraft"] #hccNamesTable:empty,
+body[data-hcc-page="bukkit"] #hccNamesTable:empty,
+body[data-hcc-page="roblox"] #hccNamesTable:empty{display:block!important;min-height:720px!important}
+html.hcc-hover-boot .hcc-strip i,
+html.hcc-hover-boot .hcc-strip i:hover,
+html.hcc-hover-boot .hcc-strip i.is-hovered,
+html.hcc-hover-boot .hcc-strip.has-hover i.is-hovered,
+html.hcc-hover-boot .hcc-bar i,
+html.hcc-hover-boot .hcc-bar i:hover,
+html.hcc-hover-boot .hcc-bar i.is-hovered,
+html.hcc-hover-boot .hcc-bar.has-hover i.is-hovered,
+html.hcc-hover-boot .hcc-long-bar i,
+html.hcc-hover-boot .hcc-long-bar i:hover,
+html.hcc-hover-boot .hcc-long-bar i.is-hovered,
+html.hcc-hover-boot .hcc-long-bar.has-hover i.is-hovered{color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;overflow:hidden!important;padding:0!important;box-shadow:none!important;filter:none!important}
+html.hcc-hover-boot .hcc-toast{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+@media (max-width:760px){
+  body[data-hcc-page="picker"] .hcc-work,
+  body[data-hcc-page="image"] .hcc-work,
+  body[data-hcc-page="wheel"] .hcc-work{display:block!important;grid-template-columns:none!important;overflow:hidden!important}
+  body[data-hcc-page="picker"] .hcc-preview,
+  body[data-hcc-page="image"] .hcc-preview,
+  body[data-hcc-page="wheel"] .hcc-preview{width:100%!important;height:246px!important;min-height:246px!important;max-height:246px!important}
+  body[data-hcc-page="picker"] .hcc-preview:empty,
+  body[data-hcc-page="image"] .hcc-preview:empty,
+  body[data-hcc-page="wheel"] .hcc-preview:empty{font-size:18px!important}
+  body[data-hcc-page="image"] .hcc-hero,
+  body[data-hcc-page="wheel"] .hcc-hero,
+  body[data-hcc-page="chart"] .hcc-hero,
+  body[data-hcc-page^="chart-"] .hcc-hero{min-height:268px!important;padding:74px 28px 30px!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-wrap{width:100%!important;max-width:100%!important;min-width:0!important;height:min(286px,calc(100vw - 70px))!important;min-height:220px!important;max-height:286px!important;aspect-ratio:auto!important;overflow:hidden!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-light{width:min(282px,calc(100vw - 80px))!important;height:min(282px,calc(100vw - 80px))!important;overflow:hidden!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-light-rotor{inset:0!important}
+  body[data-hcc-page="wheel"] .hcc-wheel{width:min(236px,calc(100vw - 122px))!important;height:min(236px,calc(100vw - 122px))!important}
+  body[data-hcc-page="chart"] .hcc-chart-table,
+  body[data-hcc-page^="chart-"] .hcc-chart-table,
+  body[data-hcc-page="chart"] .hcc-chart-matrix,
+  body[data-hcc-page^="chart-"] .hcc-chart-matrix{width:100%!important;max-width:100%!important}
+  body[data-hcc-page="chart"] .hcc-chart-matrix,
+  body[data-hcc-page^="chart-"] .hcc-chart-matrix{height:236px!important;border-radius:10px!important;overflow:auto!important}
+  body[data-hcc-page="names"] .hcc-names-page,
+  body[data-hcc-page="minecraft"] .hcc-names-page,
+  body[data-hcc-page="bukkit"] .hcc-names-page,
+  body[data-hcc-page="roblox"] .hcc-names-page{min-height:680px!important}
+  body[data-hcc-page="library"] .hcc-library-page{min-height:760px!important}
+  body[data-hcc-page="library"] .hcc-library-list{min-height:680px!important}
+  body[data-hcc-page="library"] .hcc-library-section{min-height:320px!important}
+  body[data-hcc-page="library"] .hcc-library-table-wrap{min-height:286px!important}
+  body[data-hcc-page="library"] #hccLibraryList:empty{min-height:680px!important}
+  body[data-hcc-page="converter"] .hcc-converter-page,
+  body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+  body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page{min-height:760px!important}
+  body[data-hcc-page="contrast-checker"] .hcc-converter-layout{min-height:680px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-page{min-height:1180px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-detail{min-height:1120px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-list{min-height:960px!important}
+  body[data-hcc-page="names"] .hcc-names-layout,
+  body[data-hcc-page="minecraft"] .hcc-names-layout,
+  body[data-hcc-page="bukkit"] .hcc-names-layout,
+  body[data-hcc-page="roblox"] .hcc-names-layout{min-height:620px!important}
+  body[data-hcc-page="names"] #hccNamesTable,
+  body[data-hcc-page="minecraft"] #hccNamesTable,
+  body[data-hcc-page="bukkit"] #hccNamesTable,
+  body[data-hcc-page="roblox"] #hccNamesTable{min-height:560px!important}
+  body[data-hcc-page="names"] #hccNamesTable:empty,
+  body[data-hcc-page="minecraft"] #hccNamesTable:empty,
+  body[data-hcc-page="bukkit"] #hccNamesTable:empty,
+  body[data-hcc-page="roblox"] #hccNamesTable:empty{min-height:620px!important}
+}
+/* hcc-route-firstpaint-rootfix 20260627-234000 end */</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Color Code Tools</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://www.colorcodetools.com/de/color-picker/"><script>location.replace("/de/color-picker/"+location.search+location.hash);</script><style>html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#fff;color:#111}body{display:grid;place-items:center}.box{font-size:14px;color:#667085}</style><style id="hccFirstpaintUiFix">/* hcc-firstpaint-ui-fix start */
+.hcc-file-input{display:none!important}
+.hcc-image-drop{height:254px;border:1px dashed #cfcfcf;border-radius:8px;background:#fafafa;position:relative;overflow:hidden;display:grid!important;place-items:center;cursor:pointer;color:#525866;text-align:center;touch-action:none;user-select:none}
+.hcc-image-drop.has-image{border-style:solid;background:#fff;cursor:crosshair}
+.hcc-image-drop canvas{display:none}
+.hcc-image-drop.has-image #hccImageCanvas{display:block;position:absolute;left:var(--image-left,0);top:var(--image-top,0);width:var(--image-width,100%);height:var(--image-height,100%);max-width:none;max-height:none}
+.hcc-image-empty{display:grid!important;gap:10px;place-items:center;padding:24px;position:relative;z-index:2;max-width:100%;text-align:center}
+.hcc-image-drop.has-image .hcc-image-empty{display:none!important}
+.hcc-image-empty b{display:block;font-size:18px;line-height:1.1;font-weight:850;color:#050505}
+.hcc-image-empty span{display:block;max-width:270px;font-size:14px;line-height:1.4;font-weight:600;color:#525866}
+.hcc-image-target,.hcc-image-zoom{display:none}
+.hcc-image-palette{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin-top:14px}
+.hcc-preview-col{display:grid;gap:18px;width:304px;max-width:100%;min-width:0}
+.hcc-select-wrap{position:relative;width:304px;max-width:100%;height:40px}
+.hcc-harmony-select{display:none!important}
+.hcc-harmony-btn{width:100%;height:40px;border:1px solid #dedede;border-radius:8px;background:#fff;padding:0 42px 0 14px;font-size:16px;font-weight:760;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;position:relative;z-index:31;color:#050505}
+.hcc-harmony-btn:after{content:"";position:absolute;right:21px;top:50%;width:7px;height:7px;border-right:1.6px solid #111;border-bottom:1.6px solid #111;transform:translateY(-70%) rotate(45deg)}
+.hcc-select-wrap:not(.idle) .hcc-harmony-btn:after{display:none}
+.hcc-harmony-menu{position:absolute;left:0;right:0;top:48px;height:226px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;box-shadow:0 14px 36px rgba(0,0,0,.1);padding:10px 26px;display:none;z-index:30;align-content:stretch}
+.hcc-harmony-menu.show{display:grid;grid-template-rows:repeat(6,minmax(0,1fr));gap:0}
+.hcc-harmony-menu button{border:0;background:#fff;text-align:left;font-size:16px;line-height:1;font-weight:700;cursor:pointer;padding:0;letter-spacing:0;display:flex;align-items:center;height:100%;color:#050505}
+.hcc-clear-select{position:absolute;right:3px;top:3px;width:34px;height:34px;border:0;border-radius:7px;background:transparent;font-size:26px;font-weight:400;line-height:1;cursor:pointer;color:#777;display:grid;place-items:center;padding:0;z-index:32}
+.hcc-select-wrap.idle .hcc-clear-select{display:none!important}
+.hcc-preview{display:grid;overflow:hidden}
+.hcc-preview-swatch{display:grid;place-items:center;min-height:70px;cursor:pointer;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;letter-spacing:0;overflow:hidden}
+.hcc-preview-swatch.dark-text{color:transparent!important;text-shadow:none!important}
+@media (max-width:760px){.hcc-preview-col,.hcc-select-wrap,.hcc-harmony-btn,.hcc-preview{width:100%;max-width:100%;min-width:0}.hcc-image-drop{height:auto;aspect-ratio:1.52/1;min-height:188px;max-height:242px}.hcc-image-empty{padding:18px}.hcc-image-empty b{font-size:17px}.hcc-image-palette{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}}
+/* hcc-firstpaint-ui-fix end */</style><style id="hccPreviewSwatchTextRestore">/* hcc-preview-swatch-text-restore start */
+.hcc-preview-swatch{display:grid!important;place-items:center!important;color:var(--swatch-text,#000)!important;font-size:20px!important;line-height:1!important;font-weight:850!important;text-shadow:none!important;letter-spacing:0!important;overflow:hidden!important;text-align:center!important;font-variant-numeric:tabular-nums}
+.hcc-preview-swatch.dark-text{color:var(--swatch-text,#000)!important;text-shadow:none!important}
+@media (max-width:760px){.hcc-preview-swatch{font-size:18px!important}}
+/* hcc-preview-swatch-text-restore end */</style><style id="hccPreviewSwatchStretch">/* hcc-preview-swatch-stretch start */
+.hcc-preview{display:grid!important;align-items:stretch!important;justify-items:stretch!important;place-items:stretch!important;background:transparent!important}
+.hcc-preview-swatch{width:100%!important;height:100%!important;min-height:0!important;align-self:stretch!important;justify-self:stretch!important}
+@media (max-width:760px){.hcc-preview{display:grid!important;align-items:stretch!important;justify-items:stretch!important;place-items:stretch!important}.hcc-preview-swatch{width:100%!important;height:100%!important;min-height:0!important;align-self:stretch!important;justify-self:stretch!important}}
+/* hcc-preview-swatch-stretch end */</style><style id="hccRouteFirstpaintRootfix">/* hcc-route-firstpaint-rootfix 20260627-234000 start */
+body:not([data-hcc-page="picker"]):not([data-hcc-page="image"]):not([data-hcc-page="wheel"]) .hcc-work,
+body:not([data-hcc-page="picker"]):not([data-hcc-page="image"]):not([data-hcc-page="wheel"]) .hcc-sections{display:none!important;visibility:hidden!important;opacity:0!important}
+.hcc-chart-page,
+.hcc-library-page,
+.hcc-converter-page,
+.hcc-hexrgb-page,
+.hcc-contrast-tool-page,
+.hcc-mixer-page,
+.hcc-names-page,
+.hcc-legal-page{display:none!important}
+body[data-hcc-page="chart"] .hcc-chart-page,
+body[data-hcc-page^="chart-"] .hcc-chart-page,
+body[data-hcc-page="library"] .hcc-library-page,
+body[data-hcc-page="converter"] .hcc-converter-page,
+body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+body[data-hcc-page="names"] .hcc-names-page,
+body[data-hcc-page="minecraft"] .hcc-names-page,
+body[data-hcc-page="bukkit"] .hcc-names-page,
+body[data-hcc-page="roblox"] .hcc-names-page,
+body[data-hcc-page="about"] .hcc-legal-page,
+body[data-hcc-page="privacy-policy"] .hcc-legal-page,
+body[data-hcc-page="terms-of-service"] .hcc-legal-page{display:block!important;visibility:visible!important;opacity:1!important}
+html.hcc-lang-pending body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending body[data-hcc-page="chart"] .hcc-chart-page,
+html.hcc-lang-pending body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:visible!important;opacity:1!important}
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="library"] .hcc-library-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="converter"] .hcc-converter-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="color-mixer"] .hcc-mixer-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="names"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="minecraft"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="bukkit"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="roblox"] .hcc-names-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page="chart"] .hcc-chart-page,
+html.hcc-lang-pending:not(.hcc-i18n-ready) body[data-hcc-page^="chart-"] .hcc-chart-page{visibility:visible!important;opacity:1!important}
+body[data-hcc-page="library"] .hcc-library-page{min-height:920px!important}
+body[data-hcc-page="library"] .hcc-library-list{min-height:820px!important}
+body[data-hcc-page="library"] .hcc-library-section{min-height:360px!important;margin-bottom:26px!important}
+body[data-hcc-page="library"] .hcc-library-table-wrap{min-height:324px!important}
+body[data-hcc-page="library"] .hcc-library-table tr{height:46px!important}
+body[data-hcc-page="library"] .hcc-trail,
+body[data-hcc-page="converter"] .hcc-trail,
+body[data-hcc-page="hex-to-rgb"] .hcc-trail,
+body[data-hcc-page="contrast-checker"] .hcc-trail,
+body[data-hcc-page="color-mixer"] .hcc-trail,
+body[data-hcc-page="names"] .hcc-trail,
+body[data-hcc-page="minecraft"] .hcc-trail,
+body[data-hcc-page="bukkit"] .hcc-trail,
+body[data-hcc-page="roblox"] .hcc-trail{visibility:hidden!important}
+html.hcc-i18n-ready body[data-hcc-page="library"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="converter"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="hex-to-rgb"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="contrast-checker"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="color-mixer"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="names"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="minecraft"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="bukkit"] .hcc-trail,
+html.hcc-i18n-ready body[data-hcc-page="roblox"] .hcc-trail{visibility:visible!important}
+body[data-hcc-page="library"] #hccLibraryList:empty{display:block!important;min-height:820px!important}
+body[data-hcc-page="converter"] .hcc-converter-page,
+body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page{min-height:980px!important}
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page{min-height:860px!important}
+body[data-hcc-page="contrast-checker"] .hcc-converter-layout{min-height:760px!important}
+body[data-hcc-page="contrast-checker"] .hcc-contrast-tool{min-height:322px!important}
+body[data-hcc-page="contrast-checker"] #hccContrastToolRows tr{height:52px!important}
+.hcc-chart-family-bar{display:flex!important;overflow:hidden!important;--hcc-swatch-hover-grow:1.16;--hcc-swatch-near-grow:.94;--hcc-swatch-rest-grow:.9;--hcc-swatch-label-font:10px;--hcc-swatch-label-pad:5px}
+.hcc-chart-family-swatch{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;min-width:0!important;max-width:none!important;overflow:hidden!important;border:0!important;padding:0!important;box-shadow:none!important;filter:none!important;transition:flex-grow .2s cubic-bezier(.2,.78,.2,1),padding .18s cubic-bezier(.2,.78,.2,1)}
+.hcc-chart-family-swatch:hover{flex:1 1 0!important;min-width:0!important;max-width:none!important;box-shadow:none!important;filter:none!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch:not(.is-hovered){flex-grow:var(--hcc-swatch-rest-grow,.9)!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-before-hover,
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-after-hover{flex-grow:var(--hcc-swatch-near-grow,.94)!important}
+.hcc-chart-family-bar.has-hover .hcc-chart-family-swatch.is-hovered{flex:var(--hcc-swatch-hover-grow,1.16) 1 0!important;min-width:0!important;max-width:none!important;z-index:5!important}
+.hcc-chart-family-swatch span{opacity:0!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;pointer-events:none!important;display:flex!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;overflow:visible!important;font-weight:850!important;font-variant-numeric:tabular-nums!important}
+.hcc-chart-family-swatch.is-hovered span{opacity:1!important;color:var(--swatch-text,#000)!important;font-size:var(--hcc-swatch-label-font,10px)!important;line-height:1.05!important;padding:0 var(--hcc-swatch-label-pad,5px)!important}
+html.hcc-hover-boot .hcc-chart-family-swatch span,
+html.hcc-hover-boot .hcc-chart-family-swatch.is-hovered span{opacity:0!important;color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important}
+body[data-hcc-page="picker"] .hcc-work,
+body[data-hcc-page="image"] .hcc-work,
+body[data-hcc-page="wheel"] .hcc-work{display:grid!important;visibility:visible!important;opacity:1!important}
+body[data-hcc-page="picker"] .hcc-sections,
+body[data-hcc-page="image"] .hcc-sections,
+body[data-hcc-page="wheel"] .hcc-sections{display:block!important;visibility:visible!important;opacity:1!important}
+body[data-hcc-page="picker"] .hcc-standard-picker{display:block!important}
+body[data-hcc-page="picker"] .hcc-image-picker,
+body[data-hcc-page="picker"] .hcc-wheel-picker{display:none!important}
+body[data-hcc-page="image"] .hcc-image-picker{display:block!important}
+body[data-hcc-page="image"] .hcc-standard-picker,
+body[data-hcc-page="image"] .hcc-wheel-picker{display:none!important}
+body[data-hcc-page="wheel"] .hcc-wheel-picker{display:block!important}
+body[data-hcc-page="wheel"] .hcc-standard-picker,
+body[data-hcc-page="wheel"] .hcc-image-picker{display:none!important}
+body[data-hcc-page="picker"] .hcc-preview,
+body[data-hcc-page="image"] .hcc-preview,
+body[data-hcc-page="wheel"] .hcc-preview{height:422px!important;min-height:422px!important;display:grid!important;align-items:stretch!important;justify-items:stretch!important;place-items:stretch!important;overflow:hidden!important;background:transparent!important}
+body[data-hcc-page="picker"] .hcc-preview:empty,
+body[data-hcc-page="image"] .hcc-preview:empty,
+body[data-hcc-page="wheel"] .hcc-preview:empty{background:#6df3ea!important;color:#000!important;place-items:center!important;font-size:20px!important;font-weight:850!important;line-height:1!important;font-variant-numeric:tabular-nums}
+body[data-hcc-page="picker"] .hcc-preview:empty:before,
+body[data-hcc-page="image"] .hcc-preview:empty:before,
+body[data-hcc-page="wheel"] .hcc-preview:empty:before{content:"6DF3EA"}
+body[data-hcc-page="picker"] .hcc-preview-swatch,
+body[data-hcc-page="image"] .hcc-preview-swatch,
+body[data-hcc-page="wheel"] .hcc-preview-swatch{width:100%!important;height:100%!important;min-height:0!important;align-self:stretch!important;justify-self:stretch!important}
+body[data-hcc-page="image"] .hcc-hero,
+body[data-hcc-page="wheel"] .hcc-hero,
+body[data-hcc-page="chart"] .hcc-hero,
+body[data-hcc-page^="chart-"] .hcc-hero{min-height:346px!important;padding:46px 34px 104px!important}
+body[data-hcc-page="wheel"] .hcc-wheel-wrap{height:304px!important;display:grid!important;place-items:center!important;border-color:transparent!important;box-shadow:none!important;overflow:visible!important;background:#fff!important}
+body[data-hcc-page="wheel"] .hcc-wheel-light{width:302px!important;height:302px!important;z-index:1}
+body[data-hcc-page="wheel"] .hcc-wheel{width:254px!important;height:254px!important;z-index:3}
+body[data-hcc-page="wheel"] .hcc-wheel-note{display:none!important}
+body[data-hcc-page="chart"] .hcc-chart-table,
+body[data-hcc-page^="chart-"] .hcc-chart-table{display:grid!important;gap:0!important;width:752px!important;max-width:100%!important}
+body[data-hcc-page^="chart-"] .hcc-chart-page{min-height:1380px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-detail{min-height:1320px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-list{min-height:1120px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-family{min-height:104px!important;margin-bottom:24px!important}
+body[data-hcc-page^="chart-"] .hcc-chart-family-bar{height:58px!important}
+body[data-hcc-page="chart"] .hcc-chart-matrix,
+body[data-hcc-page^="chart-"] .hcc-chart-matrix{display:flex!important;align-items:flex-start!important;width:752px!important;max-width:100%!important;height:286px!important;overflow:hidden!important;border-radius:12px!important;background:transparent!important}
+body[data-hcc-page="chart"] .hcc-chart-col,
+body[data-hcc-page^="chart-"] .hcc-chart-col{flex:1 1 0!important;display:flex!important;flex-direction:column!important;align-self:stretch!important;height:100%!important;min-width:0!important;min-height:0!important}
+body[data-hcc-page="chart"] .hcc-chart-col.fill,
+body[data-hcc-page^="chart-"] .hcc-chart-col.fill{align-self:stretch!important}
+body[data-hcc-page="chart"] .hcc-chart-col.fill .hcc-chart-cell,
+body[data-hcc-page^="chart-"] .hcc-chart-col.fill .hcc-chart-cell{aspect-ratio:auto!important;flex:1 1 0!important}
+body[data-hcc-page="chart"] .hcc-chart-cell,
+body[data-hcc-page^="chart-"] .hcc-chart-cell{appearance:none!important;-webkit-appearance:none!important;display:block!important;aspect-ratio:auto!important;flex:1 1 0!important;width:100%!important;height:auto!important;border:0!important;border-radius:0!important;padding:0!important;margin:0!important;cursor:pointer!important;background:var(--cell-bg,#ccc)!important;box-shadow:0 0 0 1px var(--cell-bg,#ccc)!important;font-size:0!important;line-height:0!important;min-width:0!important;min-height:0!important;color:transparent!important}
+body[data-hcc-page="names"] .hcc-names-page,
+body[data-hcc-page="minecraft"] .hcc-names-page,
+body[data-hcc-page="bukkit"] .hcc-names-page,
+body[data-hcc-page="roblox"] .hcc-names-page{min-height:760px!important}
+body[data-hcc-page="names"] .hcc-names-layout,
+body[data-hcc-page="minecraft"] .hcc-names-layout,
+body[data-hcc-page="bukkit"] .hcc-names-layout,
+body[data-hcc-page="roblox"] .hcc-names-layout{min-height:700px!important}
+body[data-hcc-page="names"] #hccNamesTable,
+body[data-hcc-page="minecraft"] #hccNamesTable,
+body[data-hcc-page="bukkit"] #hccNamesTable,
+body[data-hcc-page="roblox"] #hccNamesTable{min-height:620px!important}
+body[data-hcc-page="names"] .hcc-name-section,
+body[data-hcc-page="minecraft"] .hcc-name-section,
+body[data-hcc-page="bukkit"] .hcc-name-section,
+body[data-hcc-page="roblox"] .hcc-name-section{min-height:300px!important;margin-bottom:28px!important}
+body[data-hcc-page="names"] table.hcc-names-table tr,
+body[data-hcc-page="minecraft"] table.hcc-names-table tr,
+body[data-hcc-page="bukkit"] table.hcc-names-table tr,
+body[data-hcc-page="roblox"] table.hcc-names-table tr{height:46px!important}
+body[data-hcc-page="names"] #hccNamesTable:empty,
+body[data-hcc-page="minecraft"] #hccNamesTable:empty,
+body[data-hcc-page="bukkit"] #hccNamesTable:empty,
+body[data-hcc-page="roblox"] #hccNamesTable:empty{display:block!important;min-height:720px!important}
+html.hcc-hover-boot .hcc-strip i,
+html.hcc-hover-boot .hcc-strip i:hover,
+html.hcc-hover-boot .hcc-strip i.is-hovered,
+html.hcc-hover-boot .hcc-strip.has-hover i.is-hovered,
+html.hcc-hover-boot .hcc-bar i,
+html.hcc-hover-boot .hcc-bar i:hover,
+html.hcc-hover-boot .hcc-bar i.is-hovered,
+html.hcc-hover-boot .hcc-bar.has-hover i.is-hovered,
+html.hcc-hover-boot .hcc-long-bar i,
+html.hcc-hover-boot .hcc-long-bar i:hover,
+html.hcc-hover-boot .hcc-long-bar i.is-hovered,
+html.hcc-hover-boot .hcc-long-bar.has-hover i.is-hovered{color:transparent!important;font-size:0!important;line-height:1!important;text-shadow:none!important;overflow:hidden!important;padding:0!important;box-shadow:none!important;filter:none!important}
+html.hcc-hover-boot .hcc-toast{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+@media (max-width:760px){
+  body[data-hcc-page="picker"] .hcc-work,
+  body[data-hcc-page="image"] .hcc-work,
+  body[data-hcc-page="wheel"] .hcc-work{display:block!important;grid-template-columns:none!important;overflow:hidden!important}
+  body[data-hcc-page="picker"] .hcc-preview,
+  body[data-hcc-page="image"] .hcc-preview,
+  body[data-hcc-page="wheel"] .hcc-preview{width:100%!important;height:246px!important;min-height:246px!important;max-height:246px!important}
+  body[data-hcc-page="picker"] .hcc-preview:empty,
+  body[data-hcc-page="image"] .hcc-preview:empty,
+  body[data-hcc-page="wheel"] .hcc-preview:empty{font-size:18px!important}
+  body[data-hcc-page="image"] .hcc-hero,
+  body[data-hcc-page="wheel"] .hcc-hero,
+  body[data-hcc-page="chart"] .hcc-hero,
+  body[data-hcc-page^="chart-"] .hcc-hero{min-height:268px!important;padding:74px 28px 30px!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-wrap{width:100%!important;max-width:100%!important;min-width:0!important;height:min(286px,calc(100vw - 70px))!important;min-height:220px!important;max-height:286px!important;aspect-ratio:auto!important;overflow:hidden!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-light{width:min(282px,calc(100vw - 80px))!important;height:min(282px,calc(100vw - 80px))!important;overflow:hidden!important}
+  body[data-hcc-page="wheel"] .hcc-wheel-light-rotor{inset:0!important}
+  body[data-hcc-page="wheel"] .hcc-wheel{width:min(236px,calc(100vw - 122px))!important;height:min(236px,calc(100vw - 122px))!important}
+  body[data-hcc-page="chart"] .hcc-chart-table,
+  body[data-hcc-page^="chart-"] .hcc-chart-table,
+  body[data-hcc-page="chart"] .hcc-chart-matrix,
+  body[data-hcc-page^="chart-"] .hcc-chart-matrix{width:100%!important;max-width:100%!important}
+  body[data-hcc-page="chart"] .hcc-chart-matrix,
+  body[data-hcc-page^="chart-"] .hcc-chart-matrix{height:236px!important;border-radius:10px!important;overflow:auto!important}
+  body[data-hcc-page="names"] .hcc-names-page,
+  body[data-hcc-page="minecraft"] .hcc-names-page,
+  body[data-hcc-page="bukkit"] .hcc-names-page,
+  body[data-hcc-page="roblox"] .hcc-names-page{min-height:680px!important}
+  body[data-hcc-page="library"] .hcc-library-page{min-height:760px!important}
+  body[data-hcc-page="library"] .hcc-library-list{min-height:680px!important}
+  body[data-hcc-page="library"] .hcc-library-section{min-height:320px!important}
+  body[data-hcc-page="library"] .hcc-library-table-wrap{min-height:286px!important}
+  body[data-hcc-page="library"] #hccLibraryList:empty{min-height:680px!important}
+  body[data-hcc-page="converter"] .hcc-converter-page,
+  body[data-hcc-page="hex-to-rgb"] .hcc-hexrgb-page,
+  body[data-hcc-page="contrast-checker"] .hcc-contrast-tool-page{min-height:760px!important}
+  body[data-hcc-page="contrast-checker"] .hcc-converter-layout{min-height:680px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-page{min-height:1180px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-detail{min-height:1120px!important}
+  body[data-hcc-page^="chart-"] .hcc-chart-list{min-height:960px!important}
+  body[data-hcc-page="names"] .hcc-names-layout,
+  body[data-hcc-page="minecraft"] .hcc-names-layout,
+  body[data-hcc-page="bukkit"] .hcc-names-layout,
+  body[data-hcc-page="roblox"] .hcc-names-layout{min-height:620px!important}
+  body[data-hcc-page="names"] #hccNamesTable,
+  body[data-hcc-page="minecraft"] #hccNamesTable,
+  body[data-hcc-page="bukkit"] #hccNamesTable,
+  body[data-hcc-page="roblox"] #hccNamesTable{min-height:560px!important}
+  body[data-hcc-page="names"] #hccNamesTable:empty,
+  body[data-hcc-page="minecraft"] #hccNamesTable:empty,
+  body[data-hcc-page="bukkit"] #hccNamesTable:empty,
+  body[data-hcc-page="roblox"] #hccNamesTable:empty{min-height:620px!important}
+}
+/* hcc-route-firstpaint-rootfix 20260627-234000 end */</style></head><body><div class="box">Loading Deutsch Color Picker...</div><noscript><meta http-equiv="refresh" content="0; url=/de/color-picker/"><a href="/de/color-picker/">Open Color Picker</a></noscript></body></html>

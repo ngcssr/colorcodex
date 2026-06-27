@@ -1,9 +1,28 @@
-const HCC_CACHE = 'colorcodex-static-lang-pages-20260626-214000';
+const HCC_VERSION = '20260627-171500';
+const HCC_CACHE = 'colorcodex-static-lang-pages-20260627-171500';
 const HCC_CORE = [
   '/favicon.svg'
 ];
 
+function isLocalOrigin() {
+  return /^(?:localhost|127\.0\.0\.1|::1)$/.test(self.location.hostname);
+}
+
+function clearOldCaches() {
+  return caches.keys().then((keys) => {
+    return Promise.all(
+      keys
+        .filter((key) => key !== HCC_CACHE || isLocalOrigin())
+        .map((key) => caches.delete(key))
+    );
+  });
+}
+
 self.addEventListener('install', (event) => {
+  if (isLocalOrigin()) {
+    event.waitUntil(self.skipWaiting());
+    return;
+  }
   event.waitUntil(
     caches.open(HCC_CACHE)
       .then((cache) => cache.addAll(HCC_CORE))
@@ -13,8 +32,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== HCC_CACHE).map((key) => caches.delete(key))))
+    clearOldCaches()
       .then(() => self.clients.claim())
   );
 });
@@ -32,20 +50,8 @@ function cacheFirst(request) {
   });
 }
 
-function staleWhileRevalidate(request) {
-  return caches.open(HCC_CACHE).then((cache) => {
-    return cache.match(request).then((cached) => {
-      const network = fetch(request).then((response) => {
-        if (response && response.ok) cache.put(request, response.clone());
-        return response;
-      }).catch(() => cached);
-      return cached || network;
-    });
-  });
-}
-
 function networkFirst(request) {
-  return fetch(request).catch(() => caches.match(request));
+  return fetch(request, { cache: 'no-store' }).catch(() => caches.match(request));
 }
 
 self.addEventListener('fetch', (event) => {
@@ -53,6 +59,11 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== location.origin) return;
+
+  if (isLocalOrigin()) {
+    event.respondWith(fetch(request, { cache: 'no-store' }));
+    return;
+  }
 
   if (request.mode === 'navigate') {
     event.respondWith(networkFirst(request));
