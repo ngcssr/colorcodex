@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
   var idle=window.requestIdleCallback||function(fn){return setTimeout(fn,5200)};
   if(navigator.connection&&(navigator.connection.saveData||/2g/.test(navigator.connection.effectiveType||'')))return;
   var pages=[
@@ -11,7 +11,7 @@
     '/contrast-checker/',
     '/color-mixer/'
   ];
-  var chunks=['/pages-extra.js?v=20260626-214000'];
+  var chunks=['/pages-extra.js?v=20260628-195500'];
   function hint(url,as){
     if(document.querySelector('link[href="'+url+'"]'))return;
     var l=document.createElement('link');

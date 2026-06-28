@@ -6,10 +6,10 @@
     var raw=(document.body&&document.body.getAttribute('data-hcc-page'))||'about';
     return legalSlugs[raw]?raw:'about';
   }
-  function prefix(){return currentLang==='en'?'':'/'+currentLang}
-  function pageUrl(slug){
+  function prefix(lang){lang=lang||currentLang;return lang==='en'?'':'/'+lang}
+  function pageUrl(slug,lang){
     var paths={picker:'/color-picker/',image:'/image-color-picker/',wheel:'/color-wheel/',chart:'/color-chart/',library:'/colors/',converter:'/rgb-to-hex/',hex:'/hex-to-rgb/',contrast:'/contrast-checker/',mixer:'/color-mixer/',names:'/color-names/',minecraft:'/minecraft-color-codes/',bukkit:'/bukkit-color-codes/',roblox:'/roblox-color-codes/',guides:'/color-guides/',about:'/about/','privacy-policy':'/privacy-policy/','terms-of-service':'/terms-of-service/'};
-    return prefix()+(paths[slug]||paths.about);
+    return prefix(lang)+(paths[slug]||paths.about);
   }
   function setLink(id,slug){var el=document.getElementById(id);if(el)el.href=pageUrl(slug)}
   function bindLinks(){
@@ -36,7 +36,7 @@
         btn.onclick=function(){
           var lang=btn.getAttribute('data-lang')||'en';
           try{localStorage.setItem('hccLang',lang);localStorage.setItem('hccLangManual','1')}catch(_){}
-          location.href=(lang==='en'?'':'/'+lang)+'/'+pageSlug()+'/';
+          location.href=pageUrl(pageSlug(),lang);
         };
       });
     }

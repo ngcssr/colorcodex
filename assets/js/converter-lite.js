@@ -1,5 +1,5 @@
 (function(){
-  var version=window.HCC_ASSET_VERSION||'20260627-191500';
+  var version=window.HCC_ASSET_VERSION||'20260628-195500';
   var toast=document.getElementById('hccToast'),toastTimer=null;
   var currentLang=(String(window.HCC_ROUTE_LANG||'').toLowerCase()||((String(location.pathname||'').match(/^\/(zh|ja|ko|es|fr|de|pt)(?=\/|$)/)||[])[1])||'en');
   var pageKind=(document.body&&document.body.getAttribute('data-hcc-page'))==='hex-to-rgb'?'hex':'rgb';
