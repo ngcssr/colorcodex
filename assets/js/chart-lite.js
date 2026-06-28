@@ -1,4 +1,5 @@
 (function(){
+  var assetVersion=window.HCC_ASSET_VERSION||'20260628-210000';
   var currentLang=(String(window.HCC_ROUTE_LANG||'').toLowerCase()||((String(location.pathname||'').match(/^\/(zh|ja|ko|es|fr|de|pt)(?=\/|$)/)||[])[1])||'en');
   var langNames={en:'English',zh:'\u4e2d\u6587',ja:'\u65e5\u672c\u8a9e',ko:'\ud55c\uad6d\uc5b4',es:'Espa\u00f1ol',fr:'Fran\u00e7ais',de:'Deutsch',pt:'Portugu\u00eas'};
   var toast=document.getElementById('hccToast'),toastTimer=null;
@@ -159,6 +160,91 @@
     }
   }
 
+  var chartDataLoading=false,chartDataCallbacks=[];
+  function hasChartPlaceholders(){
+    return !!document.querySelector('#hccChartTable [data-chart-matrix],#hccChartTable [data-chart-family]');
+  }
+  function ensureChartData(done){
+    done=typeof done==='function'?done:function(){};
+    if(!hasChartPlaceholders()||window.HCC_CHART_DEFS){done();return}
+    chartDataCallbacks.push(done);
+    if(chartDataLoading)return;
+    chartDataLoading=true;
+    var s=document.createElement('script');
+    s.src='/data-chart.js?v='+assetVersion;
+    s.defer=true;
+    s.onload=s.onerror=function(){
+      var callbacks=chartDataCallbacks.slice();
+      chartDataCallbacks=[];
+      chartDataLoading=false;
+      callbacks.forEach(function(fn){fn()});
+    };
+    document.body.appendChild(s);
+  }
+
+  function renderChartIndex(){
+    var table=document.getElementById('hccChartTable'),defs=window.HCC_CHART_DEFS||[];
+    if(!table||!defs.length)return;
+    Array.prototype.slice.call(table.querySelectorAll('[data-chart-matrix]')).forEach(function(matrix){
+      if(matrix.children.length)return;
+      var slug=matrix.getAttribute('data-chart-matrix')||'',def=null;
+      defs.some(function(item){if(item.slug===slug){def=item;return true}return false});
+      if(!def)return;
+      matrix.innerHTML='';
+      (def.groups||[]).forEach(function(group){
+        if(def.slug==='material'&&group.length<=2)return;
+        var col=block('div','hcc-chart-col');
+        (group||[]).forEach(function(hex){
+          hex=cleanHex(hex);
+          var cell=block('button','hcc-chart-cell');
+          cell.type='button';
+          cell.title='#'+hex;
+          cell.setAttribute('data-code',hex);
+          cell.setAttribute('aria-label','#'+hex);
+          cell.style.backgroundColor='#'+hex;
+          cell.style.setProperty('--cell-bg','#'+hex);
+          col.appendChild(cell);
+        });
+        matrix.appendChild(col);
+      });
+    });
+    table.setAttribute('data-ready','1');
+  }
+
+  function currentDetailSlug(){
+    var page=(document.body&&document.body.getAttribute('data-hcc-page'))||'';
+    if(page==='chart-tailwind')return 'tailwind';
+    if(page==='chart-flat')return 'flat';
+    if(page==='chart-material')return 'material';
+    if(page==='chart-websafe')return 'websafe';
+    return '';
+  }
+
+  function renderChartDetail(){
+    var table=document.getElementById('hccChartTable'),defs=window.HCC_CHART_DEFS||[],slug=currentDetailSlug(),def=null;
+    if(!table||!slug||!defs.length)return;
+    defs.some(function(item){if(item.slug===slug){def=item;return true}return false});
+    if(!def)return;
+    Array.prototype.slice.call(table.querySelectorAll('[data-chart-family]')).forEach(function(bar){
+      if(bar.children.length)return;
+      var idx=parseInt(bar.getAttribute('data-chart-family'),10),group=(def.groups||[])[idx]||[];
+      group.forEach(function(hex){
+        hex=cleanHex(hex);
+        var cell=block('button','hcc-chart-family-swatch'),label=block('span');
+        cell.type='button';
+        cell.title='#'+hex;
+        cell.setAttribute('data-code',hex);
+        cell.setAttribute('aria-label','#'+hex);
+        cell.style.backgroundColor='#'+hex;
+        cell.style.setProperty('--cell-bg','#'+hex);
+        label.textContent=hex;
+        cell.appendChild(label);
+        bar.appendChild(cell);
+      });
+    });
+    table.setAttribute('data-ready','detail-'+slug);
+  }
+
   function bindChart(){
     Array.prototype.slice.call(document.querySelectorAll('#hccChartTable .hcc-chart-cell,#hccChartTable .hcc-chart-family-swatch')).forEach(function(cell){
       var hex=cleanHex(cell.title||cell.getAttribute('title')||cell.getAttribute('aria-label')||cell.getAttribute('data-code')||'');
@@ -186,8 +272,12 @@
   loadHistory();
   bindChrome();
   bindTopShell();
-  bindChart();
   setSummary({r:109,g:243,b:234});
-  trackColorBars();
-  release();
+  ensureChartData(function(){
+    renderChartIndex();
+    renderChartDetail();
+    bindChart();
+    trackColorBars();
+    release();
+  });
 })();
