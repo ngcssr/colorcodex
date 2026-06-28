@@ -1,5 +1,5 @@
 (function(){
-  var assetVersion=window.HCC_ASSET_VERSION||'20260628-210000';
+  var assetVersion=window.HCC_ASSET_VERSION||'20260629-061500';
   var currentLang=(String(window.HCC_ROUTE_LANG||'').toLowerCase()||((String(location.pathname||'').match(/^\/(zh|ja|ko|es|fr|de|pt)(?=\/|$)/)||[])[1])||'en');
   var langNames={en:'English',zh:'\u4e2d\u6587',ja:'\u65e5\u672c\u8a9e',ko:'\ud55c\uad6d\uc5b4',es:'Espa\u00f1ol',fr:'Fran\u00e7ais',de:'Deutsch',pt:'Portugu\u00eas'};
   var toast=document.getElementById('hccToast'),toastTimer=null;
@@ -162,7 +162,8 @@
 
   var chartDataLoading=false,chartDataCallbacks=[];
   function hasChartPlaceholders(){
-    return !!document.querySelector('#hccChartTable [data-chart-matrix],#hccChartTable [data-chart-family]');
+    var nodes=Array.prototype.slice.call(document.querySelectorAll('#hccChartTable [data-chart-matrix],#hccChartTable [data-chart-family]'));
+    return nodes.some(function(node){return !node.children.length});
   }
   function ensureChartData(done){
     done=typeof done==='function'?done:function(){};
