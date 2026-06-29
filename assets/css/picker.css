@@ -341,3 +341,22 @@ html body[data-hcc-page] .hcc-footer-link:hover {
   }
 }
 /* /phase94 unified footer layout */
+
+/* phase95 mini picker closed-state stability */
+html body .hcc-mini-picker:not(.show),
+html body #hccMiniPicker:not(.show),
+html body .hcc-palette-panel:not(.show),
+html body .hcc-history-panel:not(.show) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+html body .hcc-mini-picker.show,
+html body #hccMiniPicker.show {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+/* /phase95 mini picker closed-state stability */
