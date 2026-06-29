@@ -368,3 +368,206 @@ html body #hccMiniPicker.show {
   pointer-events: auto !important;
 }
 /* /phase95 mini picker closed-state stability */
+
+/* phase96 desktop picker layout stability */
+@media (min-width: 981px) {
+  body[data-hcc-page="picker"] .hcc-work,
+  body[data-hcc-page="image"] .hcc-work,
+  body[data-hcc-page="wheel"] .hcc-work {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    padding: 32px 0 36px !important;
+    display: grid !important;
+    grid-template-columns: 432px 304px !important;
+    grid-auto-columns: auto !important;
+    justify-content: center !important;
+    align-items: start !important;
+    gap: 16px !important;
+    overflow: visible !important;
+  }
+  body[data-hcc-page="picker"] .hcc-picker-card,
+  body[data-hcc-page="image"] .hcc-picker-card,
+  body[data-hcc-page="wheel"] .hcc-picker-card {
+    box-sizing: border-box !important;
+    width: 432px !important;
+    min-width: 432px !important;
+    max-width: 432px !important;
+    grid-column: 1 !important;
+  }
+  body[data-hcc-page="picker"] .hcc-preview-col,
+  body[data-hcc-page="image"] .hcc-preview-col,
+  body[data-hcc-page="wheel"] .hcc-preview-col {
+    box-sizing: border-box !important;
+    width: 304px !important;
+    min-width: 304px !important;
+    max-width: 304px !important;
+    grid-column: 2 !important;
+  }
+}
+/* /phase96 desktop picker layout stability */
+
+/* phase97 mobile firstpaint nav and copy icon stability */
+@media (max-width: 760px) {
+  body[data-hcc-page="picker"] .hcc-nav,
+  body[data-hcc-page="image"] .hcc-nav,
+  body[data-hcc-page="wheel"] .hcc-nav {
+    box-sizing: border-box !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 48px !important;
+    padding: 4px 8px !important;
+    overflow: visible !important;
+  }
+  body[data-hcc-page="picker"] .hcc-logo,
+  body[data-hcc-page="image"] .hcc-logo,
+  body[data-hcc-page="wheel"] .hcc-logo {
+    flex: 0 0 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    margin: 0 2px 0 0 !important;
+  }
+  body[data-hcc-page="picker"] .hcc-logo:after,
+  body[data-hcc-page="image"] .hcc-logo:after,
+  body[data-hcc-page="wheel"] .hcc-logo:after {
+    inset: 9px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-nav > a,
+  body[data-hcc-page="image"] .hcc-nav > a,
+  body[data-hcc-page="wheel"] .hcc-nav > a {
+    flex: 0 auto !important;
+    min-width: 0 !important;
+    height: 40px !important;
+    padding: 0 6px !important;
+    font-size: 12px !important;
+    border-radius: 8px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-nav > a:nth-of-type(n+4),
+  body[data-hcc-page="image"] .hcc-nav > a:nth-of-type(n+4),
+  body[data-hcc-page="wheel"] .hcc-nav > a:nth-of-type(n+4),
+  body[data-hcc-page="picker"] .hcc-nav-item,
+  body[data-hcc-page="image"] .hcc-nav-item,
+  body[data-hcc-page="wheel"] .hcc-nav-item {
+    display: none !important;
+  }
+  body[data-hcc-page="picker"] .hcc-lang-switch,
+  body[data-hcc-page="image"] .hcc-lang-switch,
+  body[data-hcc-page="wheel"] .hcc-lang-switch {
+    flex: 0 0 58px !important;
+    width: 58px !important;
+    min-width: 58px !important;
+    height: 32px !important;
+    margin-left: auto !important;
+  }
+  body[data-hcc-page="picker"] .hcc-lang-button,
+  body[data-hcc-page="image"] .hcc-lang-button,
+  body[data-hcc-page="wheel"] .hcc-lang-button {
+    width: 58px !important;
+    height: 32px !important;
+    padding: 0 20px 0 8px !important;
+    font-size: 12px !important;
+    justify-content: flex-start !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  body[data-hcc-page="picker"] .hcc-mobile-menu-toggle,
+  body[data-hcc-page="image"] .hcc-mobile-menu-toggle,
+  body[data-hcc-page="wheel"] .hcc-mobile-menu-toggle {
+    flex: 0 0 32px !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    height: 32px !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid #dedede !important;
+    border-radius: 7px !important;
+    background: #fff !important;
+    position: relative !important;
+  }
+  body[data-hcc-page="picker"] .hcc-mobile-menu-toggle:before,
+  body[data-hcc-page="image"] .hcc-mobile-menu-toggle:before,
+  body[data-hcc-page="wheel"] .hcc-mobile-menu-toggle:before,
+  body[data-hcc-page="picker"] .hcc-mobile-menu-toggle:after,
+  body[data-hcc-page="image"] .hcc-mobile-menu-toggle:after,
+  body[data-hcc-page="wheel"] .hcc-mobile-menu-toggle:after {
+    content: "" !important;
+    width: 14px !important;
+    height: 1.5px !important;
+    background: #111 !important;
+    position: absolute !important;
+    left: 8px !important;
+    display: block !important;
+  }
+  body[data-hcc-page="picker"] .hcc-mobile-menu-toggle:before,
+  body[data-hcc-page="image"] .hcc-mobile-menu-toggle:before,
+  body[data-hcc-page="wheel"] .hcc-mobile-menu-toggle:before {
+    top: 11px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-mobile-menu-toggle:after,
+  body[data-hcc-page="image"] .hcc-mobile-menu-toggle:after,
+  body[data-hcc-page="wheel"] .hcc-mobile-menu-toggle:after {
+    top: 18px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-crumb,
+  body[data-hcc-page="image"] .hcc-crumb,
+  body[data-hcc-page="wheel"] .hcc-crumb {
+    margin-bottom: 4px !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-shell,
+  body[data-hcc-page="image"] .hcc-shell,
+  body[data-hcc-page="wheel"] .hcc-shell {
+    border-top: 0 !important;
+    border-bottom: 1px solid #e4e4e4 !important;
+  }
+  body[data-hcc-page="picker"] .hcc-copy,
+  body[data-hcc-page="image"] .hcc-copy,
+  body[data-hcc-page="wheel"] .hcc-copy {
+    place-items: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0 !important;
+    display: grid !important;
+    position: relative !important;
+  }
+  body[data-hcc-page="picker"] .hcc-copy:before,
+  body[data-hcc-page="image"] .hcc-copy:before,
+  body[data-hcc-page="wheel"] .hcc-copy:before,
+  body[data-hcc-page="picker"] .hcc-copy:after,
+  body[data-hcc-page="image"] .hcc-copy:after,
+  body[data-hcc-page="wheel"] .hcc-copy:after {
+    content: "" !important;
+    border: 1.4px solid currentColor !important;
+    border-radius: 1px !important;
+    width: 8px !important;
+    height: 8px !important;
+    position: absolute !important;
+    display: block !important;
+  }
+  body[data-hcc-page="picker"] .hcc-copy:before,
+  body[data-hcc-page="image"] .hcc-copy:before,
+  body[data-hcc-page="wheel"] .hcc-copy:before {
+    top: 9px !important;
+    left: 14px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-copy:after,
+  body[data-hcc-page="image"] .hcc-copy:after,
+  body[data-hcc-page="wheel"] .hcc-copy:after {
+    background: #fff !important;
+    top: 13px !important;
+    left: 10px !important;
+  }
+  body[data-hcc-page="picker"] .hcc-select,
+  body[data-hcc-page="image"] .hcc-select,
+  body[data-hcc-page="wheel"] .hcc-select {
+    font-size: 12px !important;
+  }
+}
+/* /phase97 mobile firstpaint nav and copy icon stability */

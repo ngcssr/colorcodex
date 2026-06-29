@@ -360,3 +360,42 @@ html body #hccMiniPicker.show {
   pointer-events: auto !important;
 }
 /* /phase95 mini picker closed-state stability */
+
+/* phase96 desktop picker layout stability */
+@media (min-width: 981px) {
+  body[data-hcc-page="picker"] .hcc-work,
+  body[data-hcc-page="image"] .hcc-work,
+  body[data-hcc-page="wheel"] .hcc-work {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    padding: 32px 0 36px !important;
+    display: grid !important;
+    grid-template-columns: 432px 304px !important;
+    grid-auto-columns: auto !important;
+    justify-content: center !important;
+    align-items: start !important;
+    gap: 16px !important;
+    overflow: visible !important;
+  }
+  body[data-hcc-page="picker"] .hcc-picker-card,
+  body[data-hcc-page="image"] .hcc-picker-card,
+  body[data-hcc-page="wheel"] .hcc-picker-card {
+    box-sizing: border-box !important;
+    width: 432px !important;
+    min-width: 432px !important;
+    max-width: 432px !important;
+    grid-column: 1 !important;
+  }
+  body[data-hcc-page="picker"] .hcc-preview-col,
+  body[data-hcc-page="image"] .hcc-preview-col,
+  body[data-hcc-page="wheel"] .hcc-preview-col {
+    box-sizing: border-box !important;
+    width: 304px !important;
+    min-width: 304px !important;
+    max-width: 304px !important;
+    grid-column: 2 !important;
+  }
+}
+/* /phase96 desktop picker layout stability */

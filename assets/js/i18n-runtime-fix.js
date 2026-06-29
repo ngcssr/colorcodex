@@ -94,6 +94,189 @@
     el.textContent = value + (svgs.length ? ' ' : '');
     svgs.forEach(function(svg){ el.appendChild(svg); });
   }
+
+  var chartCardText = {
+      "zh": {
+          "full": "完整色表",
+          "chart": "颜色表",
+          "brand": "HTML 颜色代码",
+          "cards": {
+              "tailwind": [
+                  "Tailwind 颜色表",
+                  "Tailwind CSS 是一种流行的实用优先 CSS 框架，提供大量预定义类，方便快速为 HTML 元素设置样式。"
+              ],
+              "flat": [
+                  "Flat Design 颜色表",
+                  "扁平化设计色常用于现代网页设计，使用明快醒目的颜色创建简洁清晰的界面。"
+              ],
+              "material": [
+                  "Material Design 颜色表",
+                  "Material Design 是 Google 开发的视觉语言和设计系统，具有近似扁平的风格和鲜明的配色。"
+              ],
+              "websafe": [
+                  "Web Safe 颜色表",
+                  "网页安全色源于互联网早期，是一组 216 种标准化颜色，可在主要浏览器中保持一致显示。"
+              ]
+          }
+      },
+      "ja": {
+          "full": "完全なチャート",
+          "chart": "カラーチャート",
+          "brand": "HTML カラーコード",
+          "cards": {
+              "tailwind": [
+                  "Tailwind カラーチャート",
+                  "Tailwind CSS は人気のユーティリティファースト CSS フレームワークで、HTML 要素のスタイル指定に使える多くの定義済みクラスを提供します。"
+              ],
+              "flat": [
+                  "Flat Design カラーチャート",
+                  "フラットデザインの色は、明るく大胆な色でシンプルで見やすいインターフェースを作る現代の Web デザインでよく使われます。"
+              ],
+              "material": [
+                  "Material Design カラーチャート",
+                  "Material Design は Google が開発した視覚言語とデザインシステムで、ほぼフラットなスタイルと鮮やかな配色が特徴です。"
+              ],
+              "websafe": [
+                  "Web Safe カラーチャート",
+                  "Web セーフカラーはインターネット初期に生まれた 216 色の標準パレットで、主要ブラウザで一貫して表示されるよう設計されました。"
+              ]
+          }
+      },
+      "ko": {
+          "full": "전체 차트",
+          "chart": "색상표",
+          "brand": "HTML 색상 코드",
+          "cards": {
+              "tailwind": [
+                  "Tailwind 색상표",
+                  "Tailwind CSS 는 HTML 요소 스타일링에 사용할 수 있는 다양한 사전 정의 클래스를 제공하는 인기 유틸리티 우선 CSS 프레임워크입니다."
+              ],
+              "flat": [
+                  "Flat Design 색상표",
+                  "플랫 디자인 색상은 현대 웹 디자인에서 굵고 밝은 색으로 깔끔하고 단순한 인터페이스를 만들 때 널리 사용됩니다."
+              ],
+              "material": [
+                  "Material Design 색상표",
+                  "Material Design 은 Google 이 개발한 시각 언어와 디자인 시스템으로, 거의 평면적인 스타일과 선명한 색 구성이 특징입니다."
+              ],
+              "websafe": [
+                  "Web Safe 색상표",
+                  "웹 안전 색상은 인터넷 초기의 표준화된 216 색 팔레트로, 주요 브라우저에서 일관되게 표시되도록 만들어졌습니다."
+              ]
+          }
+      },
+      "es": {
+          "full": "Tabla completa",
+          "chart": "Tabla de colores",
+          "brand": "Códigos de color HTML",
+          "cards": {
+              "tailwind": [
+                  "Tabla de colores Tailwind",
+                  "Tailwind CSS es un framework CSS popular de utilidad primero que ofrece muchas clases predefinidas para dar estilo a elementos HTML."
+              ],
+              "flat": [
+                  "Tabla de colores Flat Design",
+                  "Los colores de diseño plano son populares en el diseño web moderno, donde los colores brillantes y audaces crean interfaces limpias y simples."
+              ],
+              "material": [
+                  "Tabla de colores Material Design",
+                  "Material Design es un lenguaje visual y sistema de diseño desarrollado por Google, con un estilo casi plano y esquemas de color vibrantes."
+              ],
+              "websafe": [
+                  "Tabla de colores Web Safe",
+                  "Los colores web seguros surgieron al inicio de Internet como una paleta estandarizada de 216 colores que se mostraba de forma consistente en los principales navegadores."
+              ]
+          }
+      },
+      "fr": {
+          "full": "Nuancier complet",
+          "chart": "Nuancier",
+          "brand": "Codes couleur HTML",
+          "cards": {
+              "tailwind": [
+                  "Nuancier Tailwind",
+                  "Tailwind CSS est un framework CSS utilitaire populaire qui fournit de nombreuses classes prédéfinies pour styliser les éléments HTML."
+              ],
+              "flat": [
+                  "Nuancier Flat Design",
+                  "Les couleurs flat design sont très utilisées dans le Web moderne, avec des couleurs vives et marquées pour créer des interfaces simples et nettes."
+              ],
+              "material": [
+                  "Nuancier Material Design",
+                  "Material Design est un langage visuel et un système de design développé par Google, avec un style presque plat et des palettes vibrantes."
+              ],
+              "websafe": [
+                  "Nuancier Web Safe",
+                  "Les couleurs Web Safe sont apparues au début d’Internet comme une palette standardisée de 216 couleurs affichées de façon cohérente dans les principaux navigateurs."
+              ]
+          }
+      },
+      "de": {
+          "full": "Vollständige Tabelle",
+          "chart": "Farbtafel",
+          "brand": "HTML-Farbcodes",
+          "cards": {
+              "tailwind": [
+                  "Tailwind Farbtafel",
+                  "Tailwind CSS ist ein beliebtes Utility-first CSS-Framework mit vielen vordefinierten Klassen zum Gestalten von HTML-Elementen."
+              ],
+              "flat": [
+                  "Flat Design Farbtafel",
+                  "Flat-Design-Farben sind im modernen Webdesign beliebt, wo kräftige und helle Farben klare, einfache Oberflächen schaffen."
+              ],
+              "material": [
+                  "Material Design Farbtafel",
+                  "Material Design ist eine von Google entwickelte visuelle Sprache und ein Designsystem mit fast flachem Stil und lebendigen Farbschemata."
+              ],
+              "websafe": [
+                  "Web Safe Farbtafel",
+                  "Websichere Farben entstanden in der frühen Internetzeit als standardisierte Palette aus 216 Farben, die in wichtigen Browsern konsistent dargestellt wurden."
+              ]
+          }
+      },
+      "pt": {
+          "full": "Tabela completa",
+          "chart": "Tabela de cores",
+          "brand": "Códigos de cor HTML",
+          "cards": {
+              "tailwind": [
+                  "Tabela de cores Tailwind",
+                  "Tailwind CSS é um framework CSS popular de utilitários que oferece muitas classes predefinidas para estilizar elementos HTML."
+              ],
+              "flat": [
+                  "Tabela de cores Flat Design",
+                  "Cores de flat design são populares no design web moderno, usando cores fortes e brilhantes para criar interfaces limpas e simples."
+              ],
+              "material": [
+                  "Tabela de cores Material Design",
+                  "Material Design é uma linguagem visual e sistema de design desenvolvido pelo Google, com estilo quase plano e esquemas vibrantes."
+              ],
+              "websafe": [
+                  "Tabela de cores Web Safe",
+                  "As cores web safe surgiram no início da internet como uma paleta padronizada de 216 cores exibidas de forma consistente nos principais navegadores."
+              ]
+          }
+      }
+  };
+  function applyChartCardText() {
+    var pack = chartCardText[currentLang];
+    if (!pack) return;
+    Array.prototype.slice.call(document.querySelectorAll('.hcc-chart-card[data-chart-slug]')).forEach(function(card){
+      var slug = card.getAttribute('data-chart-slug');
+      var data = pack.cards && pack.cards[slug];
+      if (!data) return;
+      var h = card.querySelector('h2');
+      var p = card.querySelector('p');
+      var btn = card.querySelector('.hcc-chart-btn');
+      if (h) h.textContent = data[0];
+      if (p) p.textContent = data[1];
+      if (btn) btn.textContent = pack.full;
+    });
+    var trail = document.getElementById('hccTrailCurrent');
+    if (trail && document.body && document.body.getAttribute('data-hcc-page') === 'chart') trail.textContent = pack.chart;
+    var brand = document.getElementById('hccTrailBrand');
+    if (brand && pack.brand) brand.textContent = pack.brand;
+  }
   function applyChromeText() {
     var n = dict.nav, ui = dict.ui, f = dict.footer;
     var langButton = byId('hccLangButton');
@@ -727,9 +910,11 @@
     applyChromeText();
     applyHeroText();
     translateDynamicText();
+    applyChartCardText();
     ensureZhInfoText(function(){
       renderInfoText();
       translateDynamicText();
+      applyChartCardText();
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyAll, {once:true});
@@ -745,6 +930,7 @@
       scheduled = false;
       translateDynamicText();
       applyChromeText();
+      applyChartCardText();
     }, 60);
   });
   if (document.documentElement) observer.observe(document.documentElement, {subtree:true, childList:true});
