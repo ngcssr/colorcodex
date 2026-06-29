@@ -41,9 +41,9 @@
   function current(){var rgb=hsvToRgb(state.h,state.s,state.v),hsl=rgbToHsl(rgb.r,rgb.g,rgb.b),hsv=rgbToHsv(rgb.r,rgb.g,rgb.b),ok=rgbToOklch(rgb.r,rgb.g,rgb.b);return {rgb:rgb,hex:rgbToHex(rgb.r,rgb.g,rgb.b),hsl:hsl,hsv:hsv,ok:ok}}
   function showToast(msg){if(!toast)return;if(toastTimer)clearTimeout(toastTimer);toast.textContent=msg||tx('copied');toast.className='hcc-toast';void toast.offsetWidth;toast.className='hcc-toast show';toastTimer=setTimeout(function(){toast.className='hcc-toast'},1400)}
   function copyText(value){var code=String(value||'');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(code).catch(function(){});showToast(tx('copied'))}
-  function record(hex){hex=cleanHex(hex);if(!/^[0-9A-F]{6}$/.test(hex)||hex===history[0])return;history.unshift(hex);history=history.slice(0,24);try{localStorage.setItem('hccColorHistory',JSON.stringify(history))}catch(_){}}
+  function record(hex){hex=cleanHex(hex);if(!/^[0-9A-F]{6}$/.test(hex)||hex===history[0])return;history=history.filter(function(v){return cleanHex(v)!==hex});history.unshift(hex);history=history.slice(0,24);try{localStorage.setItem('hccColorHistory',JSON.stringify(history))}catch(_){}}
   function chooseAndCopyHex(hex,copyValue){var h=cleanHex(hex);if(!/^[0-9A-F]{6}$/.test(h))return;record(h);setFromRgb(hexToRgb(h));copyText(copyValue||('#'+h))}
-  function loadHistory(){try{history=JSON.parse(localStorage.getItem('hccColorHistory')||'[]').filter(function(v){return /^[0-9A-F]{6}$/.test(cleanHex(v))}).map(cleanHex).slice(0,24)}catch(_){history=[]}}
+  function loadHistory(){try{var seen={};history=JSON.parse(localStorage.getItem('hccColorHistory')||'[]').map(cleanHex).filter(function(v){if(!/^[0-9A-F]{6}$/.test(v)||seen[v])return false;seen[v]=1;return true}).slice(0,24)}catch(_){history=[]}}
   function setFromRgb(rgb){state=rgbToHsv(rgb.r,rgb.g,rgb.b);renderBase()}
   function scaleColors(c){var stops=[.9,.78,.64,.48,.32,.18,0,.18,.34,.5,.64];return stops.map(function(t,i){var target=i<6?{r:255,g:255,b:255}:(i===6?c.rgb:{r:0,g:0,b:0}),rgb=i===6?c.rgb:mix(c.rgb,target,t);return '#'+rgbToHex(rgb.r,rgb.g,rgb.b)})}
   function paletteColors(c,offsets){return offsets.map(function(d){var rgb=hslToRgb(c.hsl.h+d,c.hsl.s,c.hsl.l);return '#'+rgbToHex(rgb.r,rgb.g,rgb.b)})}

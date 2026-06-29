@@ -1698,3 +1698,145 @@ html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered::after {
   display: none !important;
 }
 /* /phase104-history-hover */
+
+/* phase105 history and strip controls */
+html body[data-hcc-page] .hcc-summary #hccStripToggle,
+html body[data-hcc-page] .hcc-summary .hcc-strip-toggle {
+  color: #111 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  position: relative !important;
+  overflow: visible !important;
+  text-indent: -999px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+html body[data-hcc-page] .hcc-summary #hccStripToggle::before,
+html body[data-hcc-page] .hcc-summary #hccStripToggle::after,
+html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::before,
+html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 50% !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-bottom: 1.4px solid currentColor !important;
+  border-right: 1.4px solid currentColor !important;
+  background: transparent !important;
+}
+html body[data-hcc-page] .hcc-summary #hccStripToggle::before,
+html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::before {
+  top: 8px !important;
+  transform: translateX(-50%) rotate(-135deg) !important;
+}
+html body[data-hcc-page] .hcc-summary #hccStripToggle::after,
+html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::after {
+  bottom: 8px !important;
+  transform: translateX(-50%) rotate(45deg) !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid.has-hover .hcc-history-item:not(.is-hovered):not(:hover),
+html body[data-hcc-page] .hcc-summary .hcc-history-grid:hover .hcc-history-item:not(:hover):not(.is-hovered),
+html body[data-hcc-page] .hcc-summary .hcc-history-grid .hcc-history-item:not(.is-hovered):not(:hover),
+html body[data-hcc-page] .hcc-summary .hcc-history-grid .hcc-history-item.active:not(.is-hovered):not(:hover),
+html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered + .hcc-history-item,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active + .hcc-history-item,
+html body[data-hcc-page] .hcc-summary .hcc-history-grid.has-hover .hcc-history-item:has(+ .hcc-history-item.is-hovered),
+html body[data-hcc-page] .hcc-summary .hcc-history-grid:has(.hcc-history-item.active) .hcc-history-item:has(+ .hcc-history-item.active) {
+  flex: 0 0 var(--history-width, 28px) !important;
+  flex-basis: var(--history-width, 28px) !important;
+  width: var(--history-width, 28px) !important;
+  min-width: var(--history-width, 28px) !important;
+  max-width: var(--history-width, 28px) !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid:hover .hcc-history-item:hover,
+html body[data-hcc-page] .hcc-summary .hcc-history-grid .hcc-history-item:hover,
+html body[data-hcc-page] .hcc-summary .hcc-history-grid .hcc-history-item.is-hovered,
+html body[data-hcc-page] .hcc-summary .hcc-history-grid .hcc-history-item.active.is-hovered {
+  z-index: 5 !important;
+  color: var(--history-text, #fff) !important;
+  background: var(--history-color, #ccc) !important;
+  flex: 0 0 52px !important;
+  flex-basis: 52px !important;
+  width: 52px !important;
+  min-width: 52px !important;
+  max-width: 52px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: visible !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active::before,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active::after,
+html body[data-hcc-page] .hcc-summary .hcc-history-item:hover::before,
+html body[data-hcc-page] .hcc-summary .hcc-history-item:hover::after,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered::before,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered::after {
+  content: none !important;
+  display: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-item .hcc-history-text {
+  opacity: 0 !important;
+  color: var(--history-text, #fff) !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+  text-shadow: none !important;
+  transform: scale(.92) !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid:hover .hcc-history-item:hover .hcc-history-text,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered .hcc-history-text,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active.is-hovered .hcc-history-text,
+html body[data-hcc-page] .hcc-summary .hcc-history-item:only-child .hcc-history-text {
+  opacity: 1 !important;
+  font-size: 10px !important;
+  transform: scale(1) !important;
+  display: block !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-item:only-child {
+  flex: 0 0 68px !important;
+  flex-basis: 68px !important;
+  width: 68px !important;
+  min-width: 68px !important;
+  max-width: 68px !important;
+}
+@media (max-width: 760px) {
+  html body[data-hcc-page] .hcc-summary #hccStripToggle,
+  html body[data-hcc-page] .hcc-summary .hcc-strip-toggle {
+    display: inline-grid !important;
+    width: 26px !important;
+    min-width: 26px !important;
+    height: 32px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccStripToggle::before,
+  html body[data-hcc-page] .hcc-summary #hccStripToggle::after,
+  html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::before,
+  html body[data-hcc-page] .hcc-summary .hcc-strip-toggle::after {
+    width: 4px !important;
+    height: 4px !important;
+  }
+}
+/* /phase105 history and strip controls */
+
