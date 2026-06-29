@@ -133,3 +133,306 @@ html body #hccMiniPicker.show {
   pointer-events: auto !important;
 }
 /* /phase95 mini picker closed-state stability */
+
+/* phase103 component stability */
+html body[data-hcc-page] .hcc-summary {
+  overflow: visible !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker.hcc-mini-picker {
+  box-sizing: border-box !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 360 !important;
+  width: 304px !important;
+  max-width: calc(100vw - 24px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 16px !important;
+  position: absolute !important;
+  top: 72px !important;
+  left: 22px !important;
+  right: auto !important;
+  overflow: visible !important;
+  background: #fff !important;
+  border: 1px solid #dedede !important;
+  border-radius: 14px !important;
+  box-shadow: 0 14px 36px #00000024 !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker.hcc-mini-picker.show {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-sv {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  height: 166px !important;
+  min-height: 166px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: crosshair !important;
+  touch-action: none !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: linear-gradient(0deg,#000,#0000),linear-gradient(90deg,#fff,hsla(var(--hue,176),100%,50%,0)),hsl(var(--hue,176),100%,50%) !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-hue {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  height: 11px !important;
+  min-height: 11px !important;
+  margin: 18px 0 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
+  cursor: pointer !important;
+  touch-action: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg,red,#ff0,#0f0,#0ff,#00f,#f0f,red) !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker .hcc-mini-target {
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  position: absolute !important;
+  border: 5px solid #fff !important;
+  border-radius: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  box-shadow: 0 0 0 1px #00000059,0 1px 3px #0000002e !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker .hcc-mini-hue-knob {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  position: absolute !important;
+  top: 50% !important;
+  border: 3px solid #fff !important;
+  border-radius: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  box-shadow: 0 0 0 1px #00000040 !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-input {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: 30px auto minmax(0,1fr) !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 18px 0 0 !important;
+  padding: 0 10px !important;
+  background: #fff !important;
+  border: 1px solid #dedede !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniPicker .hcc-mini-input .hcc-dot {
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  border-radius: 50% !important;
+}
+html body[data-hcc-page] .hcc-summary #hccMiniHexInput {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #050505 !important;
+  text-transform: uppercase !important;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  appearance: none !important;
+  font-size: 14px !important;
+  font-weight: 780 !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-panel {
+  z-index: 350 !important;
+  box-sizing: border-box !important;
+  width: 352px !important;
+  max-width: calc(100vw - 24px) !important;
+  padding: 10px 12px 12px !important;
+  overflow: hidden !important;
+  border: 1px solid #e2e2e2 !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: 0 18px 45px #0000001f !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  overflow: auto hidden !important;
+  background: #f1f1f1 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  scrollbar-width: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-grid::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-item,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.is-hovered,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active.is-hovered {
+  box-sizing: border-box !important;
+  color: var(--history-text,#fff) !important;
+  background: var(--history-color,#ccc) !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active::before,
+html body[data-hcc-page] .hcc-summary .hcc-history-item.active::after {
+  content: none !important;
+  display: none !important;
+}
+html body[data-hcc-page] .hcc-after-shell {
+  box-sizing: border-box !important;
+  background: #fff !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 24px 0 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+html body[data-hcc-page] .hcc-trail {
+  box-sizing: border-box !important;
+  background: #fff !important;
+  max-width: 1216px !important;
+  min-height: 96px !important;
+  margin: 0 auto !important;
+  padding: 0 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  border: 0 !important;
+}
+html body[data-hcc-page] .hcc-site-footer {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 224px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #f5f5f5 !important;
+  border-top: 1px solid #ececec !important;
+}
+html body[data-hcc-page] .hcc-footer-inner {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 1090px !important;
+  min-height: 224px !important;
+  margin: 0 auto !important;
+  padding: 0 34px !important;
+}
+html body[data-hcc-page] .hcc-footer-links {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+  grid-template-areas: "guides terms" "about privacy" !important;
+  gap: 30px 96px !important;
+  align-content: start !important;
+  width: 100% !important;
+  min-height: 224px !important;
+  padding: 48px 0 0 !important;
+  position: static !important;
+}
+html body[data-hcc-page] #hccFooterGuides { grid-area: guides !important; }
+html body[data-hcc-page] #hccFooterTerms { grid-area: terms !important; }
+html body[data-hcc-page] #hccFooterAbout { grid-area: about !important; }
+html body[data-hcc-page] #hccFooterPrivacy { grid-area: privacy !important; }
+html body[data-hcc-page] .hcc-footer-link {
+  position: static !important;
+  display: inline-flex !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #050505 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  font-weight: 760 !important;
+  line-height: 1.25 !important;
+}
+@media (max-width: 760px) {
+  html body[data-hcc-page] .hcc-summary #hccMiniPicker.hcc-mini-picker {
+    width: min(304px, calc(100vw - 24px)) !important;
+    max-width: 304px !important;
+    top: 50px !important;
+    left: 12px !important;
+    padding: 12px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-sv {
+    height: 138px !important;
+    min-height: 138px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-hue {
+    height: 10px !important;
+    min-height: 10px !important;
+    margin-top: 14px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccMiniPicker > .hcc-mini-input {
+    grid-template-columns: 26px auto minmax(0,1fr) !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    margin-top: 14px !important;
+    padding: 0 9px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccMiniPicker .hcc-mini-input .hcc-dot {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+  }
+  html body[data-hcc-page] .hcc-summary #hccMiniHexInput {
+    height: 28px !important;
+    font-size: 13px !important;
+  }
+  html body[data-hcc-page] .hcc-trail {
+    min-height: 76px !important;
+    padding: 0 20px !important;
+  }
+  html body[data-hcc-page] .hcc-site-footer,
+  html body[data-hcc-page] .hcc-footer-inner,
+  html body[data-hcc-page] .hcc-footer-links {
+    min-height: 214px !important;
+  }
+  html body[data-hcc-page] .hcc-footer-inner {
+    padding: 0 22px !important;
+  }
+  html body[data-hcc-page] .hcc-footer-links {
+    gap: 28px 32px !important;
+    padding-top: 44px !important;
+  }
+}
+/* /phase103 component stability */
+
