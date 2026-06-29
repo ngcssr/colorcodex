@@ -1,1 +1,116 @@
 html,body{color:#050505;background:#fff;margin:0;padding:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;overflow-x:hidden}*{box-sizing:border-box}.hcc-app{color:#050505;background:#fff;min-height:100vh}.hcc-nav{z-index:80;background:#fff;border-bottom:1px solid #e5e5e5;align-items:center;gap:30px;height:58px;padding:0 34px;display:flex;position:relative;overflow:visible}.hcc-logo{background:conic-gradient(#c11007,#a50c36,#861043,#2563eb,#0ea5e9,#22c55e,#facc15,#f54927,#c11007);border-radius:50%;flex:none;width:32px;height:32px;position:relative}.hcc-logo:after{content:"";background:#fff;border-radius:50%;position:absolute;inset:10px}.hcc-nav a{color:#1f2937;white-space:nowrap;background:0 0;border:0;border-radius:8px;align-items:center;height:38px;padding:0 10px;font-size:14px;font-weight:760;text-decoration:none;display:inline-flex}.hcc-nav a:hover,.hcc-nav a.active{color:#050505;background:#f5f5f5}.hcc-nav-item{flex:none;align-items:center;height:58px;display:inline-flex;position:relative}.hcc-nav-item.has-menu>a:after{content:"";border-bottom:1.5px solid;border-right:1.5px solid;width:7px;height:7px;margin-left:7px;transform:translateY(-3px)rotate(45deg)}.hcc-nav-menu{z-index:200;background:#fff;border:1px solid #d9d9d9;border-radius:12px;width:max-content;min-width:164px;padding:6px;display:none;position:absolute;top:56px;left:50%;transform:translate(-50%)translateY(6px)}.hcc-nav-menu:before{content:"";height:12px;position:absolute;top:-12px;left:0;right:0}.hcc-nav-item:hover .hcc-nav-menu{gap:4px;display:grid}.hcc-nav-menu a{justify-content:center;height:42px;font-size:16px}.hcc-mobile-menu-toggle,.hcc-mobile-menu{display:none}.hcc-lang-switch{flex:none;width:176px;height:32px;margin-left:auto;display:block;position:relative}.hcc-lang-button{color:#050505;cursor:pointer;text-align:left;background:#fff;border:1px solid #dedede;border-radius:7px;align-items:center;width:100%;height:32px;padding:0 38px 0 14px;font-size:14px;font-weight:760;display:flex;position:relative}.hcc-lang-button:after{content:"";border-bottom:1.5px solid #4b5563;border-right:1.5px solid #4b5563;width:7px;height:7px;position:absolute;top:50%;right:17px;transform:translateY(-70%)rotate(45deg)}.hcc-lang-menu{z-index:240;background:#fff;border:1px solid #d9d9d9;border-radius:10px;width:176px;padding:6px;display:none;position:absolute;top:38px;right:0}.hcc-lang-switch.show .hcc-lang-menu{gap:4px;display:grid}.hcc-lang-menu button{color:#111827;text-align:left;cursor:pointer;background:#fff;border:0;border-radius:7px;height:34px;padding:0 12px;font-size:14px;font-weight:760}.hcc-lang-menu button:hover,.hcc-lang-menu button.active{background:#f5f5f5}.hcc-hero{background:#f7f7f7;min-height:300px;padding:40px 34px 72px}.hcc-hero-inner{max-width:1216px;margin:0 auto}.hcc-crumb{color:#4b5563;margin-bottom:12px;font-size:14px;font-weight:500}.hcc-hero h1{letter-spacing:0;margin:0;font-size:56px;font-weight:900;line-height:1.05}.hcc-hero p{color:#1f2937;max-width:760px;margin:16px 0 0;font-size:24px;font-weight:500;line-height:1.42}.hcc-shell{display:none!important}.hcc-legal-page{max-width:1216px;margin:0 auto;padding:44px 40px 58px;visibility:visible!important;opacity:1!important;display:block!important}.hcc-legal-article{color:#1f2937;background:#fff;border:1px solid #dedede;border-radius:12px;max-width:880px;padding:22px}.hcc-legal-article h2{color:#050505;letter-spacing:0;margin:0 0 16px;font-size:32px;font-weight:880;line-height:1.18}.hcc-legal-article h3{color:#050505;letter-spacing:0;margin:28px 0 10px;font-size:22px;font-weight:830;line-height:1.22}.hcc-legal-article p{color:#1f2937;margin:0 0 15px;font-size:17px;line-height:1.68}.hcc-legal-article ul,.hcc-legal-article ol{color:#1f2937;margin:0 0 18px 22px;padding:0;font-size:17px;line-height:1.64}.hcc-legal-article li{margin:0 0 8px}.hcc-legal-article a{color:#111827;text-underline-offset:3px;font-weight:780;text-decoration:underline}.hcc-after-shell{z-index:1;background:#fff;width:100vw;max-width:none;margin:12px 0 0;position:relative;left:50%;overflow:hidden;transform:translate(-50%)}.hcc-trail{color:#4b5563;align-items:center;gap:8px;height:68px;padding:0 34px;font-size:13px;display:flex}.hcc-trail a{color:#111827;text-decoration:none}.hcc-site-footer{background:#f7f7f7;min-height:210px}.hcc-footer-inner{max-width:1216px;min-height:210px;margin:0 auto}.hcc-footer-links{align-items:center;gap:24px;min-height:210px;padding:0 34px;display:flex}.hcc-footer-link{color:#1f2937;font-size:14px;font-weight:700;text-decoration:none}@media (max-width:1040px){.hcc-nav{gap:18px}.hcc-nav a{padding:0 8px}}@media (max-width:760px){html,body{width:100%;max-width:100%;overflow-x:hidden}.hcc-app,.hcc-hero,.hcc-hero-inner,.hcc-legal-page,.hcc-after-shell{box-sizing:border-box;min-width:0;max-width:100%}.hcc-nav{box-sizing:border-box;gap:4px;width:100%;height:56px;padding:0 8px}.hcc-logo{flex:0 0 28px;width:28px;height:28px}.hcc-logo:after{inset:9px}.hcc-nav>a{flex:0 auto;min-width:0;padding-left:6px;padding-right:6px;font-size:12px}.hcc-nav>a:nth-of-type(n+4),.hcc-nav-item{display:none}.hcc-lang-switch{flex:0 0 58px;width:58px;min-width:0;margin-left:auto}.hcc-lang-button{padding:0 16px 0 6px;font-size:11px}.hcc-lang-button:after{right:7px}.hcc-lang-menu{width:142px;right:0}.hcc-mobile-menu-toggle{background:#fff;border:0;border-radius:8px;flex:0 0 32px;width:32px;height:32px;display:block;position:relative}.hcc-mobile-menu-toggle:before,.hcc-mobile-menu-toggle:after{content:"";background:#111;border-radius:2px;height:2px;position:absolute;left:8px;right:8px}.hcc-mobile-menu-toggle:before{top:11px;box-shadow:0 5px #111}.hcc-mobile-menu-toggle:after{top:21px}.hcc-mobile-menu{z-index:220;background:#fff;border:1px solid #d9d9d9;border-radius:12px;max-width:calc(100vw - 16px);padding:8px;display:none;position:absolute;top:56px;left:8px;right:8px}.hcc-mobile-menu.show{gap:4px;display:grid}.hcc-mobile-menu a{border-radius:8px;justify-content:flex-start;height:38px;font-size:14px}.hcc-hero{min-height:240px;padding:58px 20px 30px}.hcc-hero h1{overflow-wrap:anywhere;max-width:100%;font-size:42px;line-height:1.08}.hcc-hero p{overflow-wrap:anywhere;max-width:100%;font-size:19px;line-height:1.42}.hcc-legal-page{padding:34px 20px 46px}.hcc-legal-article{border-radius:12px;max-width:none;padding:20px}.hcc-legal-article h2{font-size:28px}.hcc-legal-article h3{font-size:21px}.hcc-legal-article p,.hcc-legal-article li{font-size:16px}.hcc-legal-article ul,.hcc-legal-article ol{margin-left:20px;font-size:16px}.hcc-after-shell{width:100%;left:auto;overflow:hidden;transform:none}.hcc-trail{height:76px;padding:0 20px;overflow:hidden}.hcc-footer-inner,.hcc-site-footer{width:100%;max-width:100%;overflow:hidden}.hcc-footer-links{box-sizing:border-box;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 32px;width:100%;min-height:220px;padding:46px 22px;display:grid}.hcc-footer-link{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:100%;font-size:14px;line-height:1.25}}@media (max-width:360px){.hcc-nav>a{white-space:nowrap;max-width:46px;padding-left:4px;padding-right:4px;font-size:11px;overflow:hidden}.hcc-lang-switch{flex-basis:54px;width:54px}.hcc-mobile-menu-toggle{flex-basis:30px;width:30px}.hcc-hero,.hcc-legal-page{padding-left:18px;padding-right:18px}.hcc-footer-links{gap:22px 24px;padding:42px 20px}}@media (max-width:760px){.hcc-modal.show{height:100vh!important;height:100dvh!important;padding:10px!important;overflow:hidden!important}.hcc-modal .hcc-dialog,.hcc-modal.single .hcc-dialog{height:calc(100vh - 20px)!important;height:calc(100dvh - 20px)!important;max-height:calc(100vh - 20px)!important;grid-template-rows:52px minmax(0,1fr)!important;max-height:calc(100dvh - 20px)!important;overflow:hidden!important}.hcc-modal .hcc-modal-head{height:52px!important;min-height:52px!important;position:relative!important;top:auto!important;overflow:visible!important}.hcc-modal .hcc-close{place-items:center!important;width:40px!important;min-width:40px!important;height:40px!important;margin:0 0 0 auto!important;display:grid!important;position:relative!important;top:auto!important;right:auto!important;transform:none!important}.hcc-modal .hcc-modal-body,.hcc-modal.single .hcc-modal-body{-webkit-overflow-scrolling:touch!important;height:100%!important;min-height:0!important;overflow:hidden auto!important}}.hcc-modal,.hcc-modal.show{z-index:2147483000!important;pointer-events:auto!important;position:fixed!important;inset:0!important}.hcc-modal .hcc-dialog{z-index:2147483001!important;position:relative!important}.hcc-modal .hcc-modal-head{z-index:2147483002!important}.hcc-modal .hcc-close{z-index:2147483003!important;pointer-events:auto!important;position:relative!important}@media (max-width:760px){.hcc-modal,.hcc-modal.show{z-index:2147483000!important;width:100vw!important;height:100vh!important;height:100dvh!important;position:fixed!important;inset:0!important;overflow:hidden!important}.hcc-modal .hcc-dialog,.hcc-modal.single .hcc-dialog{z-index:2147483001!important;margin:0 auto!important;position:relative!important}.hcc-modal .hcc-modal-head{z-index:2147483002!important;position:relative!important}.hcc-modal .hcc-close{z-index:2147483003!important;pointer-events:auto!important;position:relative!important}}
+
+/* phase94 unified footer layout */
+html body[data-hcc-page] .hcc-after-shell {
+  width: 100% !important;
+  max-width: none !important;
+  left: auto !important;
+  transform: none !important;
+  overflow: hidden !important;
+}
+html body[data-hcc-page] .hcc-site-footer {
+  background: #f5f5f5 !important;
+  border-top: 1px solid #ececec !important;
+  min-height: 224px !important;
+  padding: 0 !important;
+}
+html body[data-hcc-page] .hcc-footer-inner {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 1090px !important;
+  min-height: 224px !important;
+  margin: 0 auto !important;
+  padding: 0 34px !important;
+  position: relative !important;
+}
+html body[data-hcc-page] .hcc-footer-links {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 224px !important;
+  padding: 48px 0 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  grid-template-areas:
+    "guides terms"
+    "about privacy" !important;
+  gap: 30px 96px !important;
+  align-content: start !important;
+  align-items: start !important;
+  position: static !important;
+  inset: auto !important;
+}
+html body[data-hcc-page] .hcc-footer-link,
+html body[data-hcc-page] #hccFooterGuides,
+html body[data-hcc-page] #hccFooterAbout,
+html body[data-hcc-page] #hccFooterPrivacy,
+html body[data-hcc-page] #hccFooterTerms {
+  color: #050505 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  position: static !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  text-align: left !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  font-size: 15px !important;
+  font-weight: 760 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+}
+html body[data-hcc-page] #hccFooterGuides { grid-area: guides !important; }
+html body[data-hcc-page] #hccFooterTerms { grid-area: terms !important; }
+html body[data-hcc-page] #hccFooterAbout { grid-area: about !important; }
+html body[data-hcc-page] #hccFooterPrivacy { grid-area: privacy !important; }
+html body[data-hcc-page] .hcc-footer-link:hover {
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+@media (max-width: 760px) {
+  html body[data-hcc-page] .hcc-site-footer,
+  html body[data-hcc-page] .hcc-footer-inner,
+  html body[data-hcc-page] .hcc-footer-links {
+    min-height: 214px !important;
+  }
+  html body[data-hcc-page] .hcc-footer-inner {
+    padding: 0 22px !important;
+  }
+  html body[data-hcc-page] .hcc-footer-links {
+    padding-top: 44px !important;
+    gap: 28px 32px !important;
+  }
+  html body[data-hcc-page] .hcc-footer-link,
+  html body[data-hcc-page] #hccFooterGuides,
+  html body[data-hcc-page] #hccFooterAbout,
+  html body[data-hcc-page] #hccFooterPrivacy,
+  html body[data-hcc-page] #hccFooterTerms {
+    font-size: 14px !important;
+  }
+}
+@media (max-width: 360px) {
+  html body[data-hcc-page] .hcc-footer-links {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "guides"
+      "about"
+      "privacy"
+      "terms" !important;
+    gap: 18px !important;
+  }
+}
+/* /phase94 unified footer layout */
