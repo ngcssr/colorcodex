@@ -1840,3 +1840,33 @@ html body[data-hcc-page] .hcc-summary .hcc-history-item:only-child {
 }
 /* /phase105 history and strip controls */
 
+
+/* phase107 picker footer full-width fix */
+@media (min-width:761px){
+  body[data-hcc-page=picker] .hcc-shell{overflow:visible!important}
+  body[data-hcc-page=picker] .hcc-after-shell{
+    width:100vw!important;
+    max-width:none!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+    left:auto!important;
+    right:auto!important;
+    transform:none!important;
+    overflow:hidden!important;
+  }
+  body[data-hcc-page=picker] .hcc-site-footer,
+  body[data-hcc-page=picker] .hcc-footer-inner,
+  body[data-hcc-page=picker] .hcc-footer-links{max-width:none!important}
+}
+@media (max-width:760px){
+  body[data-hcc-page=picker] .hcc-after-shell{
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    left:auto!important;
+    right:auto!important;
+    transform:none!important;
+    overflow:hidden!important;
+  }
+}
