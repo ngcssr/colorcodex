@@ -1,4 +1,4 @@
-const V = "v20260701-rootcause16";
+const V = "v20260701-rootcause23";
 const CORE = [
   "/favicon.svg",
   "/assets/css/home-critical.css",
