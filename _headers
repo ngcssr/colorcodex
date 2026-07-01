@@ -17,8 +17,6 @@
 
 
 
-/prefetch.js
-  Cache-Control: public, max-age=31556952, immutable
 
 /favicon.svg
   Cache-Control: public, max-age=31556952, immutable
@@ -26,17 +24,9 @@
 /data-*.js
   Cache-Control: public, max-age=31556952, immutable
 
-/i18n-extra.js
+/assets/js/i18n-*.js
   Cache-Control: public, max-age=31556952, immutable
 
-/i18n-text.js
-  Cache-Control: public, max-age=31556952, immutable
-
-/legal-data.js
-  Cache-Control: public, max-age=31556952, immutable
-
-/pages-extra.js
-  Cache-Control: public, max-age=31556952, immutable
 
 /favicon.ico
   Cache-Control: public, max-age=31556952, immutable
@@ -58,3 +48,7 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+/*
+  Link: </assets/css/home-critical.css>; rel=preload; as=style
+  Link: </assets/css/picker-critical.css>; rel=preload; as=style
+  Link: </assets/js/home-lite.js>; rel=preload; as=script
