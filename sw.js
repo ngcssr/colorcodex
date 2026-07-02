@@ -1,4 +1,4 @@
-const V = "v20260701-rootcause23";
+const V = "v20260702-rootcause32";
 const CORE = [
   "/favicon.svg",
   "/assets/css/home-critical.css",
@@ -18,14 +18,11 @@ self.addEventListener("fetch", e => {
   if (url.origin !== self.location.origin) return;
   const accept = e.request.headers.get("accept") || "";
   if (accept.indexOf("text/html") !== -1) return;
-  if (CORE.some(p => url.pathname.includes(p.replace(/^\//,"").replace(/\.css.*/,".css").replace(/\.js.*/,".js")))) {
-    e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
-  } else {
-    e.respondWith(
-      caches.open(V).then(c => c.match(e.request).then(r => r || fetch(e.request).then(res => {
-        c.put(e.request, res.clone());
-        return res;
-      })))
-    );
-  }
+  e.respondWith(
+    fetch(e.request).then(res => {
+      const copy = res.clone();
+      caches.open(V).then(c => c.put(e.request, copy)).catch(() => {});
+      return res;
+    }).catch(() => caches.match(e.request))
+  );
 });
