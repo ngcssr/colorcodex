@@ -10,3 +10,7 @@ Version 20260622-225600 lazy-loads Spanish, French, German, Portuguese, and Russ
 
 Version 20260622-231500 generates real per-route HTML files for Cloudflare Pages, so /color-picker/, /color-chart/, tools, names, and legal pages are no longer served only through a catch-all SPA fallback.
 Version 20260702-rootcause44 keeps the static picker, image picker, and color wheel refresh fixes, and adds Cloudflare deployment cache hardening. HTML and sw.js now revalidate on every request, asset URLs use the rootcause44 version, and the service worker uses a fresh cache name with network-first asset responses so old edge/browser caches do not mix with the new HTML.
+
+Version 20260704-rootcause79-deploy-cache-stable unifies all HTML asset query strings and service worker registrations so Cloudflare/browser caches cannot mix older rootcause assets after deployment.
+
+Version 20260704-rootcause80-color-picker-refresh-stable stabilizes Color Picker refresh by freezing first-paint transitions and keeping picker layout dimensions stable while runtime JS attaches.

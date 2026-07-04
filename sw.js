@@ -1,4 +1,4 @@
-const V = "v20260702-rootcause78";
+const V = "v20260704-rootcause80-color-picker-refresh-stable";
 const CORE = [
   "/favicon.svg",
   "/assets/css/home-critical.css",
