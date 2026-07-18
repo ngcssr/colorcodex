@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.colorcodetools.com/about/</loc>
@@ -11,6 +11,11 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/about/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/about/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/about/" />
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/contact/" />
   </url>
   <url>
     <loc>https://www.colorcodetools.com/bukkit-color-codes/</loc>
@@ -468,18 +473,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/de/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/de/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/de/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/de/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/de/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/de/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/de/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/de/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/de/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -828,18 +822,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/es/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/es/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/es/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/es/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/es/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/es/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/es/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/es/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/es/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/es/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -1188,18 +1171,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/fr/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/fr/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/fr/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/fr/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/fr/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/fr/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/fr/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/fr/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -1344,18 +1316,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh//" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja//" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko//" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es//" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr//" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de//" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt//" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/ja/about/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/about/" />
@@ -1620,18 +1581,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/ja/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/ja/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/ja/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/ja/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/ja/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/ja/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/ja/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/ja/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -1980,18 +1930,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/ko/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/ko/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/ko/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/ko/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/ko/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/ko/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/ko/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/ko/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/ko/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -2364,18 +2303,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/pt/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/pt/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/pt/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/pt/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/pt/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/pt/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/pt/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/pt/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/pt/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -2784,18 +2712,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/image-color-picker/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/image-color-picker/" />
   </url>
-  <url>
-    <loc>https://www.colorcodetools.com/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.colorcodetools.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.colorcodetools.com/zh/zh/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.colorcodetools.com/ja/zh/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.colorcodetools.com/ko/zh/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.colorcodetools.com/es/zh/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/zh/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/zh/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/zh/" />
-  </url>
+  
   <url>
     <loc>https://www.colorcodetools.com/zh/minecraft-color-codes/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.colorcodetools.com/minecraft-color-codes/" />
@@ -2879,5 +2796,47 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.colorcodetools.com/fr/web-safe-colors/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.colorcodetools.com/de/web-safe-colors/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.colorcodetools.com/pt/web-safe-colors/" />
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/zh/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/ja/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/ko/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/es/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/fr/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/de/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/pt/contact/</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
