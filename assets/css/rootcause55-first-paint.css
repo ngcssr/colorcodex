@@ -1,0 +1,261 @@
+/* rootcause44-first-paint-final-state */
+@media (min-width:761px){
+  html body[data-hcc-page] #hccPreview.hcc-preview{
+    background:transparent!important;
+    display:grid!important;
+    grid-template-rows:repeat(1,1fr)!important;
+    place-items:stretch!important;
+  }
+  html body[data-hcc-page] #hccPreview .hcc-preview-swatch{
+    align-items:center!important;
+    color:var(--swatch-text,#000)!important;
+    cursor:pointer!important;
+    display:grid!important;
+    font-size:20px!important;
+    font-variant-numeric:tabular-nums!important;
+    font-weight:850!important;
+    justify-content:center!important;
+    letter-spacing:0!important;
+    line-height:1!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    place-items:center!important;
+    text-align:center!important;
+    text-shadow:none!important;
+  }
+  html body[data-hcc-page] .hcc-info-text{
+    color:#333!important;
+    max-width:900px!important;
+    padding:10px 0 4px!important;
+  }
+  html body[data-hcc-page] .hcc-info-text h2{
+    font-size:32px!important;
+    font-weight:900!important;
+    line-height:1.12!important;
+    margin:0 0 18px!important;
+  }
+  html body[data-hcc-page] .hcc-info-text h3{
+    font-size:22px!important;
+    font-weight:850!important;
+    margin:30px 0 10px!important;
+  }
+  html body[data-hcc-page] .hcc-info-text p{
+    color:#3f3f46!important;
+    font-size:17px!important;
+    font-weight:500!important;
+    line-height:1.72!important;
+    margin:0 0 16px!important;
+  }
+  html body[data-hcc-page] .hcc-info-text strong{
+    color:#050505!important;
+    font-weight:850!important;
+  }
+  html body[data-hcc-page] .hcc-trail{
+    gap:14px!important;
+    font-size:13px!important;
+    font-weight:760!important;
+  }
+  html body[data-hcc-page=image] #hccConversionPanel,
+  html body[data-hcc-page=image] #hccContrastPanel,
+  html body[data-hcc-page=image] #hccBlindPanel{
+    border-bottom:1px solid #dedede!important;
+    box-sizing:border-box!important;
+    display:block!important;
+    margin-bottom:26px!important;
+    overflow:hidden!important;
+    padding:0 0 30px!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=image] #hccConversionPanel .hcc-panel-head,
+  html body[data-hcc-page=image] #hccContrastPanel .hcc-panel-head,
+  html body[data-hcc-page=image] #hccBlindPanel .hcc-panel-head{
+    align-items:center!important;
+    display:flex!important;
+    justify-content:space-between!important;
+  }
+  html body[data-hcc-page=image] #hccConversionPanel .hcc-panel-head h2,
+  html body[data-hcc-page=image] #hccContrastPanel .hcc-panel-head h2,
+  html body[data-hcc-page=image] #hccBlindPanel .hcc-panel-head h2{
+    font-size:30px!important;
+    font-weight:900!important;
+    line-height:1.1!important;
+    margin:0!important;
+  }
+  html body[data-hcc-page=image] #hccConversionPanel .hcc-panel-body,
+  html body[data-hcc-page=image] #hccContrastPanel .hcc-panel-body,
+  html body[data-hcc-page=image] #hccBlindPanel .hcc-panel-body{
+    box-sizing:border-box!important;
+    display:block!important;
+    overflow:hidden!important;
+    padding-top:24px!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=image] #hccConversionPanel{
+    height:492px!important;
+    min-height:492px!important;
+  }
+  html body[data-hcc-page=image] #hccContrastPanel{
+    height:1013px!important;
+    min-height:1013px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindPanel{
+    height:335px!important;
+    min-height:335px!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid{
+    box-sizing:border-box!important;
+    display:grid!important;
+    gap:24px!important;
+    grid-template-columns:1fr!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid .hcc-contrast-title{
+    align-items:center!important;
+    display:flex!important;
+    justify-content:space-between!important;
+    margin-bottom:16px!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid .hcc-contrast-card{
+    background:#fff!important;
+    border:1px solid #dedede!important;
+    border-radius:12px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid .hcc-contrast-hero{
+    display:grid!important;
+    font-weight:850!important;
+    height:192px!important;
+    place-items:center!important;
+    text-align:center!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid .hcc-contrast-table-row{
+    align-items:center!important;
+    border-top:1px solid #e6e6e6!important;
+    display:grid!important;
+    grid-template-columns:1.5fr 1fr 1fr!important;
+    min-height:53px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid{
+    box-sizing:border-box!important;
+    display:grid!important;
+    gap:36px 40px!important;
+    grid-template-columns:1fr 1fr!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-wide-title{
+    align-items:center!important;
+    display:flex!important;
+    justify-content:space-between!important;
+    margin-bottom:18px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-long-bar{
+    height:64px!important;
+    min-height:64px!important;
+  }
+}
+@media (max-width:760px){
+  html body[data-hcc-page] #hccPreview .hcc-preview-swatch{
+    font-size:18px!important;
+  }
+}
+
+/* rootcause55-wheel-blindness-desktop */
+@media (min-width:761px){
+  html body[data-hcc-page=wheel] #hccBlindGrid.hcc-blind-grid{
+    box-sizing:border-box!important;
+    display:grid!important;
+    gap:36px 40px!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    width:100%!important;
+  }
+  html body[data-hcc-page=wheel] #hccBlindGrid .hcc-blind-card{
+    min-width:0!important;
+  }
+  html body[data-hcc-page=wheel] #hccBlindGrid .hcc-wide-title{
+    align-items:center!important;
+    display:flex!important;
+    justify-content:space-between!important;
+    margin-bottom:18px!important;
+  }
+  html body[data-hcc-page=wheel] #hccBlindGrid .hcc-long-bar{
+    height:64px!important;
+    min-height:64px!important;
+    width:100%!important;
+  }
+}
+
+/* rootcause44-first-paint-tighten */
+@media (min-width:761px){
+  html body[data-hcc-page] .hcc-info-text h3{
+    color:#050505!important;
+    line-height:1.2!important;
+  }
+  html body[data-hcc-page] #hccContrastGrid .hcc-contrast-title{
+    gap:12px!important;
+  }
+  html body[data-hcc-page] #hccContrastGrid .hcc-contrast-title h3{
+    font-size:18px!important;
+    font-weight:850!important;
+    line-height:1.2!important;
+    margin:0!important;
+  }
+  html body[data-hcc-page] #hccBlindGrid .hcc-wide-title h3{
+    font-size:18px!important;
+    font-weight:850!important;
+    line-height:1!important;
+    margin:0!important;
+  }
+  html body[data-hcc-page=image] #hccHarmonyPanel .hcc-title h3{
+    line-height:1.15!important;
+  }
+  html body[data-hcc-page=image] #hccHarmonyPanel .hcc-panel-head,
+  html body[data-hcc-page=image] #hccVariationsPanel .hcc-panel-head,
+  html body[data-hcc-page=image] #hccContrastPanel .hcc-panel-head,
+  html body[data-hcc-page=image] #hccBlindPanel .hcc-panel-head{
+    height:36px!important;
+    min-height:36px!important;
+  }
+  html body[data-hcc-page=image] #hccHarmonyPanel .hcc-title,
+  html body[data-hcc-page=image] #hccVariationsPanel .hcc-wide-title{
+    height:26px!important;
+  }
+  html body[data-hcc-page=image] #hccHarmonyGrid{
+    grid-template-rows:102px 102px 102px!important;
+  }
+  html body[data-hcc-page=image] #hccVariationList{
+    grid-template-rows:104px 104px 104px 104px!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid{
+    grid-template-rows:449px 449px!important;
+  }
+  html body[data-hcc-page=image] #hccContrastGrid .hcc-contrast-title{
+    height:27px!important;
+    min-height:27px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid{
+    grid-template-rows:108px 108px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-wide-title{
+    height:26px!important;
+    min-height:26px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-link-btn{
+    align-items:center!important;
+    background:#fff!important;
+    border:0!important;
+    border-radius:8px!important;
+    color:#525866!important;
+    display:inline-flex!important;
+    font-size:14px!important;
+    gap:7px!important;
+    height:auto!important;
+    padding:5px 8px!important;
+  }
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-link-btn .hcc-export-icon,
+  html body[data-hcc-page=image] #hccBlindGrid .hcc-link-btn svg{
+    height:14px!important;
+    width:14px!important;
+  }
+}
