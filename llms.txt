@@ -1,0 +1,12 @@
+# ColorCodex Tools
+
+> Public read-only color tools website: color picker, named colors, conversions, charts.
+
+## Agent-relevant endpoints
+- API base: https://www.colorcodetools.com/api/agent
+- OpenAPI: https://www.colorcodetools.com/openapi.json
+- MCP: https://www.colorcodetools.com/mcp
+- Service doc: https://www.colorcodetools.com/ai/
+- Skill: https://www.colorcodetools.com/ai/skills/site-lookup/SKILL.md
+- Skill index: https://www.colorcodetools.com/.well-known/agent-skills/index.json
+- Auth status: https://www.colorcodetools.com/auth.md

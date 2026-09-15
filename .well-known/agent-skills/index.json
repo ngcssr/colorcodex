@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-lookup",
+      "type": "skill-md",
+      "description": "Retrieve actual public color information from ColorCodex Tools (color names, hex/RGB/HSL codes, conversions).",
+      "url": "https://www.colorcodetools.com/ai/skills/site-lookup/SKILL.md",
+      "digest": "sha256:015f163118a0da8044d5b86cd42530de3551a258eafb6590a1418de5015610aa"
+    }
+  ]
+}

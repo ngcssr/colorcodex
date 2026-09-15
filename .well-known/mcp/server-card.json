@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/schema/2025-09-25/server-card.schema.json",
+  "version": "2025-09-25",
+  "serverInfo": {
+    "name": "colorcodex-site-lookup",
+    "version": "1.0.0",
+    "title": "ColorCodex Color Lookup MCP Server"
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://www.colorcodetools.com/mcp",
+    "sessionMode": "stateless"
+  },
+  "capabilities": {
+    "tools": true,
+    "prompts": false,
+    "resources": false,
+    "logging": false
+  },
+  "description": "Public read-only MCP server exposing HTML/CSS named color lookup and hex-to-rgb/hsl conversion. No authentication required.",
+  "security": {
+    "auth": "none",
+    "scopes": []
+  }
+}

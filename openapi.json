@@ -1,0 +1,145 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ColorCodex Color Lookup API",
+    "description": "Public read-only API for retrieving HTML/CSS named color codes (hex, RGB, HSL) and performing hex-to-rgb/hsl conversion. No authentication required.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "ColorCodex Tools",
+      "url": "https://www.colorcodetools.com/contact/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.colorcodetools.com/api/agent",
+      "description": "Production"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ColorEntry": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "HTML/CSS color name, e.g. 'Crimson'" },
+          "hex": { "type": "string", "description": "Hex code with # prefix, e.g. '#DC143C'" },
+          "rgb": { "type": "string", "description": "RGB functional notation, e.g. 'rgb(220, 20, 60)'" },
+          "hsl": { "type": "string", "description": "HSL functional notation, e.g. 'hsl(348, 83%, 47%)'" },
+          "source_url": { "type": "string", "format": "uri" }
+        },
+        "required": ["name", "hex", "rgb", "hsl"]
+      },
+      "ColorListResponse": {
+        "type": "object",
+        "properties": {
+          "count": { "type": "integer" },
+          "colors": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ColorEntry" }
+          },
+          "source_url": { "type": "string", "format": "uri" }
+        }
+      },
+      "ConvertResponse": {
+        "type": "object",
+        "properties": {
+          "input_hex": { "type": "string" },
+          "rgb": { "type": "string" },
+          "hsl": { "type": "string" }
+        },
+        "required": ["input_hex", "rgb", "hsl"]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "message": { "type": "string" }
+        },
+        "required": ["error", "message"]
+      }
+    }
+  },
+  "paths": {
+    "/colors": {
+      "get": {
+        "summary": "List all HTML/CSS named colors",
+        "description": "Returns all 140 named colors with their hex, RGB, and HSL codes.",
+        "responses": {
+          "200": {
+            "description": "Color list",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ColorListResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/colors/{name}": {
+      "get": {
+        "summary": "Lookup a named color",
+        "description": "Return the hex, RGB, and HSL codes for a given HTML/CSS color name (case-insensitive).",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "HTML/CSS color name, e.g. 'Crimson'"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Color found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ColorEntry" }
+              }
+            }
+          },
+          "404": {
+            "description": "Color not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/convert": {
+      "get": {
+        "summary": "Convert hex to RGB and HSL",
+        "description": "Convert a hex color string (3 or 6 hex digits, no # prefix required) to its RGB and HSL representations.",
+        "parameters": [
+          {
+            "name": "hex",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "pattern": "^[0-9A-Fa-f]{3}([0-9A-Fa-f]{3})?$" },
+            "description": "Hex string without # prefix, e.g. 'DC143C' or 'fff'"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Converted",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ConvertResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,3 +2,7 @@
 Allow: /
 
 Sitemap: https://www.colorcodetools.com/sitemap.xml
+
+# Content Signals (https://contentsignals.org/)
+# Declares preferences for AI training, search, and AI input usage.
+Content-Signal: ai-train=no, search=yes, ai-input=yes

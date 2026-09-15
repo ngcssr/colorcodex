@@ -1,0 +1,12 @@
+{
+  "status": "under_construction",
+  "available": false,
+  "capabilities_status": "planned_contract_only",
+  "message": "Coming soon. Existing public lookup remains available without authentication.",
+  "launch_date": null,
+  "resource": "https://www.colorcodetools.com",
+  "planned_resource_endpoint": "https://www.colorcodetools.com/agent-auth/resource",
+  "authorization_servers": ["https://www.colorcodetools.com"],
+  "scopes_supported": ["site:read"],
+  "bearer_methods_supported": ["header"]
+}

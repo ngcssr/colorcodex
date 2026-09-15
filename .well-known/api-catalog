@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.colorcodetools.com/api/agent",
+      "service-desc": [
+        { "href": "https://www.colorcodetools.com/openapi.json", "type": "application/json" }
+      ],
+      "service-doc": [
+        { "href": "https://www.colorcodetools.com/ai/", "type": "text/markdown" }
+      ]
+    }
+  ]
+}

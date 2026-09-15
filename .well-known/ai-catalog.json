@@ -1,0 +1,39 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "ColorCodex Tools",
+    "identifier": "did:web:www.colorcodetools.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:colorcodetools:server:site-lookup",
+      "displayName": "ColorCodex Color Lookup",
+      "type": "application/mcp-server-card+json",
+      "url": "https://www.colorcodetools.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "Lookup the hex code for the HTML color 'Crimson'",
+        "Convert hex DC143C to RGB and HSL"
+      ]
+    },
+    {
+      "identifier": "urn:colorcodetools:skill:site-lookup",
+      "displayName": "ColorCodex Site Lookup Skill",
+      "type": "application/json",
+      "url": "https://www.colorcodetools.com/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "List all HTML named colors and their hex codes",
+        "Find color information for 'Salmon'"
+      ]
+    },
+    {
+      "identifier": "urn:colorcodetools:api:color-catalog",
+      "displayName": "Color Lookup REST API",
+      "type": "application/openapi+json",
+      "url": "https://www.colorcodetools.com/openapi.json",
+      "representativeQueries": [
+        "GET /api/agent/colors/Crimson",
+        "GET /api/agent/convert?hex=DC143C"
+      ]
+    }
+  ]
+}

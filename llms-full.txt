@@ -1,0 +1,51 @@
+# ColorCodex Tools — Full Agent Reference
+
+## Overview
+ColorCodex Tools (https://www.colorcodetools.com/) is a public, read-only color tools website. It provides:
+- Color picker with image picker, color wheel, harmonies, variations, conversions, contrast checks, palettes, and color blindness simulator.
+- Reference of 140 HTML/CSS named colors with Hex, RGB, and HSL codes.
+- Hex <-> RGB <-> HSL conversion utilities.
+- Color chart and color library by category.
+
+## Languages Supported
+English, 中文 (zh), 日本語 (ja), 한국어 (ko), Español (es), Français (fr), Deutsch (de), Português (pt).
+
+## API
+- OpenAPI: https://www.colorcodetools.com/openapi.json
+- Base: https://www.colorcodetools.com/api/agent
+- GET /colors — list all 140 named colors
+- GET /colors/{name} — lookup color by name (case-insensitive)
+- GET /convert?hex=DC143C — hex to RGB/HSL
+- No authentication. Public read-only.
+
+## MCP
+- Server card: https://www.colorcodetools.com/.well-known/mcp/server-card.json
+- Endpoint: POST https://www.colorcodetools.com/mcp
+- Session: stateless
+- Tools: lookup-color, convert-color
+
+## Skills
+- Index: https://www.colorcodetools.com/.well-known/agent-skills/index.json
+- Artifact: https://www.colorcodetools.com/ai/skills/site-lookup/SKILL.md
+
+## ARD
+- Catalog: https://www.colorcodetools.com/.well-known/ai-catalog.json
+
+## Auth
+- Status: under construction, not available
+- Detail: https://www.colorcodetools.com/auth.md
+- Authorization server: https://www.colorcodetools.com/.well-known/oauth-authorization-server
+- Protected resource: https://www.colorcodetools.com/.well-known/oauth-protected-resource
+- JWKS: https://www.colorcodetools.com/.well-known/jwks.json (keys:[] disabled)
+
+## Source Data
+- data-names.js (140 named colors, verified against MDN)
+- data-library.js (categorized color library)
+- data-chart.js (chart data)
+
+## Limitations
+- Read-only; no write, account, or auth operations.
+- /agent-auth/* endpoints return 503.
+- List endpoint returns all 140 colors in one response; no pagination.
+
+Last updated: 2026-09-15
