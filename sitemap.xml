@@ -2839,4 +2839,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://www.colorcodetools.com/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/zh/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/de/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/es/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/fr/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/ja/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/ko/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.colorcodetools.com/pt/dmc-color-chart/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
