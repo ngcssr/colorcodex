@@ -1,10 +1,15 @@
 {
-  "$schema": "https://schemas.agentnetworkprotocol.org/a2a/v1/agent-card.schema.json",
   "protocolVersion": "1.0",
-  "agentName": "ColorCodex Color Lookup Agent",
+  "name": "ColorCodex Color Lookup Agent",
   "description": "A read-only agent that retrieves HTML/CSS named color codes (hex, RGB, HSL) and performs hex-to-rgb/hsl conversion via the Model Context Protocol at /mcp.",
   "version": "1.0.0",
   "url": "https://www.colorcodetools.com/mcp",
+  "supportedInterfaces": [
+    {
+      "url": "https://www.colorcodetools.com/mcp",
+      "transport": "JSONRPC"
+    }
+  ],
   "capabilities": {
     "streaming": false,
     "pushNotifications": false,

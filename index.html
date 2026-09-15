@@ -89,7 +89,7 @@ html body #hccMiniPicker.show {
   }
 
   try {
-    navigator.modelContext.addTool({
+    navigator.modelContext.registerTool({
       name: 'lookup-color',
       description: 'Retrieve HTML/CSS named color by name. Returns hex, RGB, and HSL codes. Calls /api/agent/colors/{name}.',
       inputSchema: {
@@ -104,7 +104,7 @@ html body #hccMiniPicker.show {
       }
     });
 
-    navigator.modelContext.addTool({
+    navigator.modelContext.registerTool({
       name: 'convert-color',
       description: 'Convert a hex color string to RGB and HSL. Calls /api/agent/convert?hex=. Accepts 3 or 6 hex digits without # prefix.',
       inputSchema: {
