@@ -1,4 +1,4 @@
-import { listColors } from '../../_data.js';
+import { listColors } from './_data.js';
 
 export async function onRequestGet({ env }) {
   const colors = listColors();

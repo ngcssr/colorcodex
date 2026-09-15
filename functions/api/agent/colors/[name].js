@@ -1,4 +1,4 @@
-import { lookupColor } from '../../../_data.js';
+import { lookupColor } from './_data.js';
 
 export async function onRequestGet({ params, env }) {
   const name = decodeURIComponent(params.name || '');

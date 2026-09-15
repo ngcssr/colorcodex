@@ -1,4 +1,4 @@
-import { convertHex, isValidHex } from '../../_data.js';
+import { convertHex, isValidHex } from './_data.js';
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);

@@ -1,4 +1,4 @@
-import { MCP_TOOLS, handleMcpTool } from '../_data.js';
+import { MCP_TOOLS, handleMcpTool } from './_data.js';
 
 const JSON_HEADERS = {
   'Content-Type': 'application/json',
