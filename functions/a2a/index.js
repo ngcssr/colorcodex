@@ -267,7 +267,12 @@ function handleMessageSend(id, params, version) {
     m: message.messageId || 'msg_' + seed,
   };
 
-  return rpcOk(id, buildTask(payload, version));
+  const task = buildTask(payload, version);
+  // v1.0 wire format (verified against official a2a-sdk 1.1.5): the
+  // message/send result is a SendMessageResponse wrapper { task | message },
+  // so the Task is nested under "task". v0.3 used the bare Task as result.
+  // GetTask keeps the bare Task in BOTH versions (per the same SDK).
+  return rpcOk(id, version === V1 ? { task } : task);
 }
 
 function handleTasksGet(id, params, version) {
