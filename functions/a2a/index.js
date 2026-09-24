@@ -308,15 +308,21 @@ export async function onRequestPost({ request }) {
 
   let payload;
   switch (method) {
+    // v0.3 wire names and the v1.0 abstract-operation names are both
+    // accepted: the official a2a-sdk 1.x JSON-RPC transport sends
+    // 'SendMessage' / 'GetTask' / 'CancelTask' / 'SendStreamingMessage'.
     case 'message/send':
+    case 'SendMessage':
       payload = handleMessageSend(id, params, version);
       break;
 
     case 'tasks/get':
+    case 'GetTask':
       payload = handleTasksGet(id, params, version);
       break;
 
     case 'tasks/cancel':
+    case 'CancelTask':
       payload = rpcErr(
         id,
         E_TASK_NOT_CANCELABLE,
@@ -325,6 +331,7 @@ export async function onRequestPost({ request }) {
       break;
 
     case 'message/stream':
+    case 'SendStreamingMessage':
       payload = rpcErr(
         id,
         E_UNSUPPORTED_OPERATION,
