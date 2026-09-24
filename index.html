@@ -26,10 +26,13 @@ html body #hccMiniPicker.show {
 <link rel="service-doc" href="/ai/index.md" type="text/markdown">
 <script>
 // WebMCP tool registration with feature detection
-// Registers useful site tools via navigator.modelContext when supported.
+// Registers useful site tools via the WebMCP modelContext when supported.
+// Chrome exposes it at document.modelContext; other engines may use navigator.modelContext.
 // Unsupported browsers keep working normally — no UI change.
 (function() {
-  if (typeof navigator === 'undefined' || !navigator.modelContext) return;
+  var mc = (typeof navigator !== 'undefined' && navigator.modelContext)
+        || (typeof document !== 'undefined' && document.modelContext);
+  if (!mc || typeof mc.registerTool !== 'function') return;
 
   // Inlined color data subset for client-side tool callbacks (same as server /api/agent)
   var NAMED_COLORS = [
@@ -89,7 +92,7 @@ html body #hccMiniPicker.show {
   }
 
   try {
-    navigator.modelContext.registerTool({
+    mc.registerTool({
       name: 'lookup-color',
       description: 'Retrieve HTML/CSS named color by name. Returns hex, RGB, and HSL codes. Calls /api/agent/colors/{name}.',
       inputSchema: {
@@ -104,7 +107,7 @@ html body #hccMiniPicker.show {
       }
     });
 
-    navigator.modelContext.registerTool({
+    mc.registerTool({
       name: 'convert-color',
       description: 'Convert a hex color string to RGB and HSL. Calls /api/agent/convert?hex=. Accepts 3 or 6 hex digits without # prefix.',
       inputSchema: {
@@ -122,7 +125,7 @@ html body #hccMiniPicker.show {
       }
     });
   } catch (e) {
-    // Feature detection: if navigator.modelContext exists but addTool is not supported,
+    // Feature detection: if a WebMCP modelContext exists but registerTool is not supported,
     // silently fall through. Ordinary visitors are not affected.
     if (typeof console !== 'undefined' && console.warn) console.warn('WebMCP registration skipped:', e && e.message);
   }
