@@ -6,7 +6,7 @@
         { "href": "https://www.colorcodetools.com/openapi.json", "type": "application/json" }
       ],
       "service-doc": [
-        { "href": "https://www.colorcodetools.com/ai/", "type": "text/markdown" }
+        { "href": "https://www.colorcodetools.com/ai/index.md", "type": "text/markdown" }
       ]
     }
   ]

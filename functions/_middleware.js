@@ -54,7 +54,7 @@ ColorCodex Tools (https://www.colorcodetools.com/) is a public, read-only color 
 
 ## Agent Service Documentation
 
-- [Service doc](https://www.colorcodetools.com/ai/) — Full agent service documentation.
+- [Service doc](https://www.colorcodetools.com/ai/index.md) — Full agent service documentation.
 - [llms.txt](https://www.colorcodetools.com/llms.txt) — Compact agent reference.
 - [llms-full.txt](https://www.colorcodetools.com/llms-full.txt) — Full agent reference.
 
