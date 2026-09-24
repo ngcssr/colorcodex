@@ -106,7 +106,7 @@
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
 
-/ai/*
+/ai/*.md
   Content-Type: text/markdown
   Cache-Control: public, max-age=86400
 
