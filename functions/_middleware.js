@@ -1,6 +1,10 @@
-// _middleware.js — Markdown content negotiation for the homepage
-// 当 Accept: text/markdown 时，对首页返回有效 Markdown 版本
-// 普通 HTML 请求透传到静态资源
+// _middleware.js — Markdown content negotiation for HTML pages
+// 当 Accept: text/markdown 时：
+//   - 首页返回手写的精选 Markdown（质量最优）
+//   - 其他 HTML 页面从真实响应中提取 Markdown（标题 / 段落 / 表格），
+//     保证"同页"语义 —— markdown 内容来自该页实际渲染的 HTML
+// 普通 HTML 请求透传到静态资源；任何非 200 / 非 HTML 响应原样透传，
+// markdown 生成失败也绝不影响页面本身。
 
 function isMarkdownRequested(request) {
   const accept = (request.headers.get('Accept') || '').toLowerCase();
@@ -76,17 +80,120 @@ Last updated: 2026-09-15.
 `;
 }
 
+/* ------------------------------------------------------------------ *
+ * Generic HTML -> Markdown extraction for deep pages.
+ * Pure string operations; cannot throw in practice. Strips chrome
+ * (script/style/svg/nav/footer/modals) and keeps the structural
+ * content: h1-h3, paragraphs, and the first tables.
+ * ------------------------------------------------------------------ */
+function stripTagsAndEntities(s) {
+  return s
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function tableToMarkdown(tableHtml) {
+  const rows = [];
+  const trRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+  let m;
+  while ((m = trRe.exec(tableHtml)) !== null) {
+    const cells = [];
+    const cellRe = /<(?:th|td)[^>]*>([\s\S]*?)<\/(?:th|td)>/gi;
+    let c;
+    while ((c = cellRe.exec(m[1])) !== null) {
+      cells.push(stripTagsAndEntities(c[1]).replace(/\|/g, '\\|'));
+    }
+    if (cells.length) rows.push(cells);
+  }
+  if (!rows.length) return '';
+  const width = rows.reduce((w, r) => Math.max(w, r.length), 0);
+  const norm = rows.map((r) => { const x = r.slice(); while (x.length < width) x.push(''); return x; });
+  const line = (cells) => '| ' + cells.join(' | ') + ' |';
+  const out = [line(norm[0]), '| ' + Array(width).fill('---').join(' | ') + ' |'];
+  // Cap each table at 40 rows to keep payloads bounded on huge charts.
+  for (let i = 1; i < norm.length && i <= 40; i++) out.push(line(norm[i]));
+  return out.join('\n');
+}
+
+function htmlToMarkdown(html, pathname) {
+  // JSON-LD lives inside a <script>, so capture it before scripts are stripped.
+  const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i);
+
+  // Remove non-content chrome first.
+  const s = html
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<svg[\s\S]*?<\/svg>/gi, '')
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+    .replace(/<header[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/<aside[\s\S]*?<\/aside>/gi, '');
+
+  const title = stripTagsAndEntities((s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || '');
+
+  const parts = ['# ' + (title || pathname), '', '> Source: https://www.colorcodetools.com' + pathname, ''];
+
+  const blockRe = /<(h1|h2|h3|p|table)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+  let m;
+  let h1Seen = false;
+  let tableCount = 0;
+  while ((m = blockRe.exec(s)) !== null) {
+    const tag = m[1].toLowerCase();
+    const inner = m[2];
+    if (tag === 'h1') {
+      const t = stripTagsAndEntities(inner);
+      if (!t) continue;
+      if (!h1Seen) { parts[0] = '# ' + t; h1Seen = true; }
+      else parts.push('\n## ' + t + '\n');
+    } else if (tag === 'h2' || tag === 'h3') {
+      const t = stripTagsAndEntities(inner);
+      if (t) parts.push('\n' + (tag === 'h2' ? '## ' : '### ') + t + '\n');
+    } else if (tag === 'p') {
+      // Keep sentence-like paragraphs; drop button/label fragments.
+      const t = stripTagsAndEntities(inner);
+      if (t.length >= 15 && /\s/.test(t)) parts.push(t + '\n');
+    } else if (tag === 'table') {
+      if (tableCount < 3) {
+        const md = tableToMarkdown(inner);
+        if (md) { parts.push('\n' + md + '\n'); tableCount++; }
+      }
+    }
+  }
+  // Append the page's structured data: many pages on this site render their
+  // tables and lists client-side, so the JSON-LD carries the substantive
+  // machine-readable content (name, description, featureList).
+  if (ldMatch && ldMatch[1].trim()) {
+    parts.push('\n## Structured data (JSON-LD)\n\n```json\n' + ldMatch[1].trim() + '\n```\n');
+  }
+
+  return parts.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
+}
+
+function isHtmlPage(pathname) {
+  const last = pathname.split('/').pop();
+  return last === '' || last.indexOf('.') === -1;
+}
+
 export async function onRequest(context) {
   const { request, next } = context;
 
-  // 仅对首页（/）执行 markdown 协商
+  if (!isMarkdownRequested(request)) return next();
+
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // 首页或 /index.html
+  // Homepage (and /index.html): curated hand-written markdown.
   const isHomepage = pathname === '/' || pathname === '/index.html';
-
-  if (isHomepage && isMarkdownRequested(request)) {
+  if (isHomepage) {
     return new Response(buildHomepageMarkdown(), {
       status: 200,
       headers: {
@@ -98,6 +205,44 @@ export async function onRequest(context) {
     });
   }
 
-  // 普通 HTML 请求透传
+  // Other HTML pages: derive markdown from the real response so the
+  // content is genuinely the same page. Anything that is not a 200
+  // HTML response passes through untouched.
+  if (isHtmlPage(pathname)) {
+    let upstream = null;
+    try {
+      upstream = await next();
+      const ct = upstream.headers.get('content-type') || '';
+      if (upstream.status !== 200 || ct.indexOf('text/html') === -1) {
+        return upstream;
+      }
+      const html = await upstream.text();
+      const md = htmlToMarkdown(html, pathname);
+      return new Response(md, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/markdown; charset=utf-8',
+          'Cache-Control': 'no-cache, max-age=0, must-revalidate',
+          'Vary': 'Accept',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    } catch (e) {
+      // Markdown generation must never break the page itself.
+      if (upstream) {
+        return new Response('# ' + pathname + '\n\nMarkdown version temporarily unavailable.\n', {
+          status: 200,
+          headers: {
+            'Content-Type': 'text/markdown; charset=utf-8',
+            'Cache-Control': 'no-cache, max-age=0, must-revalidate',
+            'Vary': 'Accept',
+          },
+        });
+      }
+      return next();
+    }
+  }
+
+  // Everything else passes through.
   return next();
 }

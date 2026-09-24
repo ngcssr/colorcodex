@@ -1,4 +1,66 @@
-﻿User-agent: *
+# robots.txt — ColorCodex Tools (https://www.colorcodetools.com/)
+# Grouped by crawler purpose, consistent with the Content-Signal below:
+#   search=yes    -> search engine crawlers are allowed
+#   ai-input=yes  -> AI retrieval / grounding crawlers are allowed
+#   ai-train=no   -> AI training crawlers are disallowed
+
+# --- Search engine crawlers (search=yes) ---
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- AI retrieval / grounding crawlers (ai-input=yes) ---
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# --- AI training crawlers (ai-train=no) ---
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+# --- Default for all other crawlers ---
+
+User-agent: *
 Allow: /
 
 Sitemap: https://www.colorcodetools.com/sitemap.xml
