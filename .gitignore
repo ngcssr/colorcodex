@@ -1,0 +1,5 @@
+# Backup files must never be deployed — they expose source copies publicly.
+*.bak
+*.bak.*
+*.bck
+*~
