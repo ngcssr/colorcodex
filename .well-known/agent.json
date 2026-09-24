@@ -1,12 +1,14 @@
 {
+  "protocolVersion": "0.3.0",
   "name": "ColorCodex Color Lookup Agent",
   "description": "A read-only agent that retrieves HTML/CSS named color codes (hex, RGB, HSL) and converts hex values to RGB and HSL. No authentication required.",
   "version": "1.0.0",
-  "supportedInterfaces": [
+  "url": "https://www.colorcodetools.com/a2a",
+  "preferredTransport": "JSONRPC",
+  "additionalInterfaces": [
     {
       "url": "https://www.colorcodetools.com/a2a",
-      "protocolBinding": "JSONRPC",
-      "protocolVersion": "1.0"
+      "transport": "JSONRPC"
     }
   ],
   "provider": {
@@ -17,7 +19,7 @@
   "capabilities": {
     "streaming": false,
     "pushNotifications": false,
-    "extendedAgentCard": false
+    "stateTransitionHistory": false
   },
   "defaultInputModes": ["text/plain", "application/json"],
   "defaultOutputModes": ["text/plain", "application/json"],
@@ -40,5 +42,6 @@
       "inputModes": ["text/plain"],
       "outputModes": ["text/plain", "application/json"]
     }
-  ]
+  ],
+  "supportsAuthenticatedExtendedCard": false
 }
